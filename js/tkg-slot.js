@@ -14,8 +14,15 @@
 
   // 各スロットの停止状態とTKG写真配列のインデックス
   var slot_status = [];
+
   // クリック数
   var click_count = 0;
+
+  // タッチデバイスかどうかでバインドするイベント名を変える
+  var toggleEv = 'click';
+  if(typeof document.ontouchstart !== 'undefined') {
+    toggleEv = 'touchend';
+  }
 
   // ゼロパディング
   var zero_padding = function(number, length){
@@ -152,7 +159,7 @@
     // clickイベントのバインディング
     TKG_Slot.prototype.attachClick = function() {
       var self = this;
-      self.el.addEventListener('click', self.switch.bind(self), false);
+      self.el.addEventListener(toggleEv, self.switch.bind(self), false);
     };
 
     // 「クリックしてSTART!」画像を表示する
