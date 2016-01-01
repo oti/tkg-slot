@@ -14,6 +14,7 @@
 
   // 各スロットの停止状態とTKG写真配列のインデックス
   var slot_status = [];
+  // クリック数
   var click_count = 0;
 
   // ゼロパディング
@@ -70,7 +71,7 @@
 
   // そろった時
   function win() {
-    var msg = 'TKGスロットを揃えました！揃えるまでに'+click_count+'回クリックしました！';
+    var msg = 'TKGスロットをそろえました！そろえるまでに'+click_count+'回クリックしました！';
     text[0].textContent = win_text[Math.floor(Math.random() * win_text.length)];
     tweet[0].textContent = 'ツイートする';
     tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent(msg+tkgs[slot_status[0].img])+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
@@ -80,7 +81,7 @@
   function lose() {
     text[0].textContent = lose_text[Math.floor(Math.random() * lose_text.length)];
     tweet[0].textContent = '';
-    tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent('TKGスロットを揃えられませんでした……。 ')+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
+    tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent('TKGスロットをそろえられませんでした……。 ')+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
   };
 
   function status_has_query(key, query) {
@@ -89,7 +90,7 @@
     }).indexOf(query) !== -1) ? true : false;
   }
 
-  // img判定
+  // 写真の一致判定
   function is_same_img() {
     for (var i=0;i<slot_status.length;i++) {
       if (slot_status[0].img !== slot_status[i].img) {
@@ -99,7 +100,7 @@
     return true;
   };
 
-  // TKGが揃ってるか判定
+  // TKGがそろってるか判定
   function judgement() {
     // 全てスタート済みでなかったらreturn
     if ( status_has_query('started', false) ) {
