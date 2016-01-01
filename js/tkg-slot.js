@@ -14,6 +14,7 @@
 
   // 各スロットの停止状態とTKG写真配列のインデックス
   var slot_status = [];
+  var click_count = 0;
 
   // ゼロパディング
   var zero_padding = function(number, length){
@@ -69,9 +70,10 @@
 
   // そろった時
   function win() {
+    var msg = 'TKGスロットを揃えました！揃えるまでに'+click_count+'回クリックしました！';
     text[0].textContent = win_text[Math.floor(Math.random() * win_text.length)];
     tweet[0].textContent = 'ツイートする';
-    tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent('TKGスロットを揃えました！ '+tkgs[slot_status[0].img])+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
+    tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent(msg+tkgs[slot_status[0].img])+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
   };
 
   // そろってない時
@@ -134,6 +136,8 @@
     // 初期化
     TKG_Slot.prototype.init = function() {
       var self = this;
+      // クリックカウントを初期化
+      click_count = 0;
       // バインディング
       self.attachClick();
       // 初期表示
@@ -187,7 +191,27 @@
     // slot開始か停止かの振り分け
     TKG_Slot.prototype.switch = function() {
       var self = this;
+      self.countClick();
       (self.status.pause) ? self.start() : self.stop();
+    };
+
+    // クリック数をカウントする
+    TKG_Slot.prototype.countClick = function() {
+      var self = this;
+      self.addClickCount();
+    };
+
+    // カウント数を増加する
+    TKG_Slot.prototype.addClickCount = function() {
+      if (this.status.started) {
+        return;
+      }
+      click_count++;
+    };
+
+    // カウント数を取得する
+    TKG_Slot.prototype.getClickCount = function() {
+      return click_count;
     };
 
     // 初期化
