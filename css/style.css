@@ -24,6 +24,7 @@
 }
 
 .reel {
+  touch-action: none;
   display: table-cell;
   width: 320px;
   height: 320px;
