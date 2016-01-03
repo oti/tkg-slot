@@ -192,6 +192,7 @@
       var self = this;
       self.status.pause = true;
       clearInterval(self.timer);
+      self.status.started = false;
       self.setStatus();
       judgement();
     };
