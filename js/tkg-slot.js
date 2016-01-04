@@ -10,7 +10,7 @@
   var tweet = document.querySelectorAll('.tweet-link');
 
   var winText = ['うわぁそろってる……すごいね……','今日はかなりついてるね！','乙。','ﾔｯﾀｰ！ さぁTKGを食べよう！'];
-  var loseText = ['はい残念〜','おしい！','ﾝﾝｰwww','まだそろえられないの？'];
+  var loseText = ['はい残念〜','おしい！','ﾝﾝｰwww','まだそろえられないの？','そろうまでやろうね！'];
 
   // 各スロットのコレクション
   var slotCollection = [];
