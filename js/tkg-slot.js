@@ -10,7 +10,7 @@
   var tweet = document.querySelectorAll('.tweet-link');
 
   var winText = ['うわぁそろってる……すごいね……','今日はかなりついてるね！','乙。','ﾔｯﾀｰ！ さぁTKGを食べよう！'];
-  var loseText = ['はい残念〜','おしい！','ﾝﾝｰwww','まだそろえられないの？'];
+  var loseText = ['はい残念〜','おしい！','ﾝﾝｰwww','まだそろえられないの？','そろうまでやろうね！'];
 
   // 各スロットのコレクション
   var slotCollection = [];
@@ -77,7 +77,7 @@
   function win() {
     var msg = 'TKGスロットをそろえました！そろえるまでに'+getTotalChangeCount()+'回トライしました！';
     text[0].textContent = winText[Math.floor(Math.random() * winText.length)];
-    tweet[0].textContent = 'ツイートする';
+    tweet[0].textContent = '喜びのツイートをする';
     tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent(msg+tkgs[slotCollection[0].status.img])+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
 
     resetAllChangeCount();
@@ -85,9 +85,10 @@
 
   // そろってない時
   function lose() {
+    var msg = 'TKGスロットを'+getTotalChangeCount()+'回トライしたけどそろえられませんでした……。';
     text[0].textContent = loseText[Math.floor(Math.random() * loseText.length)];
-    tweet[0].textContent = '';
-    tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent('TKGスロットをそろえられませんでした……。 ')+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
+    tweet[0].textContent = '悲しみのツイートをする';
+    tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent(msg)+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
   }
 
   // インスタンス分のステータスのキーに指定した値があるか調べる
