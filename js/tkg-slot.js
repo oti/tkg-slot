@@ -77,7 +77,7 @@
   function win() {
     var msg = 'TKGスロットをそろえました！そろえるまでに'+getTotalChangeCount()+'回トライしました！';
     text[0].textContent = winText[Math.floor(Math.random() * winText.length)];
-    tweet[0].textContent = 'ツイートする';
+    tweet[0].textContent = '喜びのツイートをする';
     tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent(msg+tkgs[slotCollection[0].status.img])+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
 
     resetAllChangeCount();
