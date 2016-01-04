@@ -85,9 +85,10 @@
 
   // そろってない時
   function lose() {
+    var msg = 'TKGスロットを'+getTotalChangeCount()+'回トライしたけどそろえられませんでした……。';
     text[0].textContent = loseText[Math.floor(Math.random() * loseText.length)];
-    tweet[0].textContent = '';
-    tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent('TKGスロットをそろえられませんでした……。 ')+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
+    tweet[0].textContent = '悲しみのツイートをする';
+    tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent(msg)+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
   }
 
   // インスタンス分のステータスのキーに指定した値があるか調べる
