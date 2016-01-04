@@ -12,11 +12,8 @@
   var win_text = ['うわぁそろってる……すごいね……','今日はかなりついてるね！','乙。','ﾔｯﾀｰ！ さぁTKGを食べよう！'];
   var lose_text = ['はい残念〜','おしい！','ﾝﾝｰwww','まだそろえられないの？'];
 
-  // 各スロットの停止状態とTKG写真配列のインデックス
-  var slot_status = [];
-
-  // クリック数
-  var click_count = 0;
+  // 各スロットのコレクション
+  var slot_collection = [];
 
   // タッチデバイスかどうかでバインドするイベント名を変える
   var toggleEv = 'click';
@@ -78,11 +75,12 @@
 
   // そろった時
   function win() {
-    // var msg = 'TKGスロットをそろえました！そろえるまでに'+click_count+'回クリックしました！';
-    var msg = 'TKGスロットをそろえました！';
+    var msg = 'TKGスロットをそろえました！そろえるまでに'+getTotalChangeCount()+'回トライしました！';
     text[0].textContent = win_text[Math.floor(Math.random() * win_text.length)];
     tweet[0].textContent = 'ツイートする';
-    tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent(msg+tkgs[slot_status[0].img])+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
+    tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent(msg+tkgs[slot_collection[0].status.img])+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
+
+    resetAllChangeCount();
   };
 
   // そろってない時
@@ -92,16 +90,17 @@
     tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent('TKGスロットをそろえられませんでした……。 ')+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
   };
 
+  // インスタンス分のステータスのキーに指定した値があるか調べる
   function status_has_query(key, query) {
-    return (slot_status.map(function(status){
-      return status[key];
+    return (slot_collection.map(function(slot){
+      return slot.status[key];
     }).indexOf(query) !== -1) ? true : false;
   }
 
   // 写真の一致判定
   function is_same_img() {
-    for (var i=0;i<slot_status.length;i++) {
-      if (slot_status[0].img !== slot_status[i].img) {
+    for (var i=0;i<slot_collection.length;i++) {
+      if (slot_collection[0].status.img !== slot_collection[i].status.img) {
         return false;
       }
     };
@@ -129,6 +128,22 @@
     }
   };
 
+  // スロット回した数を取得
+  function getTotalChangeCount() {
+    var total = 0;
+    for (var i=0;i<slot_collection.length;i++) {
+      total += slot_collection[i].status.changed;
+    };
+    return total;
+  };
+
+  // スロットが揃ったらクリックカウントを0にもどす
+  function resetAllChangeCount() {
+    for (var i=0;i<slot_collection.length;i++) {
+      slot_collection[i].resetChangeCount();
+    };
+  }
+
   // TKG_Slot Class
   var TKG_Slot = (function() {
 
@@ -137,22 +152,24 @@
       this.el = el;
       this.timer = null;
       this.status = {
-        pause: true,
-        img: null
+        pause: null,
+        img: null,
+        started: null,
+        changed: null
       };
     };
 
     // 初期化
     TKG_Slot.prototype.init = function() {
       var self = this;
-      // クリックカウントを初期化
-      click_count = 0;
+      // ステータスを初期化
+      self.status.pause = true;
+      self.status.started = false;
+      self.status.changed = 0;
       // バインディング
       self.attachClick();
       // 初期表示
       self.setStartImg();
-      // 判定ステータスに初期データを反映
-      // self.setStatus();
       // メッセージエリアを表示
       msg[0].classList.remove('hide');
     };
@@ -179,55 +196,59 @@
     // slotを開始する
     TKG_Slot.prototype.start = function() {
       var self = this;
-      self.status.pause = false;
       self.timer = setInterval(function(){
         self.changeTKG(self.el);
       }, 10);
-      self.status.started = true;
-      self.setStatus();
+      if (!self.status.started) self.setStarted();
+      self.setPause(false);
+      self.updateStatus();
       judgement();
     };
 
     // slotを停止する
     TKG_Slot.prototype.stop = function() {
       var self = this;
-      self.status.pause = true;
       clearInterval(self.timer);
-      // self.status.started = false;
-      self.setStatus();
+      self.setPause(true);
+      self.addChangeCount();
+      self.updateStatus();
       judgement();
     };
 
     // slot開始か停止かの振り分け
     TKG_Slot.prototype.switch = function() {
       var self = this;
-      // self.countClick();
       (self.status.pause) ? self.start() : self.stop();
     };
 
-    // クリック数をカウントする
-    TKG_Slot.prototype.countClick = function() {
+    // pauseをトグルする
+    TKG_Slot.prototype.setStarted = function() {
       var self = this;
-      self.addClickCount();
+      self.status.started = true;
+    };
+
+    // pauseをトグルする
+    TKG_Slot.prototype.setPause = function(value) {
+      var self = this;
+      self.status.pause = value;
     };
 
     // カウント数を増加する
-    TKG_Slot.prototype.addClickCount = function() {
-      if (this.status.started) {
-        return;
-      }
-      click_count++;
-    };
-
-    // カウント数を取得する
-    TKG_Slot.prototype.getClickCount = function() {
-      return click_count;
-    };
-
-    // 初期化
-    TKG_Slot.prototype.setStatus = function() {
+    TKG_Slot.prototype.addChangeCount = function() {
       var self = this;
-      slot_status[self.idx] = self.status;
+      self.status.changed++;
+    };
+
+    // カウント数を増加する
+    TKG_Slot.prototype.resetChangeCount = function() {
+      var self = this;
+      self.status.changed = 0;
+    };
+
+    // ステータスの更新
+    TKG_Slot.prototype.updateStatus = function() {
+      var self = this;
+      slot_collection[self.idx].status = self.status;
     };
 
     return TKG_Slot;
@@ -236,14 +257,13 @@
   // 実行
   function app() {
     for (var i=0;i<reel.length;i++) {
-      slot_status[i] = {
-        pause: false,
-        img: null,
-        started: false
-      };
-
       var tkg_slot = new TKG_Slot(reel[i], i);
+
+      // インスタンスを初期化
       tkg_slot.init();
+
+      // インスタンスをコレクションに追加
+      slot_collection[i] = tkg_slot;
     };
   }
 })();
