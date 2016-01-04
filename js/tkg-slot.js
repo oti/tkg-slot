@@ -78,7 +78,8 @@
 
   // そろった時
   function win() {
-    var msg = 'TKGスロットをそろえました！そろえるまでに'+click_count+'回クリックしました！';
+    // var msg = 'TKGスロットをそろえました！そろえるまでに'+click_count+'回クリックしました！';
+    var msg = 'TKGスロットをそろえました！';
     text[0].textContent = win_text[Math.floor(Math.random() * win_text.length)];
     tweet[0].textContent = 'ツイートする';
     tweet[0].setAttribute('href', 'https://twitter.com/intent/tweet?text='+encodeURIComponent(msg+tkgs[slot_status[0].img])+'&url='+encodeURIComponent('http://lab.dskd.jp/tkg-slot/'));
@@ -192,6 +193,7 @@
       var self = this;
       self.status.pause = true;
       clearInterval(self.timer);
+      // self.status.started = false;
       self.setStatus();
       judgement();
     };
@@ -199,7 +201,7 @@
     // slot開始か停止かの振り分け
     TKG_Slot.prototype.switch = function() {
       var self = this;
-      self.countClick();
+      // self.countClick();
       (self.status.pause) ? self.start() : self.stop();
     };
 
