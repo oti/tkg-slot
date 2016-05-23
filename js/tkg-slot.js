@@ -13,7 +13,7 @@
   var loseText = ['はい残念〜','おしい！','ﾝﾝｰwww','まだそろえられないの？','そろうまでやろうね！'];
 
   // 各スロットのコレクション
-  var slotCollection = [];
+  window.slotCollection = [];
 
   // タッチデバイスかどうかでバインドするイベント名を変える
   var toggleEv = 'click';
@@ -150,6 +150,8 @@
     function TkgSlot(el, idx) {
       this.idx = idx;
       this.el = el;
+      this.reel = null;
+      self.counter = null;
       this.timer = null;
       this.status = {
         pause: null,
@@ -162,6 +164,9 @@
     // 初期化
     TkgSlot.prototype.init = function() {
       var self = this;
+      // 中の要素を取得
+      self.reel = self.el.querySelectorAll('.reel__item')[0];
+      self.counter = self.el.querySelectorAll('.reel__counter')[0];
       // ステータスを初期化
       self.status.pause = true;
       self.status.started = false;
@@ -170,6 +175,7 @@
       self.attachClick();
       // 初期表示
       self.setStartImg();
+      self.setReelCount();
       // メッセージエリアを表示
       msg[0].classList.remove('hide');
     };
@@ -177,27 +183,33 @@
     // clickイベントのバインディング
     TkgSlot.prototype.attachClick = function() {
       var self = this;
-      self.el.addEventListener(toggleEv, self.switch.bind(self), false);
+      self.reel.addEventListener(toggleEv, self.switch.bind(self), false);
     };
 
     // 「クリックしてSTART!」画像を表示する
     TkgSlot.prototype.setStartImg = function() {
       var self = this;
-      self.el.setAttribute('style', 'background-image: url("http://lab.dskd.jp/tkg-slot/img/start.png")');
+      self.reel.setAttribute('style', 'background-image: url("http://lab.dskd.jp/tkg-slot/img/start.png")');
+    };
+
+    // リールごとのカウンターを挿入
+    TkgSlot.prototype.setReelCount = function() {
+      var self = this;
+      self.counter.textContent = '0';
     };
 
     // background-imageでTKG写真をランダムに指定する
     TkgSlot.prototype.changeTKG = function() {
       var self = this;
       self.status.img = Math.floor(Math.random() * tkgs.length);
-      self.el.setAttribute('style', 'background-image: url("'+tkgs[self.status.img]+'")');
+      self.reel.setAttribute('style', 'background-image: url("'+tkgs[self.status.img]+'")');
     };
 
     // slotを開始する
     TkgSlot.prototype.start = function() {
       var self = this;
       self.timer = setInterval(function(){
-        self.changeTKG(self.el);
+        self.changeTKG(self.reel);
       }, 10);
       if (!self.status.started) self.setStarted();
       self.setPause(false);
@@ -221,7 +233,7 @@
       (self.status.pause) ? self.start() : self.stop();
     };
 
-    // pauseをトグルする
+    // startedフラグを立てる
     TkgSlot.prototype.setStarted = function() {
       var self = this;
       self.status.started = true;
@@ -237,12 +249,20 @@
     TkgSlot.prototype.addChangeCount = function() {
       var self = this;
       self.status.changed++;
+      self.setChangeCount();
     };
 
-    // カウント数を増加する
+    // カウント数をリセット
     TkgSlot.prototype.resetChangeCount = function() {
       var self = this;
       self.status.changed = 0;
+      self.setChangeCount();
+    };
+
+    // カウント数を画面に表示
+    TkgSlot.prototype.setChangeCount = function() {
+      var self = this;
+      self.counter.textContent = self.status.changed;
     };
 
     // ステータスの更新

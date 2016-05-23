@@ -1,41 +1,48 @@
 @charset "UTF-8";
 
 .footer {
-  font-size: 12px;
-  text-align: center;
+  float: right;
+  font-size: 13px;
 }
 
+.intro,
 .app {
   margin: auto;
   width: 960px;
-  height: 240px;
-}
-
-.slot {
-  position: relative;
 }
 
 .slot__reel {
   display: table;
   width: 100%;
-  height: 240px;
-  border: 3px solid black;
-  background-color: gold;
 }
 
 .reel {
-  touch-action: none;
   display: table-cell;
+  width: 320px;
+}
+
+.reel__item {
+  touch-action: none;
+  border: 3px solid black;
   width: 320px;
   height: 320px;
   background-repeat: no-repeat;
   background-position: center center;
+  background-color: gold;
+  cursor: pointer;
 }
 
-.reel:nth-child(2) {
-  border-right: 3px solid black;
-  border-left: 3px solid black;
+.reel:nth-child(2) .reel__item {
+  border-right: none;
+  border-left: none;
 }
+
+.reel__counter {
+  margin: 0;
+  text-align: center;
+}
+
+
 
 .slot__msg {
   margin: 1em auto;
