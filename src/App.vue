@@ -1,11 +1,13 @@
 <template>
   <VApp>
-    <VSheet class="p-headerSheet" color="primary" />
+    <VSheet class="p-headerSheet" color="primary" style="height: 96px" />
 
     <RouterView role="main" />
 
-    <VFooter role="contentinfo" dark height="auto">
-      <p class="mx-a mb-0"></p>
+    <VFooter role="contentinfo" absolute class="pa-3">
+      <p class="mb-0">このウェブアプリは<a href="https://twitter.com/otiext" target="_blank" rel="noopener">越智</a>が作りました。</p>
+      <VSpacer/>
+      <p class="mb-0"><a href="https://github.com/oti/tkg-slot/" target="_blank" rel="noopener">GitHub</a>, CC0 license.</p>
     </VFooter>
 
     <BaseGlobalLoading v-if="ui.hasGlobalLoadingQueue" />

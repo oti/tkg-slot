@@ -52,4 +52,7 @@ export default class Home extends Vue {
   }
 }
 </script>
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped>
+.p-contentCard
+  margin-top -88px
+</style>
