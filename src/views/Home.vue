@@ -31,7 +31,9 @@
             <VCardText>
               <VLayout>
                 <VFlex>
-                  <VResponsive :aspect-ratio="1 / 1"> </VResponsive>
+                  <VResponsive :aspect-ratio="1 / 1">
+                    <CompositeReel :image-list="imageList" />
+                  </VResponsive>
                 </VFlex>
                 <VFlex>
                   <VResponsive :aspect-ratio="1 / 1"> </VResponsive>
@@ -59,12 +61,16 @@
 </template>
 
 <script lang="ts">
+import { TKGS } from '@/configs/tkgs'
+import CompositeReel from '@/components/composites/CompositeReel.vue'
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import { UiMutations } from '@/store/modules/ui/models'
 import { Action, Getter, Mutation } from 'vuex-class'
 
 @Component({
-  components: {}
+  components: {
+    CompositeReel
+  }
 })
 export default class Home extends Vue {
   // mutation を引き当てる
@@ -72,6 +78,11 @@ export default class Home extends Vue {
   incrementGlobalLoadingQueue!: UiMutations['INCREMENT_GLOBAL_LOADING_QUEUE']
   @Mutation('ui/DECREMENT_GLOBAL_LOADING_QUEUE')
   decrementGlobalLoadingQueue!: UiMutations['DECREMENT_GLOBAL_LOADING_QUEUE']
+
+  /**
+   * 内部ステートを定義する
+   */
+  imageList = TKGS
 
   /**
    * @lifecycles
