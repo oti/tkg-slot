@@ -5,9 +5,23 @@
     <RouterView role="main" />
 
     <VFooter role="contentinfo" absolute class="pa-3">
-      <p class="mb-0">このウェブアプリは<a href="https://twitter.com/otiext" target="_blank" rel="noopener">越智</a>が作りました。</p>
-      <VSpacer/>
-      <p class="mb-0"><a href="https://github.com/oti/tkg-slot/" target="_blank" rel="noopener">GitHub</a>, CC0 license.</p>
+      <p class="mb-0">
+        このウェブアプリは<a
+          href="https://twitter.com/otiext"
+          target="_blank"
+          rel="noopener"
+          >越智</a
+        >が作りました。
+      </p>
+      <VSpacer />
+      <p class="mb-0">
+        <a
+          href="https://github.com/oti/tkg-slot/"
+          target="_blank"
+          rel="noopener"
+          >GitHub</a
+        >, CC0 license.
+      </p>
     </VFooter>
 
     <BaseGlobalLoading v-if="ui.hasGlobalLoadingQueue" />
