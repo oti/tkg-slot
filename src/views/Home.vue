@@ -6,17 +6,51 @@
           <VCard class="p-contentCard">
             <VToolbar card dark color="primary" class="darken-3">
               <VToolbarTitle>
-                <h2 class="p-pageTitle">
+                <h1 class="__title">
                   TKGスロット
-                </h2>
+                </h1>
               </VToolbarTitle>
             </VToolbar>
 
+            <VCardText>
+              <p>TKGを揃えて今日１日をハッピーに過ごそう！</p>
+
+              <h2 class="subhead">遊び方</h2>
+              <ul>
+                <li>「START」をクリックでTKG写真のシャッフルスタート！</li>
+                <li>シャッフルしたらもう一度クリックしてストップ！</li>
+                <li>写真がそろったらラッキー！ツイートして自慢しよう！</li>
+                <li>
+                  写真がそろわない悲しみもツイートしてTLのみんなの射幸心を煽ろう！
+                </li>
+              </ul>
+            </VCardText>
+
             <VDivider />
 
-            <VCardActions>
-              <VLayout row wrap justify-center align-content> </VLayout>
-            </VCardActions>
+            <VCardText>
+              <VLayout>
+                <VFlex>
+                  <VResponsive :aspect-ratio="1 / 1"> </VResponsive>
+                </VFlex>
+                <VFlex>
+                  <VResponsive :aspect-ratio="1 / 1"> </VResponsive>
+                </VFlex>
+                <VFlex>
+                  <VResponsive :aspect-ratio="1 / 1"> </VResponsive>
+                </VFlex>
+              </VLayout>
+            </VCardText>
+
+            <VDivider />
+
+            <VCardText>
+              <VCardActions>
+                <VLayout row wrap justify-center align-content>
+                  <VBtn large color="primary">悲しみのツイートをする</VBtn>
+                </VLayout>
+              </VCardActions>
+            </VCardText>
           </VCard>
         </VFlex>
       </VLayout>
@@ -55,4 +89,7 @@ export default class Home extends Vue {
 <style lang="stylus" scoped>
 .p-contentCard
   margin-top -88px
+
+  .__title
+    font-size 34px
 </style>

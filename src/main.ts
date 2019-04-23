@@ -1,5 +1,5 @@
 import '@babel/polyfill'
-import '@/assets/app.styl'
+import '@/assets/styles/app.styl'
 import { setDayjsLocaleToJa } from '@/plugins/dayjs'
 import useVeeValidate from '@/plugins/validator'
 import useVuetify from '@/plugins/vuetify'
