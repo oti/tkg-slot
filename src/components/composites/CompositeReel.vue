@@ -10,9 +10,9 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 })
 export default class CompositeReel extends Vue {
   /**
-   * 内部ステートを定義する
+   * Propsを定義する
    */
-  @Prop({ required: true }) imageList: string[] = []
+  @Prop({ required: true }) imageList!: string[]
 
   idx: number = 0
   cnt: number = 0
