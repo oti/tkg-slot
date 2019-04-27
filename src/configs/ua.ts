@@ -11,3 +11,5 @@ export const isMobile =
   /iphone|ipad/.test(ua) ||
   (/windows/.test(ua) && /phone/.test(ua) && /wpdesktop/.test(ua)) ||
   /iemobile/.test(ua)
+
+export const hasTouch = typeof document.ontouchstart !== 'undefined'
