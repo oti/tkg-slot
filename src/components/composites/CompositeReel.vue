@@ -28,14 +28,21 @@ export default class CompositeReel extends Vue {
   interval: any
   // リールする画像の数
   length: number = this.imageList.length
+  // リールを回した回数
+  count: number = 0
   // 画像配列の添字
   idx: number = 0
   // リールの状態
-  status: 'ready'|'rolling'|'stopped' = 'ready'
+  status: 'ready' | 'rolling' | 'stopped' = 'ready'
 
   // 0〜imageList.lengthの間のランダムな整数を返す
   random() {
     return Math.floor(Math.random() * this.length)
+  }
+
+  // 回した回数に1足す
+  incrementCount() {
+    this.count++
   }
 
   // リールを回す
@@ -60,12 +67,13 @@ export default class CompositeReel extends Vue {
     return this.imageList[this.idx]
   }
 
-/**
+  /**
    * イベントハンドラを定義する
    */
   reelClickHandler() {
     if (this.status === 'rolling') {
       this.stopReel()
+      this.incrementCount()
     } else {
       this.startReel()
     }
