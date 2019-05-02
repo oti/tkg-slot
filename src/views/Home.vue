@@ -66,9 +66,11 @@
 <script lang="ts">
 import { TKGS } from '@/configs/tkgs'
 import CompositeReel from '@/components/composites/CompositeReel.vue'
-import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
+import { Reel } from '@/models/Reel'
 import { UiMutations } from '@/store/modules/ui/models'
+import { createReelModel } from '@/utilities/createReelModel'
 import { Action, Getter, Mutation } from 'vuex-class'
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 
 @Component({
   components: {
@@ -86,6 +88,11 @@ export default class Home extends Vue {
    * 内部ステートを定義する
    */
   imageList = TKGS
+  reel: Reel[] = [
+    createReelModel(0, this.imageList),
+    createReelModel(1, this.imageList),
+    createReelModel(2, this.imageList)
+  ]
 
   /**
    * @lifecycles
