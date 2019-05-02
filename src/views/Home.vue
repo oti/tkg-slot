@@ -35,14 +35,27 @@
                     <CompositeReel
                       :reel-id="0"
                       :image-list="imageList"
+                      @changeReel="changeReelHandler"
                     />
                   </VResponsive>
                 </VFlex>
                 <VFlex>
-                  <VResponsive :aspect-ratio="1 / 1"> </VResponsive>
+                  <VResponsive :aspect-ratio="1 / 1">
+                    <CompositeReel
+                      :reel-id="1"
+                      :image-list="imageList"
+                      @changeReel="changeReelHandler"
+                    />
+                  </VResponsive>
                 </VFlex>
                 <VFlex>
-                  <VResponsive :aspect-ratio="1 / 1"> </VResponsive>
+                  <VResponsive :aspect-ratio="1 / 1">
+                    <CompositeReel
+                      :reel-id="2"
+                      :image-list="imageList"
+                      @changeReel="changeReelHandler"
+                    />
+                  </VResponsive>
                 </VFlex>
               </VLayout>
             </VCardText>
@@ -93,6 +106,20 @@ export default class Home extends Vue {
     createReelModel(1, this.imageList),
     createReelModel(2, this.imageList)
   ]
+
+  changeReelHandler(model: Reel) {
+    // リールのモデルを更新
+    this.reel[model.id] = model
+
+    // スロットの状態を更新
+    this.updateSlot()
+  }
+
+  updateSlot() {
+    console.log(this.reel.map(reel => reel.idx))
+    console.log(this.reel.map(reel => reel.count))
+    console.log(this.reel.map(reel => reel.status))
+  }
 
   /**
    * @lifecycles

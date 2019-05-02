@@ -39,7 +39,7 @@ export default class CompositeReel extends Vue {
   }
 
   // リールを回す
-  startReel() {
+  rollReel() {
     this.model.status = 'rolling'
     this.model.intervalId = window.setInterval(() => {
       this.model.idx = this.random()
@@ -70,8 +70,9 @@ export default class CompositeReel extends Vue {
       this.stopReel()
       this.incrementCount()
     } else {
-      this.startReel()
+      this.rollReel()
     }
+    this.$emit('changeReel', this.model)
   }
 }
 </script>
