@@ -77,6 +77,7 @@
 </template>
 
 <script lang="ts">
+import { sum } from '@maboroshi/math-utils'
 import { TKGS } from '@/configs/tkgs'
 import { ROLLING, WIN, LOSE } from '@/configs/messages'
 import CompositeReel from '@/components/composites/CompositeReel.vue'
@@ -107,19 +108,19 @@ export default class Home extends Vue {
     createReelModel(1, this.imageList),
     createReelModel(2, this.imageList)
   ]
+  total: number = 0
 
   changeReelHandler(model: Reel) {
     // リールのモデルを更新
     this.reel[model.id] = model
 
-    // スロットの状態を更新
-    this.updateSlot()
+    // スロットの情報を更新
+    this.updateSlotData()
   }
 
-  updateSlot() {
-    console.log(this.reel.map(reel => reel.idx))
-    console.log(this.reel.map(reel => reel.count))
-    console.log(this.reel.map(reel => reel.status))
+  updateSlotData() {
+    // 回した合計を計算する
+    this.total = sum(...this.reel.map(reel => reel.count))
   }
 
   /**
