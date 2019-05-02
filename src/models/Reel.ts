@@ -1,3 +1,5 @@
+import { ReelStatus } from '@/models/ReelStatus'
+
 export interface Reel {
   id: number
   idx: number
@@ -5,5 +7,5 @@ export interface Reel {
   intervalTime: number
   count: number
   length: number
-  status: 'ready' | 'running' | 'pause'
+  status: ReelStatus
 }
