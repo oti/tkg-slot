@@ -1,4 +1,5 @@
 export interface Reel {
+  id: number
   idx: number
   intervalId: number
   intervalTime: number

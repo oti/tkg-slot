@@ -13,14 +13,18 @@
 import { Reel } from '@/models/Reel'
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
-type ModelCreator = (imageList: string[]) => Reel
+type ModelCreator = (
+  id: number,
+  items: string[]
+) => Reel
 
-const defaultModel: ModelCreator = imageList => ({
+const defaultModel: ModelCreator = (id, items) => ({
+  id: id,
   idx: 0,
   intervalId: 0,
   intervalTime: 10,
   count: 0,
-  length: imageList.length,
+  length: items.length,
   status: 'ready'
 })
 
@@ -31,12 +35,13 @@ export default class CompositeReel extends Vue {
   /**
    * Propsを定義する
    */
+  @Prop({ required: true }) reelId!: number
   @Prop({ required: true }) imageList!: string[]
 
   /**
    * 内部ステートを定義する
    */
-  model = defaultModel(this.imageList)
+  model = defaultModel(this.reelId, this.imageList)
 
   // 0〜imageList.lengthの間のランダムな整数を返す
   random() {

@@ -32,7 +32,10 @@
               <VLayout>
                 <VFlex>
                   <VResponsive :aspect-ratio="1 / 1">
-                    <CompositeReel :image-list="imageList" />
+                    <CompositeReel
+                      :reel-id="0"
+                      :image-list="imageList"
+                    />
                   </VResponsive>
                 </VFlex>
                 <VFlex>
