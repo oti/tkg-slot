@@ -82,6 +82,7 @@ import { TKGS } from '@/configs/tkgs'
 import { ROLLING, WIN, LOSE } from '@/configs/messages'
 import CompositeReel from '@/components/composites/CompositeReel.vue'
 import { Reel } from '@/models/Reel'
+import { SlotStatus } from '@/models/SlotStatus'
 import { UiMutations } from '@/store/modules/ui/models'
 import { createReelModel } from '@/utilities/createReelModel'
 import { Action, Getter, Mutation } from 'vuex-class'
@@ -109,6 +110,7 @@ export default class Home extends Vue {
     createReelModel(2, this.imageList)
   ]
   total: number = 0
+  status: SlotStatus = 'ready'
 
   changeReelHandler(model: Reel) {
     // リールのモデルを更新
