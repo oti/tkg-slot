@@ -10,7 +10,19 @@
 </template>
 
 <script lang="ts">
+import { Reel } from '@/models/Reel'
 import { Component, Prop, Vue } from 'vue-property-decorator'
+
+type ModelCreator = (imageList: string[]) => Reel
+
+const defaultModel: ModelCreator = imageList => ({
+  idx: 0,
+  intervalId: 0,
+  intervalTime: 10,
+  count: 0,
+  length: imageList.length,
+  status: 'ready'
+})
 
 @Component({
   components: {}
@@ -34,6 +46,7 @@ export default class CompositeReel extends Vue {
   idx: number = 0
   // リールの状態
   status: 'ready' | 'rolling' | 'stopped' = 'ready'
+  model = defaultModel(this.imageList)
 
   // 0〜imageList.lengthの間のランダムな整数を返す
   random() {
