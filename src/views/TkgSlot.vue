@@ -78,6 +78,7 @@
 
 <script lang="ts">
 import { TKGS } from '@/configs/tkgs'
+import { ROLLING, WIN, LOSE } from '@/configs/messages'
 import CompositeReel from '@/components/composites/CompositeReel.vue'
 import { Reel } from '@/models/Reel'
 import { UiMutations } from '@/store/modules/ui/models'

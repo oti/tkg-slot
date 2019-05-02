@@ -1,5 +1,5 @@
 import NotFound from '@/views/404NotFound.vue'
-import Home from '@/views/Home.vue'
+import TkgSlot from '@/views/TkgSlot.vue'
 import Vue from 'vue'
 import Router, { RouterOptions } from 'vue-router'
 
@@ -14,7 +14,7 @@ export const routes: RouterOptions['routes'] = [
     meta: {
       title: 'TKGスロット'
     },
-    component: Home,
+    component: TkgSlot,
     props: route => ({ redirect: route.query.redirect })
   },
 
