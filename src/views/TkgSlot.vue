@@ -113,16 +113,33 @@ export default class Home extends Vue {
   status: SlotStatus = 'ready'
 
   changeReelHandler(model: Reel) {
-    // リールのモデルを更新
+    // リールのモデルを更新する
     this.reel[model.id] = model
 
-    // スロットの情報を更新
-    this.updateSlotData()
+    this.updateTotal()
+    this.updateStatus()
   }
 
-  updateSlotData() {
-    // 回した合計を計算する
+  // スロットの情報を更新する
+  updateTotal() {
     this.total = sum(...this.reel.map(reel => reel.count))
+  }
+
+  // スロットのステータスを更新する
+  updateStatus() {
+    const status = this.reel.map(reel => reel.status)
+    this.status = (() => {
+      if (status.every((val: string) => val === 'ready')) {
+        // 初期表示時
+        return 'ready'
+      } else if (status.every((val: string) => val === 'pause')) {
+        // 全てを一回以上回してから止めると`pause`になり、判定を始められる
+        return 'pause'
+      } else {
+        // それ以外は`running`か`ready`が含まれている
+        return 'running'
+      }
+    })()
   }
 
   /**
