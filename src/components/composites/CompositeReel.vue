@@ -5,7 +5,7 @@
       :style="{ 'background-image': 'url(' + path + ')' }"
       @click="reelClickHandler"
     />
-    <p class="Reel__count mb-0">{{ count }}</p>
+    <p class="Reel__count mb-0">{{ model.count }}</p>
   </div>
 </template>
 
@@ -36,39 +36,31 @@ export default class CompositeReel extends Vue {
   /**
    * 内部ステートを定義する
    */
-  // ループインターバル
-  interval: any
-  // リールする画像の数
-  length: number = this.imageList.length
-  // リールを回した回数
-  count: number = 0
-  // 画像配列の添字
-  idx: number = 0
-  // リールの状態
-  status: 'ready' | 'rolling' | 'stopped' = 'ready'
   model = defaultModel(this.imageList)
 
   // 0〜imageList.lengthの間のランダムな整数を返す
   random() {
-    return Math.floor(Math.random() * this.length)
+    return Math.floor(Math.random() * this.model.length)
   }
 
   // 回した回数に1足す
   incrementCount() {
-    this.count++
+    this.model.count++
   }
 
   // リールを回す
   startReel() {
-    this.status = 'rolling'
-    this.interval = setInterval(() => {
-      this.idx = this.random()
-    }, 10)
+    this.model.status = 'rolling'
+    this.model.intervalId = window.setInterval(() => {
+      this.model.idx = this.random()
+    }, this.model.intervalTime)
   }
 
   stopReel() {
-    this.status = 'stopped'
-    clearInterval(this.interval)
+    this.model.status = 'stopped'
+    if (this.model.intervalId) {
+      clearInterval(this.model.intervalId)
+    }
   }
 
   /**
@@ -77,14 +69,14 @@ export default class CompositeReel extends Vue {
 
   // 画像パスを返す
   get path() {
-    return this.imageList[this.idx]
+    return this.imageList[this.model.idx]
   }
 
   /**
    * イベントハンドラを定義する
    */
   reelClickHandler() {
-    if (this.status === 'rolling') {
+    if (this.model.status === 'rolling') {
       this.stopReel()
       this.incrementCount()
     } else {
