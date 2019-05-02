@@ -33,21 +33,22 @@ export default class CompositeReel extends Vue {
     return Math.floor(Math.random() * this.model.length)
   }
 
-  // 回した回数に1足す
+  // 回した数をインクリメントする
   incrementCount() {
     this.model.count++
   }
 
   // リールを回す
-  rollReel() {
-    this.model.status = 'rolling'
+  runReel() {
+    this.model.status = 'running'
     this.model.intervalId = window.setInterval(() => {
       this.model.idx = this.random()
     }, this.model.intervalTime)
   }
 
-  stopReel() {
-    this.model.status = 'stopped'
+  // リールを止める
+  pauseReel() {
+    this.model.status = 'pause'
     if (this.model.intervalId) {
       clearInterval(this.model.intervalId)
     }
@@ -66,11 +67,11 @@ export default class CompositeReel extends Vue {
    * イベントハンドラを定義する
    */
   reelClickHandler() {
-    if (this.model.status === 'rolling') {
-      this.stopReel()
+    if (this.model.status === 'running') {
+      this.pauseReel()
       this.incrementCount()
     } else {
-      this.rollReel()
+      this.runReel()
     }
     this.$emit('changeReel', this.model)
   }

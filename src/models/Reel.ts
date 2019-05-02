@@ -5,5 +5,5 @@ export interface Reel {
   intervalTime: number
   count: number
   length: number
-  status: 'ready' | 'rolling' | 'stopped'
+  status: 'ready' | 'running' | 'pause'
 }
