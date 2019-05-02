@@ -118,6 +118,7 @@ export default class Home extends Vue {
 
     this.updateTotal()
     this.updateStatus()
+    this.judgement()
   }
 
   // スロットの情報を更新する
@@ -140,6 +141,22 @@ export default class Home extends Vue {
         return 'running'
       }
     })()
+  }
+
+  // スロットが揃ったか判定する
+  judgement() {
+    if (this.status === 'pause') {
+      const idx = this.reel.map(reel => reel.idx)
+      idx.every((val: number) => val === idx[0]) ? this.win() : this.lose()
+    }
+  }
+
+  win() {
+    console.log('おそろいで！')
+  }
+
+  lose() {
+    console.log('おそろいじゃないで！')
   }
 
   /**
