@@ -68,7 +68,9 @@
                 label="テキストエリアからコピペ"
               />
               <VLayout row wrap justify-center align-content>
-                <VBtn large color="primary" @click="tweetButtonClickHandler">{{ tweetButtonText }}</VBtn>
+                <VBtn large color="primary" @click="tweetButtonClickHandler">{{
+                  tweetButtonText
+                }}</VBtn>
               </VLayout>
             </VCardText>
           </VCard>
@@ -83,7 +85,7 @@ import { sum } from '@maboroshi/math-utils'
 import { TKGS } from '@/configs/tkgs'
 import { READY, RUNNING, WIN, LOSE } from '@/configs/messages'
 import CompositeReel from '@/components/composites/CompositeReel.vue'
-import { NullableString } from '@/models/NullableString';
+import { NullableString } from '@/models/NullableString'
 import { Reel } from '@/models/Reel'
 import { SlotStatus } from '@/models/SlotStatus'
 import { UiMutations } from '@/store/modules/ui/models'
@@ -160,11 +162,14 @@ export default class Home extends Vue {
     this.status = 'repdigit'
   }
 
-  lose() {
-  }
+  lose() {}
 
   tweetButtonClickHandler() {
-    window.open(this.tweetLink, 'share_twitter_window', 'width=450, height=258, menubar=no, toolbar=no, scrollbars=yes')
+    window.open(
+      this.tweetLink,
+      'share_twitter_window',
+      'width=450, height=258, menubar=no, toolbar=no, scrollbars=yes'
+    )
   }
 
   get message() {
@@ -180,15 +185,21 @@ export default class Home extends Vue {
   }
 
   get tweetLink() {
-    return `https://twitter.com/intent/tweet?hashtags=${this.hashtag}&amp;url=${this.url}&amp;text=${this.tweetText}`
+    return `https://twitter.com/intent/tweet?hashtags=${this.hashtag}&amp;url=${
+      this.url
+    }&amp;text=${this.tweetText}`
   }
 
   get tweetText() {
     let text: NullableString = null
     if (this.status === 'pause') {
-      text = `TKGスロットを${this.total}回トライしたけどそろえられませんでした……。`
+      text = `TKGスロットを${
+        this.total
+      }回トライしたけどそろえられませんでした……。`
     } else if (this.status === 'repdigit') {
-      text = `TKGスロットをそろえました！そろえるまでに${this.total}回トライしました！ ${TKGS[this.reel[0].idx]}`
+      text = `TKGスロットをそろえました！そろえるまでに${
+        this.total
+      }回トライしました！ ${TKGS[this.reel[0].idx]}`
     } else {
       text = 'TKGスロットで今日の運試し！'
     }
