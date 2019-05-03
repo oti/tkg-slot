@@ -90,6 +90,7 @@ import { Reel } from '@/models/Reel'
 import { SlotStatus } from '@/models/SlotStatus'
 import { UiMutations } from '@/store/modules/ui/models'
 import { createReelModel } from '@/utilities/createReelModel'
+import { imageLoader } from '@/utilities/imageLoader'
 import { Action, Getter, Mutation } from 'vuex-class'
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 
@@ -118,6 +119,10 @@ export default class Home extends Vue {
   status: SlotStatus = 'ready'
   hashtag = 'tkgslot'
   url = window.location.origin + window.location.pathname
+
+  async preload() {
+    return Promise.all(TKGS.map(src => imageLoader(src, false)))
+  }
 
   changeReelHandler(model: Reel) {
     // リールのモデルを更新する
@@ -220,13 +225,21 @@ export default class Home extends Vue {
   /**
    * @lifecycles
    */
-  created() {}
+  created() {
+    this.incrementGlobalLoadingQueue(1)
+  }
 
   /**
    * @lifecycles
    */
   mounted() {
-    this.decrementGlobalLoadingQueue(Infinity)
+    this.preload()
+      .then(() => {
+        this.decrementGlobalLoadingQueue(Infinity)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 }
 </script>

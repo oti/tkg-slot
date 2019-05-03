@@ -29,12 +29,15 @@
 </template>
 
 <script lang="ts">
+import BaseGlobalLoading from '@/components/bases/BaseGlobalLoading.vue'
 import { UiGetters } from '@/store/modules/ui/models'
 import { Component, Vue } from 'vue-property-decorator'
 import { Getter } from 'vuex-class'
 
 @Component({
-  components: {}
+  components: {
+    BaseGlobalLoading
+  }
 })
 export default class App extends Vue {
   // viewModel を引き当てる
