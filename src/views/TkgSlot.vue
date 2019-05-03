@@ -69,6 +69,13 @@
               <VLayout row wrap justify-center align-content>
                 <VBtn large color="primary" @click="tweetButtonClickHandler">{{ tweetButtonText }}</VBtn>
               </VLayout>
+              <VTextarea
+                v-if="status !== ('ready' || 'running')"
+                :value="tweetText"
+                box
+                rows="2"
+                label="テキストエリアからコピペ"
+              />
             </VCardText>
           </VCard>
         </VFlex>
