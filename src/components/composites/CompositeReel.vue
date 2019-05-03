@@ -1,6 +1,6 @@
 <template>
   <div class="Reel">
-    <div
+    <button
       class="Reel__image"
       :style="{ 'background-image': 'url(' + path + ')' }"
       @click="reelClickHandler"
@@ -80,13 +80,12 @@ export default class CompositeReel extends Vue {
 
 <style scoped lang="stylus">
 .Reel__image
-  cursor pointer
   padding-top 100%
   border 2px solid #000
   width 100%
   background-position center center
   background-color gold
-  background-size 100% auto
+  background-size cover
 
 .Reel__count
   text-align center

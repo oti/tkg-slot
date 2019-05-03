@@ -31,31 +31,25 @@
             <VCardText>
               <VLayout>
                 <VFlex>
-                  <VResponsive :aspect-ratio="1 / 1">
-                    <CompositeReel
-                      :reel-id="0"
-                      :image-list="imageList"
-                      @changeReel="changeReelHandler"
-                    />
-                  </VResponsive>
+                  <CompositeReel
+                    :reel-id="0"
+                    :image-list="imageList"
+                    @changeReel="changeReelHandler"
+                  />
                 </VFlex>
                 <VFlex>
-                  <VResponsive :aspect-ratio="1 / 1">
-                    <CompositeReel
-                      :reel-id="1"
-                      :image-list="imageList"
-                      @changeReel="changeReelHandler"
-                    />
-                  </VResponsive>
+                  <CompositeReel
+                    :reel-id="1"
+                    :image-list="imageList"
+                    @changeReel="changeReelHandler"
+                  />
                 </VFlex>
                 <VFlex>
-                  <VResponsive :aspect-ratio="1 / 1">
-                    <CompositeReel
-                      :reel-id="2"
-                      :image-list="imageList"
-                      @changeReel="changeReelHandler"
-                    />
-                  </VResponsive>
+                  <CompositeReel
+                    :reel-id="2"
+                    :image-list="imageList"
+                    @changeReel="changeReelHandler"
+                  />
                 </VFlex>
               </VLayout>
               <VLayout justify-center>
@@ -66,9 +60,6 @@
             <VDivider />
 
             <VCardText>
-              <VLayout row wrap justify-center align-content>
-                <VBtn large color="primary" @click="tweetButtonClickHandler">{{ tweetButtonText }}</VBtn>
-              </VLayout>
               <VTextarea
                 v-if="status !== ('ready' || 'running')"
                 :value="tweetText"
@@ -76,6 +67,9 @@
                 rows="2"
                 label="テキストエリアからコピペ"
               />
+              <VLayout row wrap justify-center align-content>
+                <VBtn large color="primary" @click="tweetButtonClickHandler">{{ tweetButtonText }}</VBtn>
+              </VLayout>
             </VCardText>
           </VCard>
         </VFlex>
