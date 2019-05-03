@@ -1,7 +1,8 @@
 export const INVALID_CODE = 'コードが正しくありません'
 export const NO_DATA = 'データがありません'
 export const REQUEST_ERROR = 'リクエストエラー'
-export const ROLLING = 'そろうかな〜？'
+export const READY = '写真をクリックしてスタート！'
+export const RUNNING = 'そろうかな〜？'
 export const WIN = [
   'うわぁそろってる……すごいね……',
   '今日はかなりついてるね！',

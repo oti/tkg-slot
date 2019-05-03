@@ -58,6 +58,9 @@
                   </VResponsive>
                 </VFlex>
               </VLayout>
+              <VLayout justify-center>
+                <p class="subheading font-weight-bold mb-0">{{ message }}</p>
+              </VLayout>
             </VCardText>
 
             <VDivider />
@@ -79,7 +82,7 @@
 <script lang="ts">
 import { sum } from '@maboroshi/math-utils'
 import { TKGS } from '@/configs/tkgs'
-import { ROLLING, WIN, LOSE } from '@/configs/messages'
+import { READY, RUNNING, WIN, LOSE } from '@/configs/messages'
 import CompositeReel from '@/components/composites/CompositeReel.vue'
 import { Reel } from '@/models/Reel'
 import { SlotStatus } from '@/models/SlotStatus'
@@ -152,11 +155,22 @@ export default class Home extends Vue {
   }
 
   win() {
-    console.log('おそろいで！')
+    this.status = 'repdigit'
   }
 
   lose() {
-    console.log('おそろいじゃないで！')
+  }
+
+  get message() {
+    if (this.status === 'ready') {
+      return READY
+    } else if (this.status === 'pause') {
+      return LOSE[Math.floor(Math.random() * LOSE.length)]
+    } else if (this.status === 'repdigit') {
+      return WIN[Math.floor(Math.random() * WIN.length)]
+    } else {
+      return RUNNING
+    }
   }
 
   /**
