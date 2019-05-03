@@ -66,11 +66,9 @@
             <VDivider />
 
             <VCardText>
-              <VCardActions>
-                <VLayout row wrap justify-center align-content>
-                  <VBtn large color="primary">悲しみのツイートをする</VBtn>
-                </VLayout>
-              </VCardActions>
+              <VLayout row wrap justify-center align-content>
+                <VBtn large color="primary" @click="tweetButtonClickHandler">{{ tweetButtonText }}</VBtn>
+              </VLayout>
             </VCardText>
           </VCard>
         </VFlex>
@@ -84,6 +82,7 @@ import { sum } from '@maboroshi/math-utils'
 import { TKGS } from '@/configs/tkgs'
 import { READY, RUNNING, WIN, LOSE } from '@/configs/messages'
 import CompositeReel from '@/components/composites/CompositeReel.vue'
+import { NullableString } from '@/models/NullableString';
 import { Reel } from '@/models/Reel'
 import { SlotStatus } from '@/models/SlotStatus'
 import { UiMutations } from '@/store/modules/ui/models'
@@ -114,6 +113,8 @@ export default class Home extends Vue {
   ]
   total: number = 0
   status: SlotStatus = 'ready'
+  hashtag = 'tkgslot'
+  url = window.location.origin + window.location.pathname
 
   changeReelHandler(model: Reel) {
     // リールのモデルを更新する
@@ -161,6 +162,10 @@ export default class Home extends Vue {
   lose() {
   }
 
+  tweetButtonClickHandler() {
+    window.open(this.tweetLink, 'share_twitter_window', 'width=450, height=258, menubar=no, toolbar=no, scrollbars=yes')
+  }
+
   get message() {
     if (this.status === 'ready') {
       return READY
@@ -170,6 +175,33 @@ export default class Home extends Vue {
       return WIN[Math.floor(Math.random() * WIN.length)]
     } else {
       return RUNNING
+    }
+  }
+
+  get tweetLink() {
+    return `https://twitter.com/intent/tweet?hashtags=${this.hashtag}&amp;url=${this.url}&amp;text=${this.tweetText}`
+  }
+
+  get tweetText() {
+    let text: NullableString = null
+    if (this.status === 'pause') {
+      text = `TKGスロットを${this.total}回トライしたけどそろえられませんでした……。`
+    } else if (this.status === 'repdigit') {
+      text = `TKGスロットをそろえました！そろえるまでに${this.total}回トライしました！ ${TKGS[this.reel[0].idx]}`
+    } else {
+      text = 'TKGスロットで今日の運試し！'
+    }
+
+    return `${text} ${this.url} #${this.hashtag}`
+  }
+
+  get tweetButtonText() {
+    if (this.status === 'pause') {
+      return 'そろわない悲しみをツイートする……'
+    } else if (this.status === 'repdigit') {
+      return 'そろった喜びをツイートする！'
+    } else {
+      return 'ツイッターでシェアする'
     }
   }
 
