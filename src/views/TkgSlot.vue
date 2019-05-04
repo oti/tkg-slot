@@ -53,7 +53,20 @@
                 </VFlex>
               </VLayout>
               <VLayout justify-center>
-                <p class="subheading font-weight-bold mb-0">{{ message }}</p>
+                <p
+                  :class="[
+                    'p-message',
+                    'font-weight-bold',
+                    'mb-0',
+                    {
+                      'subheading': status === 'ready',
+                      'display-1': status === 'pause',
+                      'display-1 -repdigit': status === 'repdigit'
+                    }
+                  ]"
+                >
+                  {{ message }}
+                </p>
               </VLayout>
             </VCardText>
 
@@ -250,4 +263,8 @@ export default class Home extends Vue {
 
   .__title
     font-size 34px
+
+.p-message
+  &.-repdigit
+    color red
 </style>
