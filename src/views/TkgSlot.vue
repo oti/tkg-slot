@@ -15,13 +15,14 @@
             <VCardText>
               <p>TKGを揃えて今日１日をハッピーに過ごそう！</p>
 
-              <h2 class="subhead">遊び方</h2>
+              <h2 class="mb-2">遊び方</h2>
               <ul>
-                <li>「START」をクリックでTKG写真のシャッフルスタート！</li>
-                <li>シャッフルしたらもう一度クリックしてストップ！</li>
-                <li>写真がそろったらラッキー！ツイートして自慢しよう！</li>
+                <li>「シャッフル」を押すとTKG写真がシャッフル開始するよ！</li>
+                <li>「ストップ」を押すとTKG写真が止まるよ！</li>
+                <li>TKGを一枚ずつシャッフルしたり止めたりもできるよ！</li>
+                <li>TKGがそろったらラッキー！ツイートして自慢しよう！</li>
                 <li>
-                  写真がそろわない悲しみもツイートしてTLのみんなの射幸心を煽ろう！
+                  TKGがそろわない悲しみもツイートしてTLのみんなの射幸心を煽ろう！
                 </li>
               </ul>
             </VCardText>
@@ -34,8 +35,6 @@
                   <VBtn large color="primary" @click="shuffleButtonClickHandler"
                     >シャッフル</VBtn
                   >
-                </VFlex>
-                <VFlex shrink>
                   <VBtn large color="primary" @click="stopButtonClickHandler"
                     >ストップ</VBtn
                   >
@@ -94,16 +93,19 @@
 
             <VCardText>
               <VTextarea
-                v-if="status !== ('ready' || 'running')"
                 :value="tweetText"
                 box
                 rows="2"
                 label="テキストエリアからコピペ"
               />
-              <VLayout row wrap justify-center align-content>
-                <VBtn large color="primary" @click="tweetButtonClickHandler">{{
-                  tweetButtonText
-                }}</VBtn>
+              <VLayout row wrap justify-center class="pb-3">
+                <VBtn
+                  large
+                  color="primary"
+                  @click="tweetButtonClickHandler"
+                >
+                  {{ tweetButtonText }}
+                </VBtn>
               </VLayout>
             </VCardText>
           </VCard>
