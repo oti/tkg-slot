@@ -122,17 +122,17 @@ export default class Home extends Vue {
   /**
    * 内部ステートを定義する
    */
-  imageList = TKGS
-  reel: Reel[] = [
+  imageList: string[] = TKGS
   reelModel: Reel[] = [
     createReelModel(0, this.imageList),
     createReelModel(1, this.imageList),
     createReelModel(2, this.imageList)
   ]
+  reelRefs: string[] = ['reel_1', 'reel_2', 'reel_3']
   total: number = 0
   status: SlotStatus = 'ready'
-  hashtag = 'tkgslot'
-  url = window.location.origin + window.location.pathname
+  hashtag: string = 'tkgslot'
+  url: string = window.location.origin + window.location.pathname
 
   async preload() {
     return Promise.all(TKGS.map(src => imageLoader(src, false)))
