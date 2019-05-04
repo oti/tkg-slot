@@ -29,9 +29,27 @@
             <VDivider />
 
             <VCardText>
+              <VLayout row wrap justify-center>
+                <VFlex shrink>
+                  <VBtn large color="primary" @click="shuffleButtonClickHandler"
+                    >シャッフル</VBtn
+                  >
+                </VFlex>
+                <VFlex shrink>
+                  <VBtn large color="primary" @click="stopButtonClickHandler"
+                    >ストップ</VBtn
+                  >
+                </VFlex>
+              </VLayout>
+            </VCardText>
+
+            <VDivider />
+
+            <VCardText>
               <VLayout>
                 <VFlex>
                   <CompositeReel
+                    ref="reel_1"
                     :reel-id="0"
                     :image-list="imageList"
                     @changeReel="changeReelHandler"
@@ -39,6 +57,7 @@
                 </VFlex>
                 <VFlex>
                   <CompositeReel
+                    ref="reel_2"
                     :reel-id="1"
                     :image-list="imageList"
                     @changeReel="changeReelHandler"
@@ -46,6 +65,7 @@
                 </VFlex>
                 <VFlex>
                   <CompositeReel
+                    ref="reel_3"
                     :reel-id="2"
                     :image-list="imageList"
                     @changeReel="changeReelHandler"
@@ -182,6 +202,27 @@ export default class Home extends Vue {
   }
 
   lose() {}
+
+  shuffleButtonClickHandler() {
+    this.reelRefs.forEach((reel, i) => {
+      if (this.reelModel[i].status !== 'running') {
+        const child = (this.$refs as any)[reel]
+        child.runReel()
+        child.emitModelToParent()
+      }
+    })
+  }
+
+  stopButtonClickHandler() {
+    this.reelRefs.forEach((reel, i) => {
+      if (this.reelModel[i].status === 'running') {
+        const child = (this.$refs as any)[reel]
+        child.pauseReel()
+        child.incrementCount()
+        child.emitModelToParent()
+      }
+    })
+  }
 
   tweetButtonClickHandler() {
     window.open(
