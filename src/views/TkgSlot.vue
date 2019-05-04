@@ -78,7 +78,7 @@
                     'font-weight-bold',
                     'mb-0',
                     {
-                      'subheading': status === 'ready',
+                      subheading: status === 'ready',
                       'display-1': status === 'pause',
                       'display-1 -repdigit': status === 'repdigit'
                     }
@@ -99,11 +99,7 @@
                 label="テキストエリアからコピペ"
               />
               <VLayout row wrap justify-center class="pb-3">
-                <VBtn
-                  large
-                  color="primary"
-                  @click="tweetButtonClickHandler"
-                >
+                <VBtn large color="primary" @click="tweetButtonClickHandler">
                   {{ tweetButtonText }}
                 </VBtn>
               </VLayout>
