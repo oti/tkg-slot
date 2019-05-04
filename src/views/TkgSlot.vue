@@ -111,6 +111,7 @@ export default class Home extends Vue {
    */
   imageList = TKGS
   reel: Reel[] = [
+  reelModel: Reel[] = [
     createReelModel(0, this.imageList),
     createReelModel(1, this.imageList),
     createReelModel(2, this.imageList)
@@ -126,7 +127,7 @@ export default class Home extends Vue {
 
   changeReelHandler(model: Reel) {
     // リールのモデルを更新する
-    this.reel[model.id] = model
+    this.reelModel[model.id] = model
 
     this.updateTotal()
     this.updateStatus()
@@ -135,12 +136,12 @@ export default class Home extends Vue {
 
   // スロットの情報を更新する
   updateTotal() {
-    this.total = sum(...this.reel.map(reel => reel.count))
+    this.total = sum(...this.reelModel.map(reel => reel.count))
   }
 
   // スロットのステータスを更新する
   updateStatus() {
-    const status = this.reel.map(reel => reel.status)
+    const status = this.reelModel.map(reel => reel.status)
     this.status = (() => {
       if (status.every((val: string) => val === 'ready')) {
         // 初期表示時
@@ -158,7 +159,7 @@ export default class Home extends Vue {
   // スロットが揃ったか判定する
   judgement() {
     if (this.status === 'pause') {
-      const idx = this.reel.map(reel => reel.idx)
+      const idx = this.reelModel.map(reel => reel.idx)
       idx.every((val: number) => val === idx[0]) ? this.win() : this.lose()
     }
   }
@@ -204,7 +205,7 @@ export default class Home extends Vue {
     } else if (this.status === 'repdigit') {
       text = `TKGスロットをそろえました！そろえるまでに${
         this.total
-      }回トライしました！ ${TKGS[this.reel[0].idx]}`
+      }回トライしました！ ${TKGS[this.reelModel[0].idx]}`
     } else {
       text = 'TKGスロットで今日の運試し！'
     }
