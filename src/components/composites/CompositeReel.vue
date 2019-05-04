@@ -66,6 +66,7 @@ export default class CompositeReel extends Vue {
   /**
    * イベントハンドラを定義する
    */
+  // リール自体のクリック
   reelClickHandler() {
     if (this.model.status === 'running') {
       this.pauseReel()
@@ -73,6 +74,11 @@ export default class CompositeReel extends Vue {
     } else {
       this.runReel()
     }
+    this.emitModelToParent()
+  }
+
+  // モデルを親へ伝える
+  emitModelToParent() {
     this.$emit('changeReel', this.model)
   }
 }
