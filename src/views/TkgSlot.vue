@@ -256,8 +256,8 @@ export default class Home extends Vue {
   }
 
   get tweetLink() {
-    return `https://twitter.com/intent/tweet?hashtags=${this.hashtag}&amp;url=${
-      this.url
+    return `https://twitter.com/intent/tweet?hashtags=${
+      this.hashtag
     }&amp;text=${this.tweetText}`
   }
 
