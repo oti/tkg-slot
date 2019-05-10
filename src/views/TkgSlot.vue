@@ -17,12 +17,23 @@
 
               <h2 class="mb-2">遊び方</h2>
               <ul>
-                <li>「シャッフル」を押すとTKG写真がシャッフル開始するよ！</li>
-                <li>「ストップ」を押すとTKG写真が止まるよ！</li>
-                <li>TKGを一枚ずつシャッフルしたり止めたりもできるよ！</li>
-                <li>TKGがそろったらラッキー！ツイートして自慢しよう！</li>
+                <li>
+                  「シャッフル」を押してTKG写真をシャッフルスタート！
+                </li>
+                <li>
+                  「ストップ」を押してシャッフルをストップ！
+                </li>
+                <li>
+                  TKGをクリックすると一枚ずつシャッフルしたりストップしたりもできるよ！
+                </li>
+                <li>
+                  TKGがそろったら今日はラッキー！ ツイートして自慢しよう！
+                </li>
                 <li>
                   TKGがそろわない悲しみもツイートしてTLのみんなの射幸心を煽ろう！
+                </li>
+                <li>
+                  シャッフルカウントは写真ごとに数えているので「3回」が最短だよ！
                 </li>
               </ul>
             </VCardText>
@@ -95,9 +106,11 @@
               <VTextarea
                 :value="tweetText"
                 box
+                readonly
                 rows="2"
-                label="テキストエリアからコピペ"
+                label="テキストエリアからコピペする"
               />
+
               <VLayout row wrap justify-center class="pb-3">
                 <VBtn large color="primary" @click="tweetButtonClickHandler">
                   {{ tweetButtonText }}
