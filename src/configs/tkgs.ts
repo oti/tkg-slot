@@ -1,7 +1,7 @@
-export const TKGS = [
-  './images/2014-08-07_07-21-15.jpg',
-  './images/2015-04-09-12-41-45.jpg',
-  './images/2015-06-12_09-02-36.jpg',
-  './images/2018-12-21_08-18-06.jpg',
-  './images/2019-01-05_07-55-23.jpg'
-]
+export const TKGS = (() => {
+  const arr = []
+  for (let i = 1; i < 121; i++) {
+    arr.push(`./images/tkgs/${String(i).padStart(3, '0')}.jpg`)
+  }
+  return arr
+})()
