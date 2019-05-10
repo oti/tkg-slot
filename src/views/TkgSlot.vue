@@ -318,5 +318,5 @@ export default class Home extends Vue {
 
 .p-message
   &.-repdigit
-    color red
+    color #E65100
 </style>

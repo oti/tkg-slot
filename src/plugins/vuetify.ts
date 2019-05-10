@@ -1,6 +1,7 @@
 import ja from '@/i18n/vuetify/ja'
 import Vue from 'vue'
 import Vuetify, { directives } from 'vuetify/lib'
+import colors from 'vuetify/es5/util/colors'
 import 'vuetify/src/stylus/app.styl'
 
 /**
@@ -15,6 +16,11 @@ export default function useVuetify(ctx = Vue) {
         'ja-JP': ja
       },
       current: 'ja-JP'
+    },
+    theme: {
+      primary: colors.orange.darken1,
+      secondary: colors.orange.lighten4,
+      accent: colors.orange.base
     }
   })
 }
