@@ -85,12 +85,14 @@ export default class CompositeReel extends Vue {
 </script>
 
 <style scoped lang="stylus">
+@import '~vuetify/src/stylus/settings/_colors'
+
 .Reel__image
   padding-top 100%
-  border 2px solid #000
+  border: 2px solid $brown.darken-4
   width 100%
   background-position center center
-  background-color gold
+  background-color: $amber.darken-1
   background-size cover
 
 .Reel__count
