@@ -98,7 +98,7 @@
                   }
                 ]"
               >
-                {{ message }}
+                {{ pageMessage }}
               </p>
               <VTextarea
                 :value="tweetText"
@@ -245,7 +245,7 @@ export default class Home extends Vue {
     )
   }
 
-  get message() {
+  get pageMessage() {
     if (this.status === 'ready') {
       return READY
     } else if (this.status === 'pause') {
