@@ -2,9 +2,9 @@
   <VApp>
     <VSheet class="p-headerSheet" color="primary" style="height: 96px" />
 
-    <RouterView role="main" />
+    <RouterView role="main" class="mb-4" />
 
-    <VFooter role="contentinfo" absolute class="pa-3">
+    <VFooter role="contentinfo" absolute dark class="pa-3">
       <p class="mb-0">
         このウェブアプリは<a
           href="https://twitter.com/otiext"

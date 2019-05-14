@@ -4,7 +4,7 @@
       <VLayout justify-center>
         <VFlex xs12 md8>
           <VCard class="p-contentCard">
-            <VToolbar card dark color="primary" class="darken-3">
+            <VToolbar card dark color="primary" class="darken-4">
               <VToolbarTitle>
                 <h1 class="__title">
                   TKGスロット
