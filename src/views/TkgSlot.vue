@@ -86,20 +86,24 @@
                   />
                 </VFlex>
               </VLayout>
-              <p
-                :class="[
-                  'Message',
-                  'font-weight-bold',
-                  'text-xs-center',
-                  {
-                    subheading: status === 'ready',
-                    'display-1': status === 'pause',
-                    'display-1 -repdigit': status === 'repdigit'
-                  }
-                ]"
-              >
-                {{ pageMessage }}
-              </p>
+              <VLayout row justify-center align-center class="Message">
+                <VFlex shrink>
+                  <p
+                    :class="[
+                      '__text',
+                      'mb-0',
+                      'font-weight-bold',
+                      {
+                        subheading: status === 'ready',
+                        'display-1': status === 'pause',
+                        'display-1 -repdigit': status === 'repdigit'
+                      }
+                    ]"
+                  >
+                    {{ pageMessage }}
+                  </p>
+                </VFlex>
+              </VLayout>
               <VTextarea
                 :value="tweetFullText"
                 box
@@ -317,6 +321,8 @@ export default class Home extends Vue {
 }
 </script>
 <style lang="stylus" scoped>
+@import '~vuetify/src/stylus/settings/_colors'
+
 .ContentCard
   margin-top -72px
   @media screen and (min-width: 795px)
@@ -330,6 +336,7 @@ export default class Home extends Vue {
   min-width calc(100% / 3)
 
 .Message
-  &.-repdigit
-    color #E65100
+  height 96px
+  .__text.-repdigit
+    color: $orange.darken-4
 </style>

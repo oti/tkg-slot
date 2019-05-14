@@ -1,7 +1,7 @@
 export const INVALID_CODE = 'コードが正しくありません'
 export const NO_DATA = 'データがありません'
 export const REQUEST_ERROR = 'リクエストエラー'
-export const READY = 'クリックしてシャッフルスタート！'
+export const READY = 'レッツシャッフル！'
 export const RUNNING = 'そろうかな〜？'
 export const WIN = [
   'できるまでやればできる！あなたのようにね😉',
