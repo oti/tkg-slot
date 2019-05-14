@@ -101,10 +101,10 @@
                 {{ pageMessage }}
               </p>
               <VTextarea
-                :value="tweetText"
+                :value="tweetFullText"
                 box
                 readonly
-                rows="2"
+                rows="4"
                 label="テキストエリアからコピペする"
               />
 
@@ -257,27 +257,32 @@ export default class Home extends Vue {
     }
   }
 
-  get tweetLink() {
-    return `https://twitter.com/intent/tweet?hashtags=${
-      this.hashtag
-    }&amp;text=${this.tweetText}`
+  get repdigitImagePath() {
+    return `${this.url}${TKGS[this.reelModel[0].idx].replace('./', '')}`
   }
 
-  get tweetText() {
-    let text: NullableString = null
+  get tweetLink() {
+    return `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+      this.tweetMessage
+    )}&amp;url=${encodeURIComponent(this.url)}&amp;hashtags=${this.hashtag}`
+  }
+
+  get tweetFullText() {
+    return `${this.tweetMessage} ${this.url} #${this.hashtag}`
+  }
+
+  get tweetMessage() {
     if (this.status === 'pause') {
-      text = `TKGスロットを${
+      return `TKGスロットを${
         this.total
       }回トライしたけどそろえられませんでした……。`
     } else if (this.status === 'repdigit') {
-      text = `TKGスロットをそろえました！そろえるまでに${
+      return `TKGスロットをそろえました！そろえるまでに${
         this.total
-      }回トライしました！ ${TKGS[this.reelModel[0].idx]}`
+      }回トライしました！ ${this.repdigitImagePath}`
     } else {
-      text = 'TKGスロットで今日の運試し！'
+      return 'TKGスロットで今日の運試し！'
     }
-
-    return `${text} ${this.url} #${this.hashtag}`
   }
 
   get tweetButtonText() {
