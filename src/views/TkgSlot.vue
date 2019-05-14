@@ -61,7 +61,7 @@
               </VLayout>
 
               <VLayout>
-                <VFlex>
+                <VFlex class="px-1">
                   <CompositeReel
                     ref="reel_1"
                     :reel-id="0"
@@ -69,7 +69,7 @@
                     @changeReel="changeReelHandler"
                   />
                 </VFlex>
-                <VFlex>
+                <VFlex class="px-1">
                   <CompositeReel
                     ref="reel_2"
                     :reel-id="1"
@@ -77,7 +77,7 @@
                     @changeReel="changeReelHandler"
                   />
                 </VFlex>
-                <VFlex>
+                <VFlex class="px-1">
                   <CompositeReel
                     ref="reel_3"
                     :reel-id="2"

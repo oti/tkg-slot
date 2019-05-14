@@ -19,8 +19,9 @@
           href="https://github.com/oti/tkg-slot/"
           target="_blank"
           rel="noopener"
-          >GitHub</a
-        >, CC0 license.
+        >
+          GitHub
+        </a>
       </p>
     </VFooter>
 
