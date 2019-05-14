@@ -168,7 +168,7 @@ export default class Home extends Vue {
   url: string = window.location.origin + window.location.pathname
 
   async preload() {
-    return Promise.all(TKGS.map(src => imageLoader(src, false)))
+    return Promise.all(TKGS.map(src => imageLoader(src)))
   }
 
   changeReelHandler(model: Reel) {

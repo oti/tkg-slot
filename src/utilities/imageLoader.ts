@@ -3,7 +3,7 @@
  * @param src
  * @param useCrossOrigin
  */
-export function imageLoader(src: string, useCrossOrigin: boolean) {
+export function imageLoader(src: string, useCrossOrigin?: boolean) {
   return new Promise((resolve, reject) => {
     const img = new Image()
 
