@@ -13,7 +13,7 @@
             </VToolbar>
 
             <VCardText>
-              <p>TKGを揃えて今日１日をハッピーに過ごそう！</p>
+              <p>TKGをそろえて今日１日をハッピーに過ごそう！</p>
 
               <h2 class="mb-2">遊び方</h2>
               <ul>
