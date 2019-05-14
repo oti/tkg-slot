@@ -1,6 +1,6 @@
 <template>
   <VApp>
-    <VSheet class="p-headerSheet" color="primary" />
+    <VSheet class="HeaderSheet" color="primary" />
 
     <RouterView role="main" class="mb-4" />
 
@@ -61,7 +61,7 @@ export default class App extends Vue {
 }
 </script>
 <style lang="stylus" scoped>
-.p-headerSheet
+.HeaderSheet
   height 72px
   @media screen and (min-width: 960px)
     height 96px

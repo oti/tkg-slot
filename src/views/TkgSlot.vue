@@ -3,7 +3,7 @@
     <VContainer fluid grid-list-lg>
       <VLayout justify-center>
         <VFlex xs12 md8>
-          <VCard class="p-contentCard">
+          <VCard class="ContentCard">
             <VToolbar card dark color="accent" class="darken-1">
               <VToolbarTitle>
                 <h1 class="__title">
@@ -61,7 +61,7 @@
               </VLayout>
 
               <VLayout>
-                <VFlex class="px-1">
+                <VFlex class="SlotCol px-1">
                   <CompositeReel
                     ref="reel_1"
                     :reel-id="0"
@@ -69,7 +69,7 @@
                     @changeReel="changeReelHandler"
                   />
                 </VFlex>
-                <VFlex class="px-1">
+                <VFlex class="SlotCol px-1">
                   <CompositeReel
                     ref="reel_2"
                     :reel-id="1"
@@ -77,7 +77,7 @@
                     @changeReel="changeReelHandler"
                   />
                 </VFlex>
-                <VFlex class="px-1">
+                <VFlex class="SlotCol px-1">
                   <CompositeReel
                     ref="reel_3"
                     :reel-id="2"
@@ -88,7 +88,7 @@
               </VLayout>
               <p
                 :class="[
-                  'p-message',
+                  'Message',
                   'font-weight-bold',
                   'text-xs-center',
                   {
@@ -312,14 +312,19 @@ export default class Home extends Vue {
 }
 </script>
 <style lang="stylus" scoped>
-.p-contentCard
+.ContentCard
   margin-top -72px
   @media screen and (min-width: 795px)
     margin-top -64px
   @media screen and (min-width: 960px)
     margin-top -88px
 
-.p-message
+.SlotCol
+  flex 0 0 auto
+  width calc(100% / 3)
+  min-width calc(100% / 3)
+
+.Message
   &.-repdigit
     color #E65100
 </style>
