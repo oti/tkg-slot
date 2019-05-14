@@ -19,29 +19,15 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      # - run:
-      #     name: test
-      #     command: npm test
-      # - store_artifacts: # special step to save test results as as artifact
-      #     path: test-results.xml
-      #     prefix: tests
-      # - store_test_results: # special step to upload test results for display in Test Summary
-      #     path: test-results.xml
       - run:
           name: 'build (create `dist` directory)'
           command: npm run build
       - run:
-          name: remove files and dirs which exclude `dist`
-          command: /bin/ls -A | grep -v -E '^(dist$|.git)' | xargs rm -rf
-      - run:
-          name: move `dist` dir to current dir
-          command: mv ./dist/* ./
-      - run:
-          name: deploy to gh-pages
+          name: commit
           command: |
-            git config --global user.name  "CircleCI"
-            git config --global user.email "circleci@gh-pages.com"
-            git add .
-            git commit -m "Publish [ci skip]"
-            git checkout -B gh-pages
-            git push -u origin gh-pages --force
+            git config --global user.name  "Circle CI"
+            git config --global user.email "<>"
+            git checkout master
+            git add -A
+            git commit -m "[ci skip] Deploy by CI"
+            git push -u origin master --force
