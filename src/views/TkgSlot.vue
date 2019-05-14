@@ -4,7 +4,7 @@
       <VLayout justify-center>
         <VFlex xs12 md8>
           <VCard class="p-contentCard">
-            <VToolbar card dark color="primary" class="darken-4">
+            <VToolbar card dark color="accent" class="darken-1">
               <VToolbarTitle>
                 <h1 class="__title">
                   TKGスロット
@@ -43,19 +43,23 @@
             <VCardText>
               <VLayout row wrap justify-center>
                 <VFlex shrink>
-                  <VBtn large color="primary" @click="shuffleButtonClickHandler"
+                  <VBtn
+                    depressed
+                    color="accent"
+                    class="darken-1"
+                    @click="shuffleButtonClickHandler"
                     >シャッフル</VBtn
                   >
-                  <VBtn large color="primary" @click="stopButtonClickHandler"
+                  <VBtn
+                    outline
+                    color="accent"
+                    class="darken-4"
+                    @click="stopButtonClickHandler"
                     >ストップ</VBtn
                   >
                 </VFlex>
               </VLayout>
-            </VCardText>
 
-            <VDivider />
-
-            <VCardText>
               <VLayout>
                 <VFlex>
                   <CompositeReel
@@ -82,27 +86,20 @@
                   />
                 </VFlex>
               </VLayout>
-              <VLayout justify-center>
-                <p
-                  :class="[
-                    'p-message',
-                    'font-weight-bold',
-                    'mb-0',
-                    {
-                      subheading: status === 'ready',
-                      'display-1': status === 'pause',
-                      'display-1 -repdigit': status === 'repdigit'
-                    }
-                  ]"
-                >
-                  {{ message }}
-                </p>
-              </VLayout>
-            </VCardText>
-
-            <VDivider />
-
-            <VCardText>
+              <p
+                :class="[
+                  'p-message',
+                  'font-weight-bold',
+                  'text-xs-center',
+                  {
+                    subheading: status === 'ready',
+                    'display-1': status === 'pause',
+                    'display-1 -repdigit': status === 'repdigit'
+                  }
+                ]"
+              >
+                {{ message }}
+              </p>
               <VTextarea
                 :value="tweetText"
                 box
@@ -112,7 +109,12 @@
               />
 
               <VLayout row wrap justify-center class="pb-3">
-                <VBtn large color="primary" @click="tweetButtonClickHandler">
+                <VBtn
+                  depressed
+                  color="accent"
+                  class="darken-1"
+                  @click="tweetButtonClickHandler"
+                >
                   {{ tweetButtonText }}
                 </VBtn>
               </VLayout>
@@ -311,10 +313,11 @@ export default class Home extends Vue {
 </script>
 <style lang="stylus" scoped>
 .p-contentCard
-  margin-top -88px
-
-  .__title
-    font-size 34px
+  margin-top -72px
+  @media screen and (min-width: 795px)
+    margin-top -64px
+  @media screen and (min-width: 960px)
+    margin-top -88px
 
 .p-message
   &.-repdigit

@@ -18,7 +18,8 @@ export default function useVuetify(ctx = Vue) {
       current: 'ja-JP'
     },
     theme: {
-      primary: colors.amber.darken3
+      primary: colors.amber,
+      accent: colors.orange.darken4
     }
   })
 }

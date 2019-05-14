@@ -92,7 +92,7 @@ export default class CompositeReel extends Vue {
   border: 2px solid $brown.darken-4
   width 100%
   background-position center center
-  background-color: $amber.darken-1
+  background-color: $amber.base
   background-size cover
 
 .Reel__count

@@ -1,10 +1,10 @@
 <template>
   <VApp>
-    <VSheet class="p-headerSheet" color="primary" style="height: 96px" />
+    <VSheet class="p-headerSheet" color="primary" />
 
     <RouterView role="main" class="mb-4" />
 
-    <VFooter role="contentinfo" absolute dark class="pa-3">
+    <VFooter role="contentinfo" absolute dark height="auto" class="px-3">
       <p class="mb-0">
         このウェブアプリは<a
           href="https://twitter.com/otiext"
@@ -59,3 +59,9 @@ export default class App extends Vue {
   }
 }
 </script>
+<style lang="stylus" scoped>
+.p-headerSheet
+  height 72px
+  @media screen and (min-width: 960px)
+    height 96px
+</style>
