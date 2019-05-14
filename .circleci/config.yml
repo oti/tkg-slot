@@ -1,0 +1,47 @@
+# Ref: https://circleci.com/docs/2.0/deployment-integrations/
+version: 2
+jobs:
+  build: # runs not using Workflows must have a `build` job as entry point
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout # special step to check out source code to working directory
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache: # special step to restore the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install node_modules
+          command: npm ci
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      # - run:
+      #     name: test
+      #     command: npm test
+      # - store_artifacts: # special step to save test results as as artifact
+      #     path: test-results.xml
+      #     prefix: tests
+      # - store_test_results: # special step to upload test results for display in Test Summary
+      #     path: test-results.xml
+      - run:
+          name: 'build (create `dist` directory)'
+          command: npm run build
+      - run:
+          name: remove files and dirs which exclude `dist`
+          command: /bin/ls -A | grep -v -E '^(dist$|.git)' | xargs rm -rf
+      - run:
+          name: move `dist` dir to current dir
+          command: mv ./dist/* ./
+      - run:
+          name: deploy to gh-pages
+          command: |
+            git config --global user.name  "CircleCI"
+            git config --global user.email "circleci@gh-pages.com"
+            git add .
+            git commit -m "Publish [ci skip]"
+            git checkout -B gh-pages
+            git push -u origin gh-pages --force
