@@ -48,7 +48,9 @@ export default class App extends Vue {
    * ドキュメントタイトルを更新する
    * @param title
    */
-  static updatePageTitle(title?: string) {}
+  static updatePageTitle(title: string) {
+    document.title = title
+  }
 
   /**
    * @lifecycles

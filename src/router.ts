@@ -1,5 +1,7 @@
 import NotFound from '@/views/404NotFound.vue'
 import TkgSlot from '@/views/TkgSlot.vue'
+import TkgList from '@/views/TkgList.vue'
+import TkgDetail from '@/views/TkgDetail.vue'
 import Vue from 'vue'
 import Router, { RouterOptions } from 'vue-router'
 
@@ -18,6 +20,28 @@ export const routes: RouterOptions['routes'] = [
     props: route => ({ redirect: route.query.redirect })
   },
 
+  // 一覧
+  {
+    path: '/tkgs',
+    name: 'list',
+    meta: {
+      title: 'TKG一覧'
+    },
+    component: TkgList,
+    props: route => ({ redirect: route.query.redirect })
+  },
+
+  // 一覧
+  {
+    path: '/tkgs/:id',
+    name: 'detail',
+    meta: {
+      title: `TKG詳細`
+    },
+    component: TkgDetail,
+    props: route => ({ redirect: route.query.redirect })
+  },
+
   // 404 Not Found - 全てのルートに適合しない場合の catch-all ルートなので一番最後に定義する必要がある
   {
     path: '*',
@@ -30,9 +54,15 @@ export const routes: RouterOptions['routes'] = [
 ]
 
 export const routerOptions: RouterOptions = {
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // 常にトップ位置にスクロール
+    return {
+      x: 0, y: 0
+    }
+  }
 }
 
 /**
