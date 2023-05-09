@@ -8,7 +8,39 @@ block global
 
 block contents
   main.Main
-    .ObservedBox(data-inview)
-      p ダミーテキスト
-    .ObservedBox(data-inview)
-      p ダミーテキスト
+    .Main__inner
+      p.Main__copy TKGをそろえて今日１日をハッピーに過ごそう！
+
+      ul.Main__description
+        li 「シャッフル」を押すとTKG写真がシャッフルが始まるよ！
+        li 「ストップ」を押すとシャッフルが止まるよ！
+        li TKGの下のボタンをクリックすると一枚ずつシャッフルしたりストップしたりもできるよ！
+        li TKGがそろったら今日はラッキー！ ツイートして自慢しよう！
+        li TKGがそろわない悲しみもツイートしてTLのみんなの射幸心を煽ろう！
+        li シャッフルカウントは写真ごとに数えているので「3回」が最短だよ！
+
+      p.Provocation さぁさぁ始めちゃって〜！
+
+      .All
+        button#ShuffleAll.Button 全シャッフル
+        button#StopAll.Button 前ストップ
+
+      .Slot
+        .Slot__inner.-stopping
+          img#Pict_1.Slot__pict(src=`${_resolver(_depth, false)}image/tkgs/001.jpg`, alt="")
+          button#Shuffle_1.Button.Slot__shuffle シャッフル
+          button#Stop_1.Button.Slot__stop ストップ
+
+        .Slot__inner.-stopping
+          img#Pict_2.Slot__pict(src=`${_resolver(_depth, false)}image/tkgs/001.jpg`, alt="")
+          button#Shuffle_2.Button.Slot__shuffle シャッフル
+          button#Stop_2.Button.Slot__stop ストップ
+
+        .Slot__inner.-stopping
+          img#Pict_3.Slot__pict(src=`${_resolver(_depth, false)}image/tkgs/001.jpg`, alt="")
+          button#Shuffle_3.Button.Slot__shuffle シャッフル
+          button#Stop_3.Button.Slot__stop ストップ
+
+      form.Tweet
+        textarea#ShareText TKGスロットで今日の運試し！
+        input#Share(type="submit", value="ツイッターでシェアする")
