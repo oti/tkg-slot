@@ -1,0 +1,9 @@
+.Nav {
+  margin-block-start: 1rem;
+
+  .__list {
+    list-style: none inside;
+    display: flex;
+    gap: 1rem;
+  }
+}

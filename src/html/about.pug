@@ -1,0 +1,11 @@
+extends ./_layout
+
+block global
+  -
+    const _depth = 0
+    const _title = `About | ${_siteName}`
+    const _canonical = `${_siteHost}/about.html`
+
+block contents
+  main.Main
+    p ここはそう…aboutページ！

@@ -1,0 +1,14 @@
+extends ./_layout
+
+block global
+  -
+    const _depth = 0
+    const _title = _siteName
+    const _canonical = _siteHost
+
+block contents
+  main.Main
+    .ObservedBox(data-inview)
+      p ダミーテキスト
+    .ObservedBox(data-inview)
+      p ダミーテキスト

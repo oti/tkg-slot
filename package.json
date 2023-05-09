@@ -1,74 +1,28 @@
 {
+  "private": true,
   "name": "tkg-slot",
   "version": "2.0.1",
-  "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --dest docs",
-    "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit"
-  },
-  "dependencies": {
-    "@maboroshi/math-utils": "^1.4.2",
-    "@maboroshi/selector": "^1.0.2",
-    "@maboroshi/shoshiki": "^1.2.1",
-    "axios": "^0.21.2",
-    "axios-mock-adapter": "^1.16.0",
-    "babel-polyfill": "^6.26.0",
-    "dayjs": "^1.8.6",
-    "debounce": "^1.2.0",
-    "qs": "^6.7.3",
-    "vee-validate": "^2.2.4",
-    "vue": "^2.6.6",
-    "vue-class-component": "^6.3.2",
-    "vue-property-decorator": "^7.3.0",
-    "vue-router": "^3.0.2",
-    "vuetify": "^1.5.1",
-    "vuex": "^3.1.0",
-    "vuex-class": "^0.3.1",
-    "vuex-type-helper": "^1.2.1"
+    "build": "parcel build src/html/index.pug --no-optimize --no-source-maps --public-url ./",
+    "lint:html": "markuplint 'dist/**/*.html'",
+    "lint:css": "stylelint 'dist/**/*.css'",
+    "start": "parcel src/html/index.pug --open --no-cache",
+    "test": "npm run lint:css && npm run lint:html",
+    "prepare": "husky install"
   },
   "devDependencies": {
-    "@types/debounce": "^1.2.0",
-    "@types/googlemaps": "^3.30.19",
-    "@types/jest": "^23.3.14",
-    "@types/no-scroll": "^2.1.0",
-    "@types/qs": "^6.5.3",
-    "@vue/cli-plugin-babel": "^3.6.0",
-    "@vue/cli-plugin-eslint": "^3.6.0",
-    "@vue/cli-plugin-typescript": "^3.6.0",
-    "@vue/cli-plugin-unit-jest": "^3.7.0",
-    "@vue/cli-service": "^3.6.0",
-    "@vue/eslint-config-prettier": "^4.0.1",
-    "@vue/eslint-config-typescript": "^3.2.1",
-    "@vue/test-utils": "^1.0.0-beta.29",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.2.2",
-    "lint-staged": "^13.1.0",
-    "no-scroll": "^2.1.1",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2",
-    "terser": "^4.8.1",
-    "terser-webpack-plugin": "^1.2.3",
-    "ts-jest": "^23.10.5",
-    "typescript": "^3.4.4",
-    "vue-cli-plugin-vuetify": "^0.4.6",
-    "vue-template-compiler": "^2.6.10",
-    "vuetify-loader": "^1.2.2"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "src/**/*.js": [
-      "vue-cli-service lint",
-      "git add"
-    ],
-    "src/**/*.vue": [
-      "vue-cli-service lint",
-      "git add"
-    ]
+    "@babel/preset-env": "^7.20.2",
+    "@parcel/transformer-pug": "^2.8.3",
+    "@parcel/transformer-sass": "^2.8.3",
+    "@prettier/plugin-pug": "^2.4.1",
+    "autoprefixer": "^10.4.14",
+    "husky": "^8.0.3",
+    "markuplint": "^3.4.0",
+    "parcel": "^2.8.3",
+    "pug": "^3.0.2",
+    "sass": "^1.60.0",
+    "stylelint": "^15.3.0",
+    "stylelint-config-recommended": "^11.0.0",
+    "typescript": "^5.0.2"
   }
 }

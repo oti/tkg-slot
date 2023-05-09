@@ -1,0 +1,10 @@
+-
+  const _resolver = (condition, isNav) => {
+    //- isNav = false ならアセットパスである
+    let dir = isNav ? ['./'] : ['../'];
+    while(condition) {
+      dir.push('../');
+      condition--;
+    }
+    return dir.join('');
+  }

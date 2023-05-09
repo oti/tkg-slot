@@ -1,0 +1,12 @@
+.ObservedBox {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  margin: 1em;
+  border: 4px solid tomato;
+  height: 100vh;
+
+  &.-shown {
+    border-color: skyblue;
+  }
+}

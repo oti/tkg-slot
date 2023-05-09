@@ -1,0 +1,20 @@
+// $bp の値を含む。$bp の値以上の画面幅のときを示す
+@mixin orMore($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+// $bp の値を含まない。$bp の値未満の画面幅のときを示す
+@mixin lessThan($bp) {
+  @media not all and (min-width: $bp) {
+    @content;
+  }
+}
+
+// $min の値と $max の値を含んだ範囲の画面幅のときを示す
+@mixin within($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}

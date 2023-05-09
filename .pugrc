@@ -1,0 +1,8 @@
+{
+  "locals": {
+    "_siteName": "Parcel Web Dev Boilerplate",
+    "_siteDesc": "Parcel を使ったウェブサイト開発環境のボイラープレートです。",
+    "_siteKeywords": "boilerplate, template, webdev, parcel",
+    "_siteHost": "https://exmaple.com"
+  }
+}
