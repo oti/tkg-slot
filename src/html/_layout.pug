@@ -32,10 +32,15 @@ html(lang="ja")
 
   body
     header.Header
-      h1= _title
-      include _nav
+      .Header__inner
+        h1.Header__title TKGスロット
 
     block contents
 
     footer.Footer
-      p License: MIT
+      address.Footer__inner
+        p.Footer__credit
+          | このウェブアプリは
+          a(href="https://twitter.com/otiext", target="_blank") 越智
+          | が作りました。
+        p.Footer__license #[a(href="https://github.com/oti/tkg-slot") GitHub]
