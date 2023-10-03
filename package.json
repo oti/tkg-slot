@@ -11,16 +11,16 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.20.2",
-    "@parcel/transformer-pug": "^2.8.3",
-    "@prettier/plugin-pug": "^2.4.1",
-    "autoprefixer": "^10.4.14",
+    "@babel/preset-env": "^7.22.20",
+    "@parcel/transformer-pug": "^2.9.3",
+    "@prettier/plugin-pug": "^3.0.0",
+    "autoprefixer": "^10.4.16",
     "husky": "^8.0.3",
-    "markuplint": "^3.4.0",
-    "parcel": "^2.8.3",
+    "markuplint": "^3.13.0",
+    "parcel": "^2.9.3",
     "pug": "^3.0.2",
-    "stylelint": "^15.3.0",
-    "stylelint-config-recommended": "^11.0.0",
-    "typescript": "^5.0.2"
+    "stylelint": "^15.10.3",
+    "stylelint-config-recommended": "^13.0.0",
+    "typescript": "^5.2.2"
   }
 }
