@@ -1,46 +1,61 @@
-extends ./_layout
+doctype html
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    title= _siteName
+    meta(name="viewport", content="viewport-fit=cover, width=device-width")
+    meta(name="description", content=_siteDesc)
+    meta(name="keywords", content=_siteKeywords)
+    link(rel="shortcut icon", href="../image/favicon.ico")
+    link(rel="apple-touch-icon", href="../image/apple-touch-icon.png")
+    link(
+      rel="image_src",
+      href="../image/og-image.png"
+    )
+    link(rel="canonical", href=_siteHost)
+    link(href="../style/main.css", rel="stylesheet")
+    script(src="../script/main.js" type="module")
 
-block global
-  -
-    const _depth = 0
-    const _title = _siteName
-    const _canonical = _siteHost
+  body
+    h1 TKGスロット
 
-block contents
-  main.Main
-    .Main__inner
-      p.Main__copy TKGをそろえて今日１日をハッピーに過ごそう！
+    main
+      p.Copy TKGをそろえて今日１日をハッピーに過ごそう！
 
-      ul.Main__description
-        li 「シャッフル」を押すとTKG写真がシャッフルが始まるよ！
-        li 「ストップ」を押すとシャッフルが止まるよ！
-        li TKGの下のボタンをクリックすると一枚ずつシャッフルしたりストップしたりもできるよ！
-        li TKGがそろったら今日はラッキー！ ツイートして自慢しよう！
-        li TKGがそろわない悲しみもツイートしてTLのみんなの射幸心を煽ろう！
-        li シャッフルカウントは写真ごとに数えているので「3回」が最短だよ！
+      ul
+        li 「スタート」ボタンを押すとTKG写真のシャッフルが始まるよ！
+        li TKG写真の下の「ストップ」を押すとシャッフルが止まるよ！
+        li 3つ「ストップ」を押して同じTKG写真だとXに投稿できるよ！
+        li 全然揃わないけど怒らないでね！
 
-      p.Provocation さぁさぁ始めちゃって〜！
+      .Start
+        button#Start.Button スタート
 
-      .All
-        button#ShuffleAll.Button 全シャッフル
-        button#StopAll.Button 前ストップ
+      #Slot.Slot
+        .Reel
+          .Pict.-tkg001
+          button#Stop_1.Button ストップ
 
-      .Slot
-        .Slot__inner.-stopping
-          img#Pict_1.Slot__pict(src=`${_resolver(_depth, false)}image/tkg/001.jpg`, width="225", height="225", alt="")
-          button#Shuffle_1.Button.Slot__shuffle シャッフル
-          button#Stop_1.Button.Slot__stop ストップ
+        .Reel
+          .Pict.-tkg001
+          button#Stop_2.Button ストップ
 
-        .Slot__inner.-stopping
-          img#Pict_2.Slot__pict(src=`${_resolver(_depth, false)}image/tkg/001.jpg`, width="225", height="225", alt="")
-          button#Shuffle_2.Button.Slot__shuffle シャッフル
-          button#Stop_2.Button.Slot__stop ストップ
+        .Reel
+          .Pict.-tkg001
+          button#Stop_3.Button ストップ
 
-        .Slot__inner.-stopping
-          img#Pict_3.Slot__pict(src=`${_resolver(_depth, false)}image/tkg/001.jpg`, width="225", height="225", alt="")
-          button#Shuffle_3.Button.Slot__shuffle シャッフル
-          button#Stop_3.Button.Slot__stop ストップ
+      #Post.Post
+        textarea#Textarea TKGスロットで今日の運試し！
+        button#Share Xでシェアする
 
-      form.Tweet
-        textarea#ShareText TKGスロットで今日の運試し！
-        input#Share(type="submit", value="ツイッターでシェアする")
+    footer
+      address.Address
+        p
+          | このウェブアプリは
+          |
+          a(href="https://twitter.com/otiext", target="_blank") oti
+          |
+          | が作りました。
+        p
+          a(href="https://github.com/oti/tkg-slot") GitHub
+
