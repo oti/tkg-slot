@@ -66,7 +66,12 @@ body {
   min-width: calc((768px - (1rem * 2) - (5px * 6)) / 3);
   min-height: calc((768px - (1rem * 2) - (5px * 6)) / 3);
   border: 5px solid var(--c-base);
-  /* あらかじめ書いておかないと parcel がビルドしない */
+  background-color: #000;
+  background-size: contain;
+}
+
+.Pict.-tkg000 {
+  /* プリロードがわり */
   background-image: url(../image/tkg/001.jpg), url(../image/tkg/002.jpg),
     url(../image/tkg/003.jpg), url(../image/tkg/004.jpg),
     url(../image/tkg/005.jpg), url(../image/tkg/006.jpg),
@@ -127,8 +132,6 @@ body {
     url(../image/tkg/115.jpg), url(../image/tkg/116.jpg),
     url(../image/tkg/117.jpg), url(../image/tkg/118.jpg),
     url(../image/tkg/119.jpg), url(../image/tkg/120.jpg);
-  background-color: #000;
-  background-size: contain;
 }
 
 .Pict.-tkg001 {
