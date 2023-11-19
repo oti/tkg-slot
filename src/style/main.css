@@ -63,6 +63,8 @@ body {
 }
 
 .Pict {
+  min-width: calc((768px - (1rem * 2) - (5px * 6)) / 3);
+  min-height: calc((768px - (1rem * 2) - (5px * 6)) / 3);
   border: 5px solid var(--c-base);
   /* あらかじめ書いておかないと parcel がビルドしない */
   background-image: url(../image/tkg/001.jpg), url(../image/tkg/002.jpg),
@@ -125,9 +127,370 @@ body {
     url(../image/tkg/115.jpg), url(../image/tkg/116.jpg),
     url(../image/tkg/117.jpg), url(../image/tkg/118.jpg),
     url(../image/tkg/119.jpg), url(../image/tkg/120.jpg);
+  background-color: #000;
   background-size: contain;
 }
 
+.Pict.-tkg001 {
+  background-image: url(../image/tkg/001.jpg);
+}
+.Pict.-tkg002 {
+  background-image: url(../image/tkg/002.jpg);
+}
+.Pict.-tkg003 {
+  background-image: url(../image/tkg/003.jpg);
+}
+.Pict.-tkg004 {
+  background-image: url(../image/tkg/004.jpg);
+}
+.Pict.-tkg005 {
+  background-image: url(../image/tkg/005.jpg);
+}
+.Pict.-tkg006 {
+  background-image: url(../image/tkg/006.jpg);
+}
+.Pict.-tkg007 {
+  background-image: url(../image/tkg/007.jpg);
+}
+.Pict.-tkg008 {
+  background-image: url(../image/tkg/008.jpg);
+}
+.Pict.-tkg009 {
+  background-image: url(../image/tkg/009.jpg);
+}
+.Pict.-tkg010 {
+  background-image: url(../image/tkg/010.jpg);
+}
+.Pict.-tkg011 {
+  background-image: url(../image/tkg/011.jpg);
+}
+.Pict.-tkg012 {
+  background-image: url(../image/tkg/012.jpg);
+}
+.Pict.-tkg013 {
+  background-image: url(../image/tkg/013.jpg);
+}
+.Pict.-tkg014 {
+  background-image: url(../image/tkg/014.jpg);
+}
+.Pict.-tkg015 {
+  background-image: url(../image/tkg/015.jpg);
+}
+.Pict.-tkg016 {
+  background-image: url(../image/tkg/016.jpg);
+}
+.Pict.-tkg017 {
+  background-image: url(../image/tkg/017.jpg);
+}
+.Pict.-tkg018 {
+  background-image: url(../image/tkg/018.jpg);
+}
+.Pict.-tkg019 {
+  background-image: url(../image/tkg/019.jpg);
+}
+.Pict.-tkg020 {
+  background-image: url(../image/tkg/020.jpg);
+}
+.Pict.-tkg021 {
+  background-image: url(../image/tkg/021.jpg);
+}
+.Pict.-tkg022 {
+  background-image: url(../image/tkg/022.jpg);
+}
+.Pict.-tkg023 {
+  background-image: url(../image/tkg/023.jpg);
+}
+.Pict.-tkg024 {
+  background-image: url(../image/tkg/024.jpg);
+}
+.Pict.-tkg025 {
+  background-image: url(../image/tkg/025.jpg);
+}
+.Pict.-tkg026 {
+  background-image: url(../image/tkg/026.jpg);
+}
+.Pict.-tkg027 {
+  background-image: url(../image/tkg/027.jpg);
+}
+.Pict.-tkg028 {
+  background-image: url(../image/tkg/028.jpg);
+}
+.Pict.-tkg029 {
+  background-image: url(../image/tkg/029.jpg);
+}
+.Pict.-tkg030 {
+  background-image: url(../image/tkg/030.jpg);
+}
+.Pict.-tkg031 {
+  background-image: url(../image/tkg/031.jpg);
+}
+.Pict.-tkg032 {
+  background-image: url(../image/tkg/032.jpg);
+}
+.Pict.-tkg033 {
+  background-image: url(../image/tkg/033.jpg);
+}
+.Pict.-tkg034 {
+  background-image: url(../image/tkg/034.jpg);
+}
+.Pict.-tkg035 {
+  background-image: url(../image/tkg/035.jpg);
+}
+.Pict.-tkg036 {
+  background-image: url(../image/tkg/036.jpg);
+}
+.Pict.-tkg037 {
+  background-image: url(../image/tkg/037.jpg);
+}
+.Pict.-tkg038 {
+  background-image: url(../image/tkg/038.jpg);
+}
+.Pict.-tkg039 {
+  background-image: url(../image/tkg/039.jpg);
+}
+.Pict.-tkg040 {
+  background-image: url(../image/tkg/040.jpg);
+}
+.Pict.-tkg041 {
+  background-image: url(../image/tkg/041.jpg);
+}
+.Pict.-tkg042 {
+  background-image: url(../image/tkg/042.jpg);
+}
+.Pict.-tkg043 {
+  background-image: url(../image/tkg/043.jpg);
+}
+.Pict.-tkg044 {
+  background-image: url(../image/tkg/044.jpg);
+}
+.Pict.-tkg045 {
+  background-image: url(../image/tkg/045.jpg);
+}
+.Pict.-tkg046 {
+  background-image: url(../image/tkg/046.jpg);
+}
+.Pict.-tkg047 {
+  background-image: url(../image/tkg/047.jpg);
+}
+.Pict.-tkg048 {
+  background-image: url(../image/tkg/048.jpg);
+}
+.Pict.-tkg049 {
+  background-image: url(../image/tkg/049.jpg);
+}
+.Pict.-tkg050 {
+  background-image: url(../image/tkg/050.jpg);
+}
+.Pict.-tkg051 {
+  background-image: url(../image/tkg/051.jpg);
+}
+.Pict.-tkg052 {
+  background-image: url(../image/tkg/052.jpg);
+}
+.Pict.-tkg053 {
+  background-image: url(../image/tkg/053.jpg);
+}
+.Pict.-tkg054 {
+  background-image: url(../image/tkg/054.jpg);
+}
+.Pict.-tkg055 {
+  background-image: url(../image/tkg/055.jpg);
+}
+.Pict.-tkg056 {
+  background-image: url(../image/tkg/056.jpg);
+}
+.Pict.-tkg057 {
+  background-image: url(../image/tkg/057.jpg);
+}
+.Pict.-tkg058 {
+  background-image: url(../image/tkg/058.jpg);
+}
+.Pict.-tkg059 {
+  background-image: url(../image/tkg/059.jpg);
+}
+.Pict.-tkg060 {
+  background-image: url(../image/tkg/060.jpg);
+}
+.Pict.-tkg061 {
+  background-image: url(../image/tkg/061.jpg);
+}
+.Pict.-tkg062 {
+  background-image: url(../image/tkg/062.jpg);
+}
+.Pict.-tkg063 {
+  background-image: url(../image/tkg/063.jpg);
+}
+.Pict.-tkg064 {
+  background-image: url(../image/tkg/064.jpg);
+}
+.Pict.-tkg065 {
+  background-image: url(../image/tkg/065.jpg);
+}
+.Pict.-tkg066 {
+  background-image: url(../image/tkg/066.jpg);
+}
+.Pict.-tkg067 {
+  background-image: url(../image/tkg/067.jpg);
+}
+.Pict.-tkg068 {
+  background-image: url(../image/tkg/068.jpg);
+}
+.Pict.-tkg069 {
+  background-image: url(../image/tkg/069.jpg);
+}
+.Pict.-tkg070 {
+  background-image: url(../image/tkg/070.jpg);
+}
+.Pict.-tkg071 {
+  background-image: url(../image/tkg/071.jpg);
+}
+.Pict.-tkg072 {
+  background-image: url(../image/tkg/072.jpg);
+}
+.Pict.-tkg073 {
+  background-image: url(../image/tkg/073.jpg);
+}
+.Pict.-tkg074 {
+  background-image: url(../image/tkg/074.jpg);
+}
+.Pict.-tkg075 {
+  background-image: url(../image/tkg/075.jpg);
+}
+.Pict.-tkg076 {
+  background-image: url(../image/tkg/076.jpg);
+}
+.Pict.-tkg077 {
+  background-image: url(../image/tkg/077.jpg);
+}
+.Pict.-tkg078 {
+  background-image: url(../image/tkg/078.jpg);
+}
+.Pict.-tkg079 {
+  background-image: url(../image/tkg/079.jpg);
+}
+.Pict.-tkg080 {
+  background-image: url(../image/tkg/080.jpg);
+}
+.Pict.-tkg081 {
+  background-image: url(../image/tkg/081.jpg);
+}
+.Pict.-tkg082 {
+  background-image: url(../image/tkg/082.jpg);
+}
+.Pict.-tkg083 {
+  background-image: url(../image/tkg/083.jpg);
+}
+.Pict.-tkg084 {
+  background-image: url(../image/tkg/084.jpg);
+}
+.Pict.-tkg085 {
+  background-image: url(../image/tkg/085.jpg);
+}
+.Pict.-tkg086 {
+  background-image: url(../image/tkg/086.jpg);
+}
+.Pict.-tkg087 {
+  background-image: url(../image/tkg/087.jpg);
+}
+.Pict.-tkg088 {
+  background-image: url(../image/tkg/088.jpg);
+}
+.Pict.-tkg089 {
+  background-image: url(../image/tkg/089.jpg);
+}
+.Pict.-tkg090 {
+  background-image: url(../image/tkg/090.jpg);
+}
+.Pict.-tkg091 {
+  background-image: url(../image/tkg/091.jpg);
+}
+.Pict.-tkg092 {
+  background-image: url(../image/tkg/092.jpg);
+}
+.Pict.-tkg093 {
+  background-image: url(../image/tkg/093.jpg);
+}
+.Pict.-tkg094 {
+  background-image: url(../image/tkg/094.jpg);
+}
+.Pict.-tkg095 {
+  background-image: url(../image/tkg/095.jpg);
+}
+.Pict.-tkg096 {
+  background-image: url(../image/tkg/096.jpg);
+}
+.Pict.-tkg097 {
+  background-image: url(../image/tkg/097.jpg);
+}
+.Pict.-tkg098 {
+  background-image: url(../image/tkg/098.jpg);
+}
+.Pict.-tkg099 {
+  background-image: url(../image/tkg/099.jpg);
+}
+.Pict.-tkg100 {
+  background-image: url(../image/tkg/100.jpg);
+}
+.Pict.-tkg101 {
+  background-image: url(../image/tkg/101.jpg);
+}
+.Pict.-tkg102 {
+  background-image: url(../image/tkg/102.jpg);
+}
+.Pict.-tkg103 {
+  background-image: url(../image/tkg/103.jpg);
+}
+.Pict.-tkg104 {
+  background-image: url(../image/tkg/104.jpg);
+}
+.Pict.-tkg105 {
+  background-image: url(../image/tkg/105.jpg);
+}
+.Pict.-tkg106 {
+  background-image: url(../image/tkg/106.jpg);
+}
+.Pict.-tkg107 {
+  background-image: url(../image/tkg/107.jpg);
+}
+.Pict.-tkg108 {
+  background-image: url(../image/tkg/108.jpg);
+}
+.Pict.-tkg109 {
+  background-image: url(../image/tkg/109.jpg);
+}
+.Pict.-tkg110 {
+  background-image: url(../image/tkg/110.jpg);
+}
+.Pict.-tkg111 {
+  background-image: url(../image/tkg/111.jpg);
+}
+.Pict.-tkg112 {
+  background-image: url(../image/tkg/112.jpg);
+}
+.Pict.-tkg113 {
+  background-image: url(../image/tkg/113.jpg);
+}
+.Pict.-tkg114 {
+  background-image: url(../image/tkg/114.jpg);
+}
+.Pict.-tkg115 {
+  background-image: url(../image/tkg/115.jpg);
+}
+.Pict.-tkg116 {
+  background-image: url(../image/tkg/116.jpg);
+}
+.Pict.-tkg117 {
+  background-image: url(../image/tkg/117.jpg);
+}
+.Pict.-tkg118 {
+  background-image: url(../image/tkg/118.jpg);
+}
+.Pict.-tkg119 {
+  background-image: url(../image/tkg/119.jpg);
+}
+.Pict.-tkg120 {
+  background-image: url(../image/tkg/120.jpg);
+}
 
 .Address {
   display: flex;
