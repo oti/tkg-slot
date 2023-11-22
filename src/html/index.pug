@@ -44,9 +44,14 @@ html(lang="ja")
           .Pict.-tkg000
           button#Stop_3.Button ストップ
 
-      #Post.Post
+      #Post.Post(hidden)
         textarea#Textarea TKGスロットで今日の運試し！
         button#Share Xでシェアする
+        button.Retry.Button リトライ
+
+      #Failed(hidden)
+        p 残念！　TKGが揃いませんでした。
+        button.Retry.Button リトライ
 
     footer
       address.Address
