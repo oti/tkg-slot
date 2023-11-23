@@ -3,8 +3,6 @@
 
 :root {
   --c-base: #30404f;
-  --c-main: #ffc400;
-  --c-unti: #4c00ff;
 }
 
 *,
@@ -15,9 +13,9 @@
 
 body {
   display: grid;
-  gap: 3rem;
   grid-template-rows: auto 1fr auto;
   margin: auto;
+  padding: 1rem;
   max-width: 768px;
   min-height: 100vh;
   font-size: 1.0625rem;
@@ -32,28 +30,21 @@ body {
   font-weight: bold;
 }
 
-.Button {
-  all: unset;
-  display: inline-flex;
-  place-items: center;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid var(--c-base);
-  border-radius: 3px;
-  background-color: var(--c-main);
+.Cabinet {
+  display: grid;
+  gap: 1rem;
+  margin-block-start: 3rem;
 }
 
-.Start {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-block-start: 3rem;
+.Button {
+  font-weight: bold;
+  line-height: 3;
 }
 
 .Slot {
-  display: flex;
+  display: grid;
   gap: 1rem;
-  justify-content: space-between;
-  margin-block-start: 3rem;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .Reel {
@@ -63,8 +54,8 @@ body {
 }
 
 .Pict {
-  min-width: calc((768px - (1rem * 2) - (5px * 6)) / 3);
-  min-height: calc((768px - (1rem * 2) - (5px * 6)) / 3);
+  aspect-ratio: 1 / 1;
+  width: 100%;
   border: 5px solid var(--c-base);
   background-color: #000;
   background-size: contain;
@@ -495,12 +486,16 @@ body {
   background-image: url(../image/tkg/120.jpg);
 }
 
+.Post:not([hidden]) {
+  display: grid;
+  gap: 1rem;
+}
+
 .Address {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
   font-size: 0.9375rem;
-  font-style: normal;
-  line-height: 1.2;
 }
 
 .-invisible {
