@@ -491,7 +491,8 @@ body {
   gap: 1rem;
 }
 
-.Arranged {
+.Arranged,
+.Failed {
   font-weight: bold;
   text-align: center;
 }
