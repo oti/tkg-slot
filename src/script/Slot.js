@@ -52,6 +52,22 @@ export class Slot {
     this.$Retry.addEventListener("click", () => this.handleClickRetry(), false);
   }
 
+  countUp() {
+    this.count = this.count + 1;
+  }
+
+  toggleAttribute($target, attribute, add) {
+    if (add) {
+      $target.setAttribute(attribute, "");
+    } else {
+      $target.removeAttribute(attribute);
+    }
+  }
+
+  toggleStartState(value) {
+    this.isStarted = value;
+  }
+
   handleClickPost() {
     const {
       count,
@@ -96,22 +112,6 @@ export class Slot {
         "hidden",
         !(!this.isArranged && this.count > this.mercyCount)
       );
-    }
-  }
-
-  toggleStartState(value) {
-    this.isStarted = value;
-  }
-
-  countUp() {
-    this.count = this.count + 1;
-  }
-
-  toggleAttribute($target, attribute, add) {
-    if (add) {
-      $target.setAttribute(attribute, "");
-    } else {
-      $target.removeAttribute(attribute);
     }
   }
 }
