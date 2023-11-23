@@ -21,6 +21,12 @@ export class Reel {
 
   attachEvent() {
     this.$Stop.addEventListener("click", () => this.handleClickStop(), false);
+
+    this.$Mode.addEventListener(
+      "change",
+      ({ target: { checked } }) => (this.isRandom = !checked),
+      false
+    );
   }
 
   emitStop() {
