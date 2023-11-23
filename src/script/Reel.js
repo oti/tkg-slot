@@ -18,11 +18,27 @@ export class Reel {
   }
 
   attachEvent() {
-    this.$Stop.addEventListener("click", () => this.stop(), false);
+    this.$Stop.addEventListener("click", () => this.handleClickStop(), false);
   }
 
-  start() {
-    this.setShuffleState(true);
+  emitStop() {
+    this.$Reel.dispatchEvent(new Event("stop"));
+  }
+
+  toggleAttribute($target, attribute, add) {
+    if (add) {
+      $target.setAttribute(attribute, "");
+    } else {
+      $target.removeAttribute(attribute);
+    }
+  }
+
+  toggleShuffleState(value) {
+    this.isShuffling = value;
+  }
+
+  handleClickStart() {
+    this.toggleShuffleState(true);
     this.toggleAttribute(this.$Stop, "disabled", false);
     this.intervalId = window.setInterval(() => {
       const old = this.classString;
@@ -32,26 +48,10 @@ export class Reel {
     }, 1);
   }
 
-  stop() {
+  handleClickStop() {
     clearInterval(this.intervalId);
-    this.setShuffleState(false);
+    this.toggleShuffleState(false);
     this.toggleAttribute(this.$Stop, "disabled", true);
-    this.emit();
-  }
-
-  emit() {
-    this.$Reel.dispatchEvent(new Event("stopreel"));
-  }
-
-  setShuffleState(value) {
-    this.isShuffling = value;
-  }
-
-  toggleAttribute($target, attribute, add) {
-    if (add) {
-      $target.setAttribute(attribute, "");
-    } else {
-      $target.removeAttribute(attribute);
-    }
+    this.emitStop();
   }
 }

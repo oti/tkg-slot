@@ -42,7 +42,7 @@ export class Slot {
     this.$Start.addEventListener("click", () => this.handleClickStart(), false);
 
     this.$Reels.forEach((reel) =>
-      reel.addEventListener("stopreel", () => this.handleStopReel(), false)
+      reel.addEventListener("stop", () => this.handleEmitStop(), false)
     );
 
     this.$Post.forEach((button) =>
@@ -68,6 +68,18 @@ export class Slot {
     this.isStarted = value;
   }
 
+  handleEmitStop() {
+    if (this.isAllStopped) {
+      this.toggleAttribute(this.$Succeed, "hidden", !this.isArranged);
+      this.toggleAttribute(this.$Failed, "hidden", this.isArranged);
+      this.toggleAttribute(
+        this.$Failed.querySelector(".Post"),
+        "hidden",
+        !(!this.isArranged && this.count > this.mercyCount)
+      );
+    }
+  }
+
   handleClickPost() {
     const {
       count,
@@ -90,28 +102,16 @@ export class Slot {
     this.toggleStartState(true);
     this.toggleAttribute(this.$Start, "disabled", true);
     this.toggleAttribute(this.$Retry, "hidden", false);
-    this.ReelInstances.forEach((reel) => reel.start());
+    this.ReelInstances.forEach((reel) => reel.handleClickStart());
   }
 
   handleClickRetry() {
-    this.ReelInstances.forEach((reel) => reel.stop(), false);
+    this.ReelInstances.forEach((reel) => reel.handleClickStop());
     this.toggleStartState(false);
     this.toggleAttribute(this.$Start, "disabled", false);
     this.toggleAttribute(this.$Succeed, "hidden", true);
     this.toggleAttribute(this.$Failed, "hidden", true);
     this.toggleAttribute(this.$Retry, "hidden", true);
     this.$Start.focus();
-  }
-
-  handleStopReel() {
-    if (this.isAllStopped) {
-      this.toggleAttribute(this.$Succeed, "hidden", !this.isArranged);
-      this.toggleAttribute(this.$Failed, "hidden", this.isArranged);
-      this.toggleAttribute(
-        this.$Failed.querySelector(".Post"),
-        "hidden",
-        !(!this.isArranged && this.count > this.mercyCount)
-      );
-    }
   }
 }
