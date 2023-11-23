@@ -64,5 +64,6 @@ export class Slot {
     this.toggleAttribute(this.$Start, "disabled", false);
     this.toggleAttribute(this.$Post, "hidden", true);
     this.toggleAttribute(this.$Failed, "hidden", true);
+    this.$Start.focus();
   }
 }
