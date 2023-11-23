@@ -1,8 +1,8 @@
 import { Reel } from "./Reel";
 
 export class Slot {
-  constructor($Reels, $Start, $Succeed, $Failed, $Post, $Retry) {
-    this.count = 0;
+  constructor($Start, $Reels, $Shuffling, $Succeed, $Failed, $Post, $Retry) {
+    this.count = 1;
     this.mercyCount = 9;
     this.isStarted = false;
     this.intent = "https://x.com/intent/tweet";
@@ -15,8 +15,9 @@ export class Slot {
     );
     this.hashtags = encodeURIComponent("TKGスロット");
     this.via = "otiext";
-    this.$Reels = $Reels;
     this.$Start = $Start;
+    this.$Reels = $Reels;
+    this.$Shuffling = $Shuffling;
     this.$Succeed = $Succeed;
     this.$Failed = $Failed;
     this.$Post = $Post;
@@ -70,6 +71,7 @@ export class Slot {
 
   handleEmitStop() {
     if (this.isAllStopped) {
+      this.toggleAttribute(this.$Shuffling, "hidden", true);
       this.toggleAttribute(this.$Succeed, "hidden", !this.isArranged);
       this.toggleAttribute(this.$Failed, "hidden", this.isArranged);
       this.toggleAttribute(
@@ -101,6 +103,7 @@ export class Slot {
     this.countUp();
     this.toggleStartState(true);
     this.toggleAttribute(this.$Start, "disabled", true);
+    this.toggleAttribute(this.$Shuffling, "hidden", false);
     this.toggleAttribute(this.$Retry, "hidden", false);
     this.ReelInstances.forEach((reel) => reel.handleClickStart());
   }
