@@ -28,33 +28,32 @@ html(lang="ja")
         li 3つ「ストップ」を押して同じTKG写真だとXに投稿できるよ！
         li 全然揃わないけど怒らないでね！
 
-      .Start
-        button#Start.Button スタート
+      .Cabinet
+        button.Start.Button スタート
 
-      #Slot.Slot
-        .Reel
-          .Pict.-tkg000
-            span.-invisible 000
-          button#Stop_1.Button ストップ
+        .Slot
+          .Reel
+            .Pict.-tkg000
+              span.-invisible 0
+            button.Button ストップ
 
-        .Reel
-          .Pict.-tkg000
-            span.-invisible 000
-          button#Stop_2.Button ストップ
+          .Reel
+            .Pict.-tkg000
+              span.-invisible 0
+            button.Button ストップ
 
-        .Reel
-          .Pict.-tkg000
-            span.-invisible 000
-          button#Stop_3.Button ストップ
+          .Reel
+            .Pict.-tkg000
+              span.-invisible 0
+            button.Button ストップ
 
-      #Post.Post(hidden)
-        textarea#Textarea TKGスロットで今日の運試し！
-        button#Share Xでシェアする
-        button.Retry.Button リトライ
+        .Post(hidden)
+          p やったね！　TKGが揃いました〜！
+          button.Button Xでシェアする
 
-      #Failed(hidden)
-        p 残念！　TKGが揃いませんでした。
-        button.Retry.Button リトライ
+        p.Failed(hidden) 残念！　TKGが揃いませんでした〜
+
+        button.Retry.Button(hidden) リトライ
 
     footer
       address.Address
