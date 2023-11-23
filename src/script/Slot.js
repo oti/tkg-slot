@@ -1,13 +1,14 @@
 import { Reel } from "./Reel";
 
 export class Slot {
-  constructor($Reels, $Start, $Post, $Failed, $Retry) {
+  constructor($Reels, $Start, $Succeed, $Failed, $Post, $Retry) {
     this.count = 0;
     this.isStarted = false;
     this.$Reels = $Reels;
     this.$Start = $Start;
-    this.$Post = $Post;
+    this.$Succeed = $Succeed;
     this.$Failed = $Failed;
+    this.$Post = $Post;
     this.$Retry = $Retry;
     this.ReelInstances = Array.from(this.$Reels, (value) => new Reel(value));
 
