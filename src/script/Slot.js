@@ -1,14 +1,13 @@
 import { Reel } from "./Reel";
 
 export class Slot {
-  constructor($Reels, $Start, $Post, $Textarea, $Share, $Failed) {
+  constructor($Reels, $Start, $Post, $Failed, $Retry) {
     this.isStarted = false;
     this.$Reels = $Reels;
     this.$Start = $Start;
     this.$Post = $Post;
-    this.$Textarea = $Textarea;
-    this.$Share = $Share;
     this.$Failed = $Failed;
+    this.$Retry = $Retry;
     this.ReelInstances = Array.from(this.$Reels, (value) => new Reel(value));
 
     this.attachEvent();
@@ -37,6 +36,7 @@ export class Slot {
   handleClickStart() {
     this.setStartState(true);
     this.toggleAttribute(this.$Start, "disabled", true);
+    this.toggleAttribute(this.$Retry, "hidden", false);
     this.ReelInstances.forEach((reel) => reel.start());
   }
 
@@ -61,9 +61,11 @@ export class Slot {
 
   reset() {
     this.setStartState(false);
+    this.ReelInstances.forEach((reel) => reel.stop(), false);
     this.toggleAttribute(this.$Start, "disabled", false);
     this.toggleAttribute(this.$Post, "hidden", true);
     this.toggleAttribute(this.$Failed, "hidden", true);
+    this.toggleAttribute(this.$Retry, "hidden", true);
     this.$Start.focus();
   }
 }
