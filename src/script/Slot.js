@@ -3,6 +3,7 @@ import { Reel } from "./Reel";
 export class Slot {
   constructor($Reels, $Start, $Succeed, $Failed, $Post, $Retry) {
     this.count = 0;
+    this.mercyCount = 9;
     this.isStarted = false;
     this.intent = "https://x.com/intent/tweet";
     this.url = "https://oti.github.io/tkg-slot/";
@@ -90,6 +91,11 @@ export class Slot {
     if (this.isAllStopped) {
       this.toggleAttribute(this.$Succeed, "hidden", !this.isArranged);
       this.toggleAttribute(this.$Failed, "hidden", this.isArranged);
+      this.toggleAttribute(
+        this.$Failed.querySelector(".Post"),
+        "hidden",
+        !(!this.isArranged && this.count > this.mercyCount)
+      );
     }
   }
 
