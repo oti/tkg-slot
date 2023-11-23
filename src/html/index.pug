@@ -47,21 +47,23 @@ html(lang="ja")
               span.-invisible 0
             button.Button ストップ
 
-        .Post(hidden)
-          p.Arranged
+        .Succeed(hidden)
+          p
             | やったね！
             br
-            | TKGが揃いました〜
+            | TKGが揃いました！
             br
-            | 💖🤗💖
-          button.Button Xでシェアする
+            | 🥳🤗🤩
+          button.Post.Button Xにポストする
 
-        p.Failed(hidden)
-          | 残念〜！
-          br
-          | TKGは揃いませんでした
-          br
-          | 😧😮‍💨😓
+        .Failed(hidden)
+          p
+            | 残念〜！
+            br
+            | TKGは揃いませんでした
+            br
+            | 😧😮‍💨😓
+          button.Post.Button(hidden) 悔しさをXにポストする
 
         button.Retry.Button(hidden) リトライ
 

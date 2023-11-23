@@ -486,15 +486,16 @@ body {
   background-image: url(../image/tkg/120.jpg);
 }
 
-.Post:not([hidden]) {
-  display: grid;
-  gap: 1rem;
-}
-
-.Arranged,
+.Succeed,
 .Failed {
   font-weight: bold;
   text-align: center;
+}
+
+.Succeed:not([hidden]),
+.Failed:not([hidden]) {
+  display: grid;
+  gap: 1rem;
 }
 
 .Address {
