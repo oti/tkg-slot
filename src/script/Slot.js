@@ -4,6 +4,16 @@ export class Slot {
   constructor($Reels, $Start, $Succeed, $Failed, $Post, $Retry) {
     this.count = 0;
     this.isStarted = false;
+    this.intent = "https://x.com/intent/tweet";
+    this.url = "https://oti.github.io/tkg-slot/";
+    this.succeedMessage = encodeURIComponent(
+      "回目でTKGスロットを揃えました！🥳🤗🤩"
+    );
+    this.failedMessage = encodeURIComponent(
+      "回やってもTKGスロットを揃えられませんでした😧😮‍💨😓"
+    );
+    this.hashtags = encodeURIComponent("TKGスロット");
+    this.via = "otiext";
     this.$Reels = $Reels;
     this.$Start = $Start;
     this.$Succeed = $Succeed;
