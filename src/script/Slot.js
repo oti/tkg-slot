@@ -37,8 +37,8 @@ export class Slot {
   }
 
   handleClickStart() {
-    this.setStartState(true);
     this.countUp();
+    this.toggleStartState(true);
     this.toggleAttribute(this.$Start, "disabled", true);
     this.toggleAttribute(this.$Retry, "hidden", false);
     this.ReelInstances.forEach((reel) => reel.start());
@@ -60,7 +60,7 @@ export class Slot {
     }
   }
 
-  setStartState(value) {
+  toggleStartState(value) {
     this.isStarted = value;
   }
 
@@ -77,8 +77,8 @@ export class Slot {
   }
 
   reset() {
-    this.setStartState(false);
     this.ReelInstances.forEach((reel) => reel.stop(), false);
+    this.toggleStartState(false);
     this.toggleAttribute(this.$Start, "disabled", false);
     this.toggleAttribute(this.$Post, "hidden", true);
     this.toggleAttribute(this.$Failed, "hidden", true);
