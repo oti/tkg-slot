@@ -58,12 +58,15 @@ export class Reel {
   handleClickStart() {
     this.toggleShuffleState(true);
     this.toggleAttribute(this.$Stop, "disabled", false);
-    this.intervalId = window.setInterval(() => {
-      const old = this.classString;
-      this.id = this.items[Math.floor(Math.random() * this.items.length)];
-      this.$Text.textContent = this.id;
-      this.$Pict.classList.replace(old, this.classString);
-    }, 1);
+    this.intervalId = window.setInterval(
+      () => {
+        const old = this.classString;
+        this.id = this.newId;
+        this.$Text.textContent = this.id;
+        this.$Pict.classList.replace(old, this.classString);
+      },
+      this.isRandom ? 50 : 75
+    );
   }
 
   handleClickStop() {
