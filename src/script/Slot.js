@@ -56,7 +56,7 @@ export class Slot {
 
   handleStopReel() {
     if (this.isAllStopped) {
-      this.toggleAttribute(this.$Post, "hidden", !this.isArranged);
+      this.toggleAttribute(this.$Succeed, "hidden", !this.isArranged);
       this.toggleAttribute(this.$Failed, "hidden", this.isArranged);
     }
   }
@@ -81,7 +81,7 @@ export class Slot {
     this.ReelInstances.forEach((reel) => reel.stop(), false);
     this.toggleStartState(false);
     this.toggleAttribute(this.$Start, "disabled", false);
-    this.toggleAttribute(this.$Post, "hidden", true);
+    this.toggleAttribute(this.$Succeed, "hidden", true);
     this.toggleAttribute(this.$Failed, "hidden", true);
     this.toggleAttribute(this.$Retry, "hidden", true);
     this.$Start.focus();
