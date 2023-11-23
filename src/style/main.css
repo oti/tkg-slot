@@ -491,6 +491,11 @@ body {
   gap: 1rem;
 }
 
+.Arranged {
+  font-weight: bold;
+  text-align: center;
+}
+
 .Address {
   display: grid;
   grid-template-columns: 1fr auto;
