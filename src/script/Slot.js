@@ -31,6 +31,8 @@ export class Slot {
     this.$Reels.forEach((reel) =>
       reel.addEventListener("stopreel", () => this.handleStopReel(), false)
     );
+
+    this.$Post.addEventListener("click", () => this.handleClickPost(), false);
   }
 
   handleClickStart() {
@@ -38,6 +40,15 @@ export class Slot {
     this.toggleAttribute(this.$Start, "disabled", true);
     this.toggleAttribute(this.$Retry, "hidden", false);
     this.ReelInstances.forEach((reel) => reel.start());
+  }
+
+  handleClickPost() {
+    window.open(
+      `https://x.com/intent/tweet?url=https://oti.github.io/tkg-slot/&related=otiext&text=${encodeURIComponent(
+        "TKGスロットでTKGを揃えました！"
+      )}`,
+      "_blank"
+    );
   }
 
   handleStopReel() {
