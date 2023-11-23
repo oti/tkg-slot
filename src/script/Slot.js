@@ -53,8 +53,9 @@ export class Slot {
     this.$Retry.addEventListener("click", () => this.handleClickRetry(), false);
   }
 
-  countUp() {
+  counterUpdate() {
     this.count = this.count + 1;
+    this.$Start.textContent = `スタート（${this.count} 回目）`;
   }
 
   toggleAttribute($target, attribute, add) {
@@ -100,7 +101,6 @@ export class Slot {
   }
 
   handleClickStart() {
-    this.countUp();
     this.toggleStartState(true);
     this.toggleAttribute(this.$Start, "disabled", true);
     this.toggleAttribute(this.$Shuffling, "hidden", false);
@@ -115,6 +115,7 @@ export class Slot {
     this.toggleAttribute(this.$Succeed, "hidden", true);
     this.toggleAttribute(this.$Failed, "hidden", true);
     this.toggleAttribute(this.$Retry, "hidden", true);
+    this.counterUpdate();
     this.$Start.focus();
   }
 }
