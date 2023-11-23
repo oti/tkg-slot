@@ -1,7 +1,15 @@
 import { Reel } from "./Reel";
 
 export class Slot {
-  constructor($Start, $Reels, $Shuffling, $Succeed, $Failed, $Post, $Retry) {
+  constructor({
+    $Failed,
+    $Post,
+    $Reels,
+    $Retry,
+    $Shuffling,
+    $Start,
+    $Succeed,
+  }) {
     this.count = 1;
     this.mercyCount = 9;
     this.isStarted = false;
