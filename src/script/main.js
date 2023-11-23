@@ -7,6 +7,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const $Failed = document.querySelector(".Failed");
   const $Post = document.querySelectorAll(".Post");
   const $Retry = document.querySelector(".Retry");
-  $Retry.addEventListener("click", () => slot.reset(), false);
   const slot = new Slot($Reels, $Start, $Succeed, $Failed, $Post, $Retry);
 });
