@@ -44,7 +44,26 @@ export class Slot {
       reel.addEventListener("stopreel", () => this.handleStopReel(), false)
     );
 
-    this.$Post.addEventListener("click", () => this.handleClickPost(), false);
+    this.$Post.forEach((button) =>
+      button.addEventListener("click", () => this.handleClickPost(), false)
+    );
+  }
+
+  handleClickPost() {
+    const {
+      count,
+      intent,
+      url,
+      succeedMessage,
+      failedMessage,
+      hashtags,
+      isArranged,
+    } = this;
+    const text = isArranged ? succeedMessage : failedMessage;
+    window.open(
+      `${intent}?url=${url}&text=${count}${text}&hashtags=${hashtags}`,
+      "_blank"
+    );
   }
 
   handleClickStart() {
@@ -55,13 +74,6 @@ export class Slot {
     this.ReelInstances.forEach((reel) => reel.start());
   }
 
-  handleClickPost() {
-    const intent = "https://x.com/intent/tweet";
-    const url = "https://oti.github.io/tkg-slot/";
-    const text = `${this.count}${encodeURIComponent(
-      "回目でTKGスロットを揃えました！"
-    )}`;
-    window.open(`${intent}?url=${url}&text=${text}`, "_blank");
   }
 
   handleStopReel() {
