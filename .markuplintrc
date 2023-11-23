@@ -4,6 +4,7 @@
     "attr-value-quotes": true,
     "case-sensitive-attr-name": true,
     "case-sensitive-tag-name": true,
+    "class-naming": "/^[A-Z]|-/",
     "character-reference": true,
     "deprecated-attr": true,
     "deprecated-element": true,
@@ -14,11 +15,7 @@
     "ineffective-attr": true,
     "invalid-attr": true,
     "label-has-control": true,
-    "landmark-roles": {
-      "options": {
-        "ignoreRoles": ["complementary"]
-      }
-    },
+    "landmark-roles": true,
     "no-boolean-attr-value": false,
     "no-default-value": true,
     "no-empty-palpable-content": true,
@@ -26,30 +23,13 @@
     "no-refer-to-non-existent-id": true,
     "no-use-event-handler-attr": true,
     "permitted-contents": true,
+    "placeholder-label-option": true,
+    "require-accessible-name": true,
+    "require-datetime": true,
     "required-attr": true,
     "required-element": [],
     "required-h1": true,
     "use-list": [],
     "wai-aria": true
-  },
-  "nodeRules": [
-    {
-      "selector": "meta[property]",
-      "rules": {
-        "invalid-attr": {
-          "options": {
-            "attrs": {
-              "property": {
-                "pattern": "/^og:.+/"
-              },
-              "content": {
-                "type": "NoEmptyAny"
-              }
-            }
-          }
-        },
-        "required-attr": false
-      }
-    }
-  ]
+  }
 }
