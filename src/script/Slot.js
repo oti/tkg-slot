@@ -3,6 +3,7 @@ import { Reel } from "./Reel";
 export class Slot {
   constructor({
     $Failed,
+    $Mode,
     $Post,
     $Reels,
     $Retry,
@@ -23,6 +24,7 @@ export class Slot {
     );
     this.hashtags = encodeURIComponent("TKGスロット");
     this.via = "otiext";
+    this.$Mode = $Mode;
     this.$Start = $Start;
     this.$Reels = $Reels;
     this.$Shuffling = $Shuffling;
@@ -30,7 +32,7 @@ export class Slot {
     this.$Failed = $Failed;
     this.$Post = $Post;
     this.$Retry = $Retry;
-    this.ReelInstances = Array.from(this.$Reels, (value) => new Reel(value));
+    this.ReelInstances = Array.from($Reels, (reel) => new Reel(reel, $Mode));
 
     this.attachEvent();
   }
