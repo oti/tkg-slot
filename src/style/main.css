@@ -486,6 +486,7 @@ body {
   background-image: url(../image/tkg/120.jpg);
 }
 
+.Shuffling,
 .Succeed,
 .Failed {
   font-weight: bold;
