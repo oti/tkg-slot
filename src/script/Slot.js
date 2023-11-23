@@ -47,6 +47,8 @@ export class Slot {
     this.$Post.forEach((button) =>
       button.addEventListener("click", () => this.handleClickPost(), false)
     );
+
+    this.$Retry.addEventListener("click", () => this.handleClickRetry(), false);
   }
 
   handleClickPost() {
@@ -74,6 +76,14 @@ export class Slot {
     this.ReelInstances.forEach((reel) => reel.start());
   }
 
+  handleClickRetry() {
+    this.ReelInstances.forEach((reel) => reel.stop(), false);
+    this.toggleStartState(false);
+    this.toggleAttribute(this.$Start, "disabled", false);
+    this.toggleAttribute(this.$Succeed, "hidden", true);
+    this.toggleAttribute(this.$Failed, "hidden", true);
+    this.toggleAttribute(this.$Retry, "hidden", true);
+    this.$Start.focus();
   }
 
   handleStopReel() {
@@ -97,15 +107,5 @@ export class Slot {
     } else {
       $target.removeAttribute(attribute);
     }
-  }
-
-  reset() {
-    this.ReelInstances.forEach((reel) => reel.stop(), false);
-    this.toggleStartState(false);
-    this.toggleAttribute(this.$Start, "disabled", false);
-    this.toggleAttribute(this.$Succeed, "hidden", true);
-    this.toggleAttribute(this.$Failed, "hidden", true);
-    this.toggleAttribute(this.$Retry, "hidden", true);
-    this.$Start.focus();
   }
 }
