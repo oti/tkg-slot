@@ -4,6 +4,7 @@ export class Reel {
     this.intervalId = null;
     this.isShuffling = false;
     this.items = Array.from({ length: 120 }, (_, index) => index + 1);
+    this.isRandom = true;
     this.$Mode = $Mode;
     this.$Reel = $Reel;
     this.$Pict = this.$Reel.querySelector(".Pict");
