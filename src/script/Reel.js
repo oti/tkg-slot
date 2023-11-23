@@ -7,6 +7,7 @@ export class Reel {
     this.$Reel = $Reel;
     this.$Pict = this.$Reel.querySelector(".Pict");
     this.$Stop = this.$Reel.querySelector(".Button");
+    this.$Text = this.$Reel.querySelector("span");
 
     this.toggleAttribute(this.$Stop, "disabled", true);
     this.attachEvent();
@@ -26,6 +27,7 @@ export class Reel {
     this.intervalId = window.setInterval(() => {
       const old = this.classString;
       this.id = this.items[Math.floor(Math.random() * this.items.length)];
+      this.$Text.textContent = this.id;
       this.$Pict.classList.replace(old, this.classString);
     }, 1000);
   }
