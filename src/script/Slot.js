@@ -2,6 +2,7 @@ import { Reel } from "./Reel";
 
 export class Slot {
   constructor($Reels, $Start, $Post, $Failed, $Retry) {
+    this.count = 0;
     this.isStarted = false;
     this.$Reels = $Reels;
     this.$Start = $Start;
@@ -37,18 +38,19 @@ export class Slot {
 
   handleClickStart() {
     this.setStartState(true);
+    this.countUp();
     this.toggleAttribute(this.$Start, "disabled", true);
     this.toggleAttribute(this.$Retry, "hidden", false);
     this.ReelInstances.forEach((reel) => reel.start());
   }
 
   handleClickPost() {
-    window.open(
-      `https://x.com/intent/tweet?url=https://oti.github.io/tkg-slot/&related=otiext&text=${encodeURIComponent(
-        "TKGスロットでTKGを揃えました！"
-      )}`,
-      "_blank"
-    );
+    const intent = "https://x.com/intent/tweet";
+    const url = "https://oti.github.io/tkg-slot/";
+    const text = `${this.count}${encodeURIComponent(
+      "回目でTKGスロットを揃えました！"
+    )}`;
+    window.open(`${intent}?url=${url}&text=${text}`, "_blank");
   }
 
   handleStopReel() {
@@ -60,6 +62,10 @@ export class Slot {
 
   setStartState(value) {
     this.isStarted = value;
+  }
+
+  countUp() {
+    this.count = this.count + 1;
   }
 
   toggleAttribute($target, attribute, add) {
