@@ -19,6 +19,16 @@ export class Reel {
     return `-tkg${String(this.id).padStart(3, "0")}`;
   }
 
+  get newId() {
+    return this.items[
+      this.isRandom
+        ? Math.floor(Math.random() * this.items.length)
+        : this.id < this.items.length
+        ? this.id++
+        : 0
+    ];
+  }
+
   attachEvent() {
     this.$Stop.addEventListener("click", () => this.handleClickStop(), false);
 
