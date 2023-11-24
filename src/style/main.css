@@ -495,7 +495,7 @@ body {
   line-height: 3;
   text-shadow: 0 -2px 0 #000;
   background-color: darkgray;
-  box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.5) inset,
+  box-shadow: 0 0 2px 0 rgba(255, 255, 255, 0.9) inset,
     0 0 4px 0 rgba(0, 0, 0, 0.5), 0 5px 0 0 #000;
 }
 
@@ -503,14 +503,13 @@ body {
 .Button:focus-visible {
   cursor: pointer;
   translate: 0 -1px;
-  box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.5) inset,
-    0 0 4px 0 rgba(0, 0, 0, 0.5), 0 6px 0 0 #000;
+  box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.9) inset, 0 7px 0 0 #000;
 }
 
 .Button:active {
   cursor: pointer;
   translate: 0 5px;
-  box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.5) inset,
+  box-shadow: 0 0 2px 0 rgba(255, 255, 255, 0.9) inset,
     0 0 4px 0 rgba(0, 0, 0, 0.5);
 }
 
