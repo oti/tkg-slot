@@ -2,9 +2,9 @@ export class Reel {
   constructor($Reel, $Mode) {
     this.id = 0;
     this.intervalId = null;
-    this.isShuffling = false;
-    this.items = Array.from({ length: 120 }, (_, index) => index + 1);
+    this.isStopped = true;
     this.isRandom = true;
+    this.items = Array.from({ length: 120 }, (_, index) => index + 1);
     this.$Mode = $Mode;
     this.$Reel = $Reel;
     this.$Pict = this.$Reel.querySelector(".Pict");
@@ -40,7 +40,7 @@ export class Reel {
   }
 
   handleClickStart() {
-    this.isShuffling = true;
+    this.isStopped = false;
     this.$Stop.toggleAttribute("disabled", false);
     this.intervalId = window.setInterval(
       () => {
@@ -55,7 +55,7 @@ export class Reel {
 
   handleClickStop() {
     clearInterval(this.intervalId);
-    this.isShuffling = false;
+    this.isStopped = true;
     this.$Stop.toggleAttribute("disabled", true);
     this.$Reel.dispatchEvent(new Event("stop"));
   }

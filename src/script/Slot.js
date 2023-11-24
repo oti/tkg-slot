@@ -46,7 +46,7 @@ export class Slot {
   }
 
   get isAllStopped() {
-    return this.ReelInstances.every(({ isShuffling }) => !isShuffling);
+    return this.ReelInstances.every(({ isStopped }) => isStopped);
   }
 
   attachEvent() {
