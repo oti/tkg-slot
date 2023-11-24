@@ -3,8 +3,10 @@ export class Reel {
     this.id = 0;
     this.intervalId = null;
     this.isStopped = true;
+    this.isDefaultLevel = true;
     this.isRandom = true;
     this.items = Array.from({ length: 120 }, (_, index) => index + 1);
+    this.$Level = $Level;
     this.$Mode = $Mode;
     this.$Reel = $Reel;
     this.$Pict = this.$Reel.querySelector(".Pict");
@@ -22,8 +24,10 @@ export class Reel {
   get newId() {
     return this.items[
       this.isRandom
-        ? Math.floor(Math.random() * this.items.length)
-        : this.id < this.items.length
+        ? Math.floor(
+            Math.random() * (this.isDefaultLevel ? this.items.length : 8)
+          )
+        : this.id < (this.isDefaultLevel ? this.items.length : 8)
         ? this.id++
         : 0
     ];
@@ -31,6 +35,12 @@ export class Reel {
 
   attachEvent() {
     this.$Stop.addEventListener("click", () => this.handleClickStop(), false);
+
+    this.$Level.addEventListener(
+      "change",
+      ({ target: { checked } }) => (this.isDefaultLevel = !checked),
+      false
+    );
 
     this.$Mode.addEventListener(
       "change",
@@ -49,7 +59,7 @@ export class Reel {
         this.$Text.textContent = this.id;
         this.$Pict.classList.replace(old, this.classString);
       },
-      this.isRandom ? 50 : 75
+      this.isDefaultLevel ? 10 : 100
     );
   }
 
