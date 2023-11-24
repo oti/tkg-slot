@@ -1,5 +1,5 @@
 export class Reel {
-  constructor($Reel, $Mode) {
+  constructor({ $Reel, $Level, $Mode }) {
     this.id = 0;
     this.intervalId = null;
     this.isStopped = true;

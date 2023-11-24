@@ -27,7 +27,7 @@ export class Slot {
     this.$Waiting = $Cabinet.querySelector(".Waiting");
     this.ReelInstances = Array.from(
       this.$Reels,
-      (reel) => new Reel(reel, this.$Mode)
+      ($Reel) => new Reel({ $Reel, ...this })
     );
 
     this.attachEvent();
