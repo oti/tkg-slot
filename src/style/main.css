@@ -68,9 +68,9 @@ body {
 .Pict {
   aspect-ratio: 1 / 1;
   width: 100%;
-  border: 5px solid var(--c-base);
+  border: 5px solid #000;
   border-radius: 0.25rem;
-  background-color: var(--c-base);
+  background-color: #000;
   background-size: contain;
 }
 
