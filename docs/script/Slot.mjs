@@ -56,6 +56,10 @@ export class Slot {
   }
 
   attachEvent() {
+    [this.$Level, this.$Mode].forEach((input) => {
+      input.addEventListener("change", () => this.updateCounter(1), false);
+    });
+
     this.$Start.addEventListener("click", () => this.handleClickStart(), false);
 
     this.$Reels.forEach((reel) =>
