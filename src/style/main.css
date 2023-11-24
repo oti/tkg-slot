@@ -604,6 +604,7 @@ body {
   text-align: center;
 }
 
+.Shuffling:not([hidden]),
 .Succeed:not([hidden]),
 .Failed:not([hidden]) {
   display: grid;
