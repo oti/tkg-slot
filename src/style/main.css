@@ -52,6 +52,11 @@ body {
   margin-block-start: 3rem;
 }
 
+.Difficulty {
+  display: flex;
+  gap: 2rem;
+}
+
 .Slot {
   margin-block-start: 0.5rem;
   display: grid;
