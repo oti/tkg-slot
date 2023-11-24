@@ -583,6 +583,11 @@ body {
   background-color: #ffaf00;
 }
 
+.Post {
+  border-color: #440088;
+  background-color: #bb00ff;
+}
+
 .Shuffling,
 .Succeed,
 .Failed {
