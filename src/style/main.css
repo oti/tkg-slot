@@ -592,6 +592,33 @@ body {
   background-color: #ffbb00;
 }
 
+.-succeed {
+  text-shadow: 0 0 5px #000;
+  border-color: rgba(255, 255, 255, 0.75);
+  background-color: #ffd700;
+  background-image: linear-gradient(
+    45deg,
+    #f00,
+    #ff0,
+    #0f0,
+    #0ff,
+    #00f,
+    #f0f,
+    #f00,
+    #ff0
+  );
+  background-size: 800% 100%;
+  animation: succeed 5s linear infinite;
+}
+
+@keyframes succeed {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 99% 50%;
+  }
+}
 
 .-failed {
   border-color: #440088;
