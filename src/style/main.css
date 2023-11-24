@@ -576,6 +576,13 @@ body {
   background-color: #bf0000;
 }
 
+.Retry {
+  color: #000;
+  text-shadow: 0 1px #fff;
+  border-color: #443300;
+  background-color: #ffaf00;
+}
+
 .Shuffling,
 .Succeed,
 .Failed {
