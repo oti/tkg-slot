@@ -567,48 +567,13 @@ body {
 }
 
 .Stop {
-  border-color: #004a9e;
-  background-image: linear-gradient(
-    to bottom,
-    #6dcaff 0%,
-    #0096ff 50%,
-    #0066ff 50%,
-    #004a9e 100%
-  );
-  background-color: #0096ff;
-}
-
-.Stop:hover,
-.Stop:focus-visible {
-  cursor: pointer;
-  translate: 0 -1px;
-  background-image: linear-gradient(
-    to bottom,
-    #c6e1ff 0%,
-    #2fa9ff 50%,
-    #3183ff 50%,
-    #3c97ff 100%
-  );
-}
-
-.Stop:active {
-  cursor: pointer;
-  translate: 0 5px;
+  border-color: #003044;
+  background-color: #009aff;
 }
 
 .Stop:disabled {
-  translate: 0 5px;
-  color: #000;
-  text-shadow: none;
-  border-color: #900000;
-  background-image: linear-gradient(
-    to bottom,
-    #ff7676 0%,
-    #ff0033 50%,
-    #cf0000 50%,
-    #900000 100%
-  );
-  background-color: #cf0000;
+  border-color: #440000;
+  background-color: #bf0000;
 }
 
 .Shuffling,
