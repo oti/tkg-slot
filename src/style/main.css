@@ -30,37 +30,6 @@ body {
   font-weight: bold;
 }
 
-.Button {
-  all: unset;
-  display: inline-flex;
-  place-content: center;
-  border-width: 3px;
-  border-style: solid;
-  border-radius: 0.25rem;
-  color: #fff;
-  font-weight: bold;
-  line-height: 3;
-  text-shadow: 0 -2px 0 #000;
-  background-color: darkgray;
-}
-
-.Button:hover,
-.Button:focus-visible {
-  cursor: pointer;
-  translate: 0 -1px;
-}
-
-.Button:active {
-  cursor: pointer;
-  translate: 0 5px;
-}
-
-.Button:disabled {
-  translate: 0 5px;
-  color: #000;
-  text-shadow: none;
-}
-
 .Cabinet {
   display: grid;
   gap: 1rem;
@@ -511,6 +480,37 @@ body {
 }
 .Pict.-tkg120 {
   background-image: url(../image/tkg/120.jpg);
+}
+
+.Button {
+  all: unset;
+  display: inline-flex;
+  place-content: center;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 0.25rem;
+  color: #fff;
+  font-weight: bold;
+  line-height: 3;
+  text-shadow: 0 -2px 0 #000;
+  background-color: darkgray;
+}
+
+.Button:hover,
+.Button:focus-visible {
+  cursor: pointer;
+  translate: 0 -1px;
+}
+
+.Button:active {
+  cursor: pointer;
+  translate: 0 5px;
+}
+
+.Button:disabled {
+  translate: 0 5px;
+  color: #000;
+  text-shadow: none;
 }
 
 .Stop {
