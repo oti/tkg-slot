@@ -29,13 +29,18 @@ html(lang="ja")
           li 「スタート」を押すとTKG写真がシャッフルを開始するよ！
           li 「ストップ」を押すとシャッフルが止まるよ！
           li 「リトライ」を押すともう一度遊べるよ！
+          li 「イージーモード」を選択するとTKG写真の合計枚数が10枚に減るよ！
           li 「目押しモード」を選択するとTKG写真のシャッフルがランダムじゃなく巡回になるよ！
           li 同じTKG写真を３枚揃えると X にポストできるよ！
 
       .Cabinet
-        label
-          input.Mode(name="mode", type="checkbox", value="ordered")
-          span 目押しモード
+        .Difficulty
+          label
+            input.Level(name="level", type="checkbox", value="easy")
+            span イージーモード
+          label
+            input.Mode(name="mode", type="checkbox", value="ordered")
+            span 目押しモード
 
         button.Button.Start.-start スタート
 
