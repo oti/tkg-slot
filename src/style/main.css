@@ -31,8 +31,34 @@ body {
 }
 
 .Button {
+  all: unset;
+  display: inline-flex;
+  place-content: center;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 0.25rem;
+  color: #fff;
   font-weight: bold;
   line-height: 3;
+  text-shadow: 0 -2px 0 #000;
+  background-color: darkgray;
+}
+
+.Button:hover,
+.Button:focus-visible {
+  cursor: pointer;
+  translate: 0 -1px;
+}
+
+.Button:active {
+  cursor: pointer;
+  translate: 0 5px;
+}
+
+.Button:disabled {
+  translate: 0 5px;
+  color: #000;
+  text-shadow: none;
 }
 
 .Cabinet {
@@ -488,15 +514,7 @@ body {
 }
 
 .Stop {
-  all: unset;
-  display: inline-flex;
-  place-content: center;
-  border: 3px solid #004a9e;
-  border-radius: 0.25rem;
-  color: #fff;
-  font-weight: bold;
-  line-height: 3;
-  text-shadow: 0 -2px 0 #000;
+  border-color: #004a9e;
   background-image: linear-gradient(
     to bottom,
     #6dcaff 0%,
