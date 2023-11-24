@@ -122,6 +122,7 @@ export class Slot {
     this.$Mode.toggleAttribute("disabled", true);
     this.$Start.toggleAttribute("disabled", true);
     this.$Shuffling.toggleAttribute("hidden", false);
+    this.$Waiting.toggleAttribute("hidden", true);
     this.$Retry.toggleAttribute("hidden", false);
   }
 
