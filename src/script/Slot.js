@@ -68,28 +68,17 @@ export class Slot {
     this.$Start.textContent = `スタート（${this.count} 回目）`;
   }
 
-  toggleAttribute($target, attribute, add) {
-    if (add) {
-      $target.setAttribute(attribute, "");
-    } else {
-      $target.removeAttribute(attribute);
-    }
-  }
-
-  toggleStartState(value) {
-    this.isStarted = value;
-  }
-
   handleEmitStop() {
     if (this.isAllStopped) {
-      this.toggleAttribute(this.$Shuffling, "hidden", true);
-      this.toggleAttribute(this.$Succeed, "hidden", !this.isArranged);
-      this.toggleAttribute(this.$Failed, "hidden", this.isArranged);
-      this.toggleAttribute(
-        this.$Failed.querySelector(".Post"),
-        "hidden",
-        !(!this.isArranged && this.count > this.mercyCount)
-      );
+      this.$Shuffling.toggleAttribute("hidden", true);
+      this.$Succeed.toggleAttribute("hidden", !this.isArranged);
+      this.$Failed.toggleAttribute("hidden", this.isArranged);
+      this.$Failed
+        .querySelector(".Post")
+        .toggleAttribute(
+          "hidden",
+          !(!this.isArranged && this.count > this.mercyCount)
+        );
     }
   }
 
@@ -111,22 +100,22 @@ export class Slot {
   }
 
   handleClickStart() {
-    this.toggleStartState(true);
-    this.toggleAttribute(this.$Mode, "disabled", true);
-    this.toggleAttribute(this.$Start, "disabled", true);
-    this.toggleAttribute(this.$Shuffling, "hidden", false);
-    this.toggleAttribute(this.$Retry, "hidden", false);
     this.ReelInstances.forEach((reel) => reel.handleClickStart());
+    this.isStarted = true;
+    this.$Mode.toggleAttribute("disabled", true);
+    this.$Start.toggleAttribute("disabled", true);
+    this.$Shuffling.toggleAttribute("hidden", false);
+    this.$Retry.toggleAttribute("hidden", false);
   }
 
   handleClickRetry() {
     this.ReelInstances.forEach((reel) => reel.handleClickStop());
-    this.toggleStartState(false);
-    this.toggleAttribute(this.$Mode, "disabled", false);
-    this.toggleAttribute(this.$Start, "disabled", false);
-    this.toggleAttribute(this.$Succeed, "hidden", true);
-    this.toggleAttribute(this.$Failed, "hidden", true);
-    this.toggleAttribute(this.$Retry, "hidden", true);
+    this.isStarted = false;
+    this.$Mode.toggleAttribute("disabled", false);
+    this.$Start.toggleAttribute("disabled", false);
+    this.$Succeed.toggleAttribute("hidden", true);
+    this.$Failed.toggleAttribute("hidden", true);
+    this.$Retry.toggleAttribute("hidden", true);
     this.counterUpdate();
     this.$Start.focus();
   }
