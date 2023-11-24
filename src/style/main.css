@@ -499,6 +499,10 @@ body {
     0 0 4px 0 rgba(0, 0, 0, 0.5), 0 5px 0 0 #000;
 }
 
+.Button[hidden] {
+  display: none;
+}
+
 .Button:hover,
 .Button:focus-visible {
   cursor: pointer;
