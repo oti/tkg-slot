@@ -17,16 +17,20 @@ html(lang="ja")
     script(src="../script/main.js" type="module")
 
   body
-    h1 TKGスロット
+    h1.Title TKGスロット
 
     main
       p.Copy TKGをそろえて今日１日をハッピーに過ごそう！
+      p.Excuse マジで全然揃わないけど怒らないでね
 
-      ul
-        li 「スタート」ボタンを押すとTKG写真のシャッフルが始まるよ！
-        li TKG写真の下の「ストップ」を押すとシャッフルが止まるよ！
-        li 3つ「ストップ」を押して同じTKG写真だとXに投稿できるよ！
-        li マジで全然揃わないけど怒らないでね！
+      details
+        summary.How 遊び方
+        ol.Step
+          li 「スタート」を押すとTKG写真がシャッフルを開始するよ！
+          li 「ストップ」を押すとシャッフルが止まるよ！
+          li 「リトライ」を押すともう一度遊べるよ！
+          li 「目押しモード」を選択するとTKG写真のシャッフルがランダムじゃなく巡回になるよ！
+          li 同じTKG写真を３枚揃えると X にポストできるよ！
 
       .Cabinet
         label
