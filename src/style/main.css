@@ -597,16 +597,12 @@ body {
   background-color: #bb00ff;
 }
 
-.Shuffling,
-.Succeed,
-.Failed {
-  font-weight: bold;
-  text-align: center;
-}
-
 .Shuffling:not([hidden]),
+.Waiting:not([hidden]),
 .Succeed:not([hidden]),
 .Failed:not([hidden]) {
+  font-weight: bold;
+  text-align: center;
   display: grid;
   gap: 1rem;
 }
