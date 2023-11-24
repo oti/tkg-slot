@@ -1,4 +1,4 @@
-import { Reel } from "./Reel";
+import { Reel } from "./Reel.mjs";
 
 export class Slot {
   constructor($Cabinet) {

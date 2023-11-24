@@ -3,22 +3,15 @@
   "name": "tkg-slot",
   "version": "2.0.1",
   "scripts": {
-    "build": "parcel build src/html/index.pug --dist-dir docs --no-optimize --no-source-maps --public-url ./",
     "lint:html": "markuplint 'docs/**/*.html'",
     "lint:css": "stylelint 'docs/**/*.css'",
-    "start": "parcel src/html/index.pug --open --no-cache",
+    "start": "cd docs && python3 -m http.server 3000",
     "test": "npm run lint:css && npm run lint:html",
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@parcel/transformer-pug": "^2.10.1",
-    "@prettier/plugin-pug": "^3.0.0",
-    "autoprefixer": "^10.4.16",
     "husky": "^8.0.3",
     "markuplint": "^3.14.0",
-    "parcel": "^2.10.1",
-    "pug": "^3.0.2",
-    "stylelint": "^15.11.0",
-    "stylelint-config-recommended": "^13.0.0"
+    "stylelint": "^15.11.0"
   }
 }

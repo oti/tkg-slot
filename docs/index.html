@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TKGスロット</title>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width" />
+    <meta
+      name="description"
+      content="TKGをそろえて今日１日をハッピーに過ごそう！"
+    />
+    <meta name="keywords" content="TKG,スロット,oti" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="image_src" href="./image/og-image.jpg" />
+    <link rel="canonical" />
+    <link href="./style/main.css" rel="stylesheet" />
+    <script type="module">
+      import { Slot } from "./script/Slot.mjs";
+
+      document.addEventListener(
+        "DOMContentLoaded",
+        () => new Slot(document.querySelector(".Cabinet"))
+      );
+    </script>
+  </head>
+  <body>
+    <h1 class="Title">TKGスロット</h1>
+
+    <main>
+      <p class="Copy">TKGをそろえて今日１日をハッピーに過ごそう！</p>
+      <p class="Excuse">マジで全然揃わないけど怒らないでね</p>
+
+      <details>
+        <summary>遊び方</summary>
+        <ol>
+          <li>「スタート」を押すとTKGがシャッフルを開始するよ！</li>
+          <li>「ストップ」を押すとシャッフルが止まるよ！</li>
+          <li>「リトライ」を押すともう一度遊べるよ！</li>
+          <li>
+            「イージーモード」を選択するとTKGのシャッフル数が120から８に減るよ！
+          </li>
+          <li>
+            「目押しモード」を選択するとTKGのシャッフルがランダムじゃなく巡回になるよ！
+          </li>
+          <li>同じTKGを３枚揃えると X にポストできるよ！</li>
+        </ol>
+      </details>
+
+      <div class="Cabinet">
+        <div class="Difficulty">
+          <label>
+            <input
+              class="Level"
+              name="level"
+              type="checkbox"
+              value="easy"
+            /><span>イージーモード</span>
+          </label>
+          <label>
+            <input
+              class="Mode"
+              name="mode"
+              type="checkbox"
+              value="ordered"
+            /><span>目押しモード</span>
+          </label>
+        </div>
+
+        <button class="Button Start -start">スタート</button>
+
+        <div class="Slot">
+          <div class="Reel">
+            <div class="Pict -tkg000"><span class="-invisible">0</span></div>
+            <button class="Button Stop -stop">ストップ</button>
+          </div>
+          <div class="Reel">
+            <div class="Pict -tkg000"><span class="-invisible">0</span></div>
+            <button class="Button Stop -stop">ストップ</button>
+          </div>
+          <div class="Reel">
+            <div class="Pict -tkg000"><span class="-invisible">0</span></div>
+            <button class="Button Stop -stop">ストップ</button>
+          </div>
+        </div>
+
+        <div class="Shuffling" hidden>
+          <p>さぁて…<br />揃うかな〜〜？？<br />🤔😎🥴</p>
+        </div>
+
+        <div class="Waiting" hidden>
+          <p>いいよいいよ〜！<br />あとひとつで揃うよ〜！！<br />😳😄🥹</p>
+        </div>
+
+        <div class="Succeed" hidden>
+          <p>やったね！<br />TKGが揃いました！<br />🥳🤗🤩</p>
+          <button class="Button Post -succeed">X にポストして自慢する</button>
+        </div>
+
+        <div class="Failed" hidden>
+          <p>残念〜！<br />TKGは揃いませんでした<br />😧😮‍💨😓</p>
+          <button class="Button Post -failed" hidden>
+            悔しさを X にポストする
+          </button>
+        </div>
+
+        <button class="Button Retry -retry" hidden>リトライ</button>
+      </div>
+    </main>
+
+    <footer>
+      <address class="Address">
+        <p>
+          このウェブアプリは
+          <a href="https://x.com/otiext" target="_blank">oti</a>
+          が作りました。
+        </p>
+        <p><a href="https://github.com/oti/tkg-slot">GitHub</a></p>
+      </address>
+    </footer>
+  </body>
+</html>
