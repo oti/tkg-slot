@@ -81,8 +81,13 @@ export class Slot {
   }
 
   handleEmitStop() {
+    if (this.isWaiting) {
+      this.$Shuffling.toggleAttribute("hidden", true);
+      this.$Waiting.toggleAttribute("hidden", false);
+    }
     if (this.isAllStopped) {
       this.$Shuffling.toggleAttribute("hidden", true);
+      this.$Waiting.toggleAttribute("hidden", true);
       this.$Succeed.toggleAttribute("hidden", !this.isArranged);
       this.$Failed.toggleAttribute("hidden", this.isArranged);
       this.$Failed
