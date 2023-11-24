@@ -69,8 +69,11 @@ export class Slot {
     this.$Retry.addEventListener("click", () => this.handleClickRetry(), false);
   }
 
-  counterUpdate() {
-    this.count = this.count + 1;
+  updateCounter(value) {
+    this.count =
+      Object.prototype.toString.call(value) === "[object Number]"
+        ? value
+        : this.count + 1;
     this.$Start.textContent = `スタート（${this.count} 回目）`;
   }
 
@@ -140,7 +143,7 @@ export class Slot {
     this.$Succeed.toggleAttribute("hidden", true);
     this.$Failed.toggleAttribute("hidden", true);
     this.$Retry.toggleAttribute("hidden", true);
-    this.counterUpdate();
+    this.updateCounter();
     this.$Start.focus();
   }
 }
