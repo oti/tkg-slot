@@ -33,23 +33,23 @@ html(lang="ja")
           input.Mode(name="mode", type="checkbox", value="ordered")
           span 目押しモード
 
-        button.Button.Start スタート
+        button.Button.Start.-start スタート
 
         .Slot
           .Reel
             .Pict.-tkg000
               span.-invisible 0
-            button.Button.Stop ストップ
+            button.Button.Stop.-stop ストップ
 
           .Reel
             .Pict.-tkg000
               span.-invisible 0
-            button.Button.Stop ストップ
+            button.Button.Stop.-stop ストップ
 
           .Reel
             .Pict.-tkg000
               span.-invisible 0
-            button.Button.Stop ストップ
+            button.Button.Stop.-stop ストップ
 
         .Shuffling(hidden)
           p
@@ -74,7 +74,7 @@ html(lang="ja")
             | TKGが揃いました！
             br
             | 🥳🤗🤩
-          button.Button.Post Xにポストする
+          button.Button.Post.-succeed  X にポストして自慢する
 
         .Failed(hidden)
           p
@@ -83,9 +83,9 @@ html(lang="ja")
             | TKGは揃いませんでした
             br
             | 😧😮‍💨😓
-          button.Button.Post(hidden) 悔しさをXにポストする
+          button.Button.Post.-failed(hidden) 悔しさを X にポストする
 
-        button.Button.Retry(hidden) リトライ
+        button.Button.Retry.-retry(hidden) リトライ
 
     footer
       address.Address

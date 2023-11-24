@@ -570,29 +570,30 @@ body {
   mix-blend-mode: soft-light;
 }
 
-.Start {
+.-start {
   border-color: #004400;
   background-color: #00bb00;
 }
 
-.Stop {
+.-stop {
   border-color: #003344;
   background-color: #00bbff;
 }
 
-.Stop:disabled {
+.-stop:disabled {
   border-color: #440000;
   background-color: #bb0000;
 }
 
-.Retry {
+.-retry {
   color: #000;
-  text-shadow: 0 1px #fff;
+  text-shadow: 0 1px 0 #fff;
   border-color: #441100;
   background-color: #ffbb00;
 }
 
-.Post {
+
+.-failed {
   border-color: #440088;
   background-color: #bb00ff;
 }
