@@ -10,6 +10,7 @@ export class Slot {
     $Shuffling,
     $Start,
     $Succeed,
+    $Waiting,
   }) {
     this.count = 1;
     this.mercyCount = 9;
@@ -32,6 +33,7 @@ export class Slot {
     this.$Failed = $Failed;
     this.$Post = $Post;
     this.$Retry = $Retry;
+    this.$Waiting = $Waiting;
     this.ReelInstances = Array.from($Reels, (reel) => new Reel(reel, $Mode));
 
     this.attachEvent();
