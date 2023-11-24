@@ -51,6 +51,16 @@ export class Slot {
     return this.ReelInstances.every(({ isStopped }) => isStopped);
   }
 
+  get isWaiting() {
+    const reels = this.ReelInstances.filter(({ isStopped }) => isStopped);
+    return (
+      this.isStarted &&
+      !this.isAllStopped &&
+      reels.length === 2 &&
+      reels.every(({ id }) => id === this.ReelInstances[0].id)
+    );
+  }
+
   attachEvent() {
     this.$Start.addEventListener("click", () => this.handleClickStart(), false);
 
