@@ -1,17 +1,7 @@
 import { Reel } from "./Reel";
 
 export class Slot {
-  constructor({
-    $Failed,
-    $Mode,
-    $Post,
-    $Reels,
-    $Retry,
-    $Shuffling,
-    $Start,
-    $Succeed,
-    $Waiting,
-  }) {
+  constructor($Cabinet) {
     this.count = 1;
     this.mercyCount = 9;
     this.isStarted = false;
@@ -25,16 +15,20 @@ export class Slot {
     );
     this.hashtags = encodeURIComponent("TKGスロット");
     this.via = "otiext";
-    this.$Mode = $Mode;
-    this.$Start = $Start;
-    this.$Reels = $Reels;
-    this.$Shuffling = $Shuffling;
-    this.$Succeed = $Succeed;
-    this.$Failed = $Failed;
-    this.$Post = $Post;
-    this.$Retry = $Retry;
-    this.$Waiting = $Waiting;
-    this.ReelInstances = Array.from($Reels, (reel) => new Reel(reel, $Mode));
+    this.$Level = $Cabinet.querySelector(".Level");
+    this.$Mode = $Cabinet.querySelector(".Mode");
+    this.$Start = $Cabinet.querySelector(".Start");
+    this.$Reels = $Cabinet.querySelectorAll(".Reel");
+    this.$Shuffling = $Cabinet.querySelector(".Shuffling");
+    this.$Succeed = $Cabinet.querySelector(".Succeed");
+    this.$Failed = $Cabinet.querySelector(".Failed");
+    this.$Post = $Cabinet.querySelectorAll(".Post");
+    this.$Retry = $Cabinet.querySelector(".Retry");
+    this.$Waiting = $Cabinet.querySelector(".Waiting");
+    this.ReelInstances = Array.from(
+      this.$Reels,
+      (reel) => new Reel(reel, this.$Mode)
+    );
 
     this.attachEvent();
   }
