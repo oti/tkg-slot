@@ -523,6 +523,7 @@ body {
 }
 
 .Button:disabled {
+  cursor: none;
   translate: 0 5px;
   color: #fffc;
   text-shadow: none;
