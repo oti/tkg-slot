@@ -25,9 +25,25 @@ body {
   hanging-punctuation: allow-end;
 }
 
+.Title {
+  text-align: center;
+}
+
 .Copy {
+  margin-block-end: 0;
   font-size: 1.25rem;
   font-weight: bold;
+  text-align: center;
+}
+
+.Excuse {
+  margin-block-start: 0;
+  text-align: center;
+}
+
+.Excuse::before,
+.Excuse::after {
+  content: "〜";
 }
 
 .Cabinet {
@@ -37,6 +53,7 @@ body {
 }
 
 .Slot {
+  margin-block-start: 0.5rem;
   display: grid;
   gap: 0.5rem;
   grid-template-columns: repeat(3, 1fr);
