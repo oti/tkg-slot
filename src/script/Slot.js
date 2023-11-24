@@ -113,6 +113,7 @@ export class Slot {
   handleClickStart() {
     this.ReelInstances.forEach((reel) => reel.handleClickStart());
     this.isStarted = true;
+    this.$Level.toggleAttribute("disabled", true);
     this.$Mode.toggleAttribute("disabled", true);
     this.$Start.toggleAttribute("disabled", true);
     this.$Shuffling.toggleAttribute("hidden", false);
@@ -123,6 +124,7 @@ export class Slot {
   handleClickRetry() {
     this.ReelInstances.forEach((reel) => reel.handleClickStop());
     this.isStarted = false;
+    this.$Level.toggleAttribute("disabled", false);
     this.$Mode.toggleAttribute("disabled", false);
     this.$Start.toggleAttribute("disabled", false);
     this.$Succeed.toggleAttribute("hidden", true);
