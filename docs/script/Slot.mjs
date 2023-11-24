@@ -95,6 +95,8 @@ export class Slot {
 
   handleClickPost() {
     const {
+      $Level,
+      $Mode,
       count,
       intent,
       url,
@@ -104,8 +106,16 @@ export class Slot {
       isArranged,
     } = this;
     const text = isArranged ? succeedMessage : failedMessage;
+    const prefix =
+      $Level.checked && $Mode.checked
+        ? "イージーモードかつ目押しモードで"
+        : $Level.checked
+        ? "イージーモードで"
+        : $Mode.checked
+        ? "目押しモードで"
+        : "";
     window.open(
-      `${intent}?url=${url}&text=${count}${text}&hashtags=${hashtags}`,
+      `${intent}?url=${url}&text=${prefix}${count}${text}&hashtags=${hashtags}`,
       "_blank"
     );
   }
