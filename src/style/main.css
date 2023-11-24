@@ -538,8 +538,8 @@ body {
   translate: 0 -1px;
   background-image: linear-gradient(
     to bottom,
-    #ffffff 0%,
-    #0096ff 50%,
+    #c6e1ff 0%,
+    #2fa9ff 50%,
     #3183ff 50%,
     #3c97ff 100%
   );
