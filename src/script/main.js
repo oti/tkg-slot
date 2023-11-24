@@ -10,5 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     $Shuffling: document.querySelector(".Shuffling"),
     $Start: document.querySelector(".Start"),
     $Succeed: document.querySelector(".Succeed"),
+    $Waiting: document.querySelector(".Waiting"),
   });
 });
