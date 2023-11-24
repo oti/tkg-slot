@@ -562,48 +562,8 @@ body {
 }
 
 .Start {
-  border-color: #004206;
-  background-image: linear-gradient(
-    to bottom,
-    #65ff2f 0%,
-    #31bb00 50%,
-    #00aa11 50%,
-    #004206 100%
-  );
-  background-color: #00aa11;
-}
-
-.Start:hover,
-.Start:focus-visible {
-  cursor: pointer;
-  translate: 0 -1px;
-  background-image: linear-gradient(
-    to bottom,
-    #9cff79 0%,
-    #00aa11 50%,
-    #00940d 50%,
-    #00a40e 100%
-  );
-}
-
-.Start:active {
-  cursor: pointer;
-  translate: 0 5px;
-}
-
-.Start:disabled {
-  translate: 0 5px;
-  color: #aaaaaa;
-  text-shadow: none;
-  border-color: #222222;
-  background-image: linear-gradient(
-    to bottom,
-    #999999 0%,
-    #666666 50%,
-    #555555 50%,
-    #222222 100%
-  );
-  background-color: #222222;
+  border-color: #004406;
+  background-color: #09aa00;
 }
 
 .Stop {
