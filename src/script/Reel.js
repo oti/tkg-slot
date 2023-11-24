@@ -8,7 +8,7 @@ export class Reel {
     this.$Mode = $Mode;
     this.$Reel = $Reel;
     this.$Pict = this.$Reel.querySelector(".Pict");
-    this.$Stop = this.$Reel.querySelector(".Button");
+    this.$Stop = this.$Reel.querySelector(".Stop");
     this.$Text = this.$Reel.querySelector("span");
 
     this.toggleAttribute(this.$Stop, "disabled", true);
