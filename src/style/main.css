@@ -502,8 +502,13 @@ body {
 .Button:hover,
 .Button:focus-visible {
   cursor: pointer;
-  translate: 0 -1px;
+  translate: 0 -2px;
   box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.9) inset, 0 7px 0 0 #000;
+}
+
+.Button:focus-visible {
+  box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.9) inset, 0 7px 0 0 #000,
+    0 0 0 2px #fff, 0 7px 0 2px #fff, 0 0 0 4px #00f, 0 7px 0 4px #00f;
 }
 
 .Button:active {
