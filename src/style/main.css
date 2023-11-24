@@ -484,6 +484,7 @@ body {
 
 .Button {
   all: unset;
+  position: relative;
   display: inline-flex;
   place-content: center;
   border-width: 3px;
@@ -515,9 +516,49 @@ body {
 
 .Button:disabled {
   translate: 0 5px;
-  color: #000;
+  color: #fffc;
   text-shadow: none;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.Button::before,
+.Button::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  left: 0;
+}
+
+.Button::before {
+  top: 0;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.2)
+  );
+  mix-blend-mode: overlay;
+}
+
+.Button::after {
+  bottom: 0;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1)
+  );
+  mix-blend-mode: overlay;
+}
+
+.Button:hover::after,
+.Button:focus-visible::after {
+  mix-blend-mode: color-dodge;
+}
+
+.Button:disabled::before,
+.Button:disabled::after {
+  mix-blend-mode: soft-light;
 }
 
 .Start {
