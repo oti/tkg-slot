@@ -6,6 +6,7 @@ export class Reel {
     this.items = Array.from({ length: 120 }, (_, index) => index + 1);
     this.isEasy = false;
     this.isOrdered = false;
+    this.amount = [120, 8];
     this.$Easy = $Easy;
     this.$Ordered = $Ordered;
     this.$Reel = $Reel;
