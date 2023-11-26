@@ -3,10 +3,13 @@ export class Reel {
     this.id = 0;
     this.intervalId = null;
     this.isStopped = true;
-    this.items = Array.from({ length: 120 }, (_, index) => index + 1);
     this.isEasy = false;
     this.isOrdered = false;
     this.amount = [120, 8];
+    this.items = Array.from(
+      { length: this.amount[0] },
+      (_, index) => index + 1
+    );
     this.$Easy = $Easy;
     this.$Ordered = $Ordered;
     this.$Reel = $Reel;
