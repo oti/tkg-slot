@@ -3,9 +3,9 @@ export class Reel {
     this.id = 0;
     this.intervalId = null;
     this.isStopped = true;
-    this.isRandom = true;
     this.items = Array.from({ length: 120 }, (_, index) => index + 1);
     this.isEasy = false;
+    this.isOrdered = false;
     this.$Easy = $Easy;
     this.$Ordered = $Ordered;
     this.$Reel = $Reel;
@@ -44,7 +44,7 @@ export class Reel {
 
     this.$Ordered.addEventListener(
       "change",
-      ({ target: { checked } }) => (this.isRandom = !checked),
+      ({ target: { checked } }) => (this.isOrdered = checked),
       false
     );
   }
