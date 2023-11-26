@@ -27,13 +27,11 @@ export class Reel {
 
   get newId() {
     return this.items[
-      this.isRandom
-        ? Math.floor(
-            Math.random() * (this.isDefaultLevel ? this.items.length : 8)
-          )
-        : this.id < (this.isDefaultLevel ? this.items.length : 8)
-        ? this.id++
-        : 0
+      this.isOrdered
+        ? this.id < this.amount[+this.isEasy]
+          ? this.id++
+          : 0
+        : Math.floor(Math.random() * this.amount[+this.isEasy])
     ];
   }
 
