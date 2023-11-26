@@ -1,13 +1,13 @@
 export class Reel {
-  constructor({ $Reel, $Level, $Mode }) {
+  constructor({ $Reel, $Easy, $Ordered }) {
     this.id = 0;
     this.intervalId = null;
     this.isStopped = true;
     this.isDefaultLevel = true;
     this.isRandom = true;
     this.items = Array.from({ length: 120 }, (_, index) => index + 1);
-    this.$Level = $Level;
-    this.$Mode = $Mode;
+    this.$Easy = $Easy;
+    this.$Ordered = $Ordered;
     this.$Reel = $Reel;
     this.$Pict = this.$Reel.querySelector(".Pict");
     this.$Stop = this.$Reel.querySelector(".Stop");
@@ -36,13 +36,13 @@ export class Reel {
   attachEvent() {
     this.$Stop.addEventListener("click", () => this.handleClickStop(), false);
 
-    this.$Level.addEventListener(
+    this.$Easy.addEventListener(
       "change",
       ({ target: { checked } }) => (this.isDefaultLevel = !checked),
       false
     );
 
-    this.$Mode.addEventListener(
+    this.$Ordered.addEventListener(
       "change",
       ({ target: { checked } }) => (this.isRandom = !checked),
       false
