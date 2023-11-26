@@ -61,15 +61,12 @@ export class Slot {
     );
   }
 
-  get gameMode() {
-    const { $Level, $Mode } = this;
-    return $Level.checked && $Mode.checked
-      ? 0
-      : $Level.checked
-      ? 1
-      : $Mode.checked
-      ? 2
-      : 3;
+  get mode() {
+    const {
+      $Easy: { checked: isEasy },
+      $Ordered: { checked: isOrdered },
+    } = this;
+    return isEasy && isOrdered ? 0 : isEasy ? 1 : isOrdered ? 2 : 3;
   }
 
   attachEvent() {
@@ -128,7 +125,7 @@ export class Slot {
       isArranged,
     } = this;
     const text = isArranged ? succeedMessage : failedMessage;
-    const prefix = this.prefixMessage[this.gameMode];
+    const prefix = this.prefixMessage[this.mode];
     window.open(
       `${intent}?url=${url}&text=${prefix}${count}${text}&hashtags=${hashtags}`,
       "_blank"
