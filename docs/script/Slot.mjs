@@ -7,6 +7,12 @@ export class Slot {
     this.isStarted = false;
     this.intent = "https://x.com/intent/tweet";
     this.url = "https://oti.github.io/tkg-slot/";
+    this.prefixMessage = [
+      "イージーモードかつ目押しモードで",
+      "イージーモードで",
+      "目押しモードで",
+      "",
+    ];
     this.succeedMessage = encodeURIComponent(
       "回目でTKGスロットを揃えました！🥳🤗🤩"
     );
@@ -53,6 +59,17 @@ export class Slot {
       reels.length === 2 &&
       reels.every(({ id }) => id === this.ReelInstances[0].id)
     );
+  }
+
+  get gameMode() {
+    const { $Level, $Mode } = this;
+    return $Level.checked && $Mode.checked
+      ? 0
+      : $Level.checked
+      ? 1
+      : $Mode.checked
+      ? 2
+      : 3;
   }
 
   attachEvent() {
@@ -102,8 +119,6 @@ export class Slot {
 
   handleClickPost() {
     const {
-      $Level,
-      $Mode,
       count,
       intent,
       url,
@@ -113,14 +128,7 @@ export class Slot {
       isArranged,
     } = this;
     const text = isArranged ? succeedMessage : failedMessage;
-    const prefix =
-      $Level.checked && $Mode.checked
-        ? "イージーモードかつ目押しモードで"
-        : $Level.checked
-        ? "イージーモードで"
-        : $Mode.checked
-        ? "目押しモードで"
-        : "";
+    const prefix = this.prefixMessage[this.gameMode];
     window.open(
       `${intent}?url=${url}&text=${prefix}${count}${text}&hashtags=${hashtags}`,
       "_blank"
