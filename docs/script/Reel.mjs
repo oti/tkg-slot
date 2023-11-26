@@ -3,9 +3,9 @@ export class Reel {
     this.id = 0;
     this.intervalId = null;
     this.isStopped = true;
-    this.isDefaultLevel = true;
     this.isRandom = true;
     this.items = Array.from({ length: 120 }, (_, index) => index + 1);
+    this.isEasy = false;
     this.$Easy = $Easy;
     this.$Ordered = $Ordered;
     this.$Reel = $Reel;
@@ -38,7 +38,7 @@ export class Reel {
 
     this.$Easy.addEventListener(
       "change",
-      ({ target: { checked } }) => (this.isDefaultLevel = !checked),
+      ({ target: { checked } }) => (this.isEasy = checked),
       false
     );
 
@@ -59,7 +59,7 @@ export class Reel {
         this.$Text.textContent = this.id;
         this.$Pict.classList.replace(old, this.classString);
       },
-      this.isDefaultLevel ? 10 : 100
+      this.isEasy ? 100 : 10
     );
   }
 
