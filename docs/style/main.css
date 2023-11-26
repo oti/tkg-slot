@@ -521,6 +521,7 @@ body {
 
 .Button {
   all: unset;
+  cursor: pointer;
   position: relative;
   display: inline-flex;
   place-content: center;
@@ -542,7 +543,6 @@ body {
 
 .Button:hover,
 .Button:focus-visible {
-  cursor: pointer;
   translate: 0 -2px;
   box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.9) inset, 0 7px 0 0 #000;
 }
@@ -553,14 +553,13 @@ body {
 }
 
 .Button:active {
-  cursor: pointer;
   translate: 0 5px;
   box-shadow: 0 0 2px 0 rgba(255, 255, 255, 0.9) inset,
     0 0 4px 0 rgba(0, 0, 0, 0.5);
 }
 
 .Button:disabled {
-  cursor: none;
+  cursor: default;
   translate: 0 5px;
   color: #fffc;
   text-shadow: none;
