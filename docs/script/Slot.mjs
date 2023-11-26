@@ -21,8 +21,8 @@ export class Slot {
     );
     this.hashtags = encodeURIComponent("TKGスロット");
     this.via = "otiext";
-    this.$Level = $Cabinet.querySelector(".Level");
-    this.$Mode = $Cabinet.querySelector(".Mode");
+    this.$Easy = $Cabinet.querySelector(".Easy");
+    this.$Ordered = $Cabinet.querySelector(".Ordered");
     this.$Start = $Cabinet.querySelector(".Start");
     this.$Reels = $Cabinet.querySelectorAll(".Reel");
     this.$Shuffling = $Cabinet.querySelector(".Shuffling");
@@ -73,7 +73,7 @@ export class Slot {
   }
 
   attachEvent() {
-    [this.$Level, this.$Mode].forEach((input) => {
+    [this.$Easy, this.$Ordered].forEach((input) => {
       input.addEventListener("change", () => this.updateCounter(1), false);
     });
 
@@ -138,8 +138,8 @@ export class Slot {
   handleClickStart() {
     this.ReelInstances.forEach((reel) => reel.handleClickStart());
     this.isStarted = true;
-    this.$Level.toggleAttribute("disabled", true);
-    this.$Mode.toggleAttribute("disabled", true);
+    this.$Easy.toggleAttribute("disabled", true);
+    this.$Ordered.toggleAttribute("disabled", true);
     this.$Start.toggleAttribute("disabled", true);
     this.$Shuffling.toggleAttribute("hidden", false);
     this.$Waiting.toggleAttribute("hidden", true);
@@ -149,8 +149,8 @@ export class Slot {
   handleClickRetry() {
     this.ReelInstances.forEach((reel) => reel.handleClickStop());
     this.isStarted = false;
-    this.$Level.toggleAttribute("disabled", false);
-    this.$Mode.toggleAttribute("disabled", false);
+    this.$Easy.toggleAttribute("disabled", false);
+    this.$Ordered.toggleAttribute("disabled", false);
     this.$Start.toggleAttribute("disabled", false);
     this.$Succeed.toggleAttribute("hidden", true);
     this.$Failed.toggleAttribute("hidden", true);
