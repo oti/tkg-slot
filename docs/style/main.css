@@ -525,6 +525,7 @@ body {
   position: relative;
   display: inline-flex;
   place-content: center;
+  border-color: rgba(0, 0, 0, 0.65);
   border-width: 3px;
   border-style: solid;
   border-radius: 0.25rem;
@@ -607,24 +608,20 @@ body {
 }
 
 .-start {
-  border-color: #004400;
   background-color: #00bb00;
 }
 
 .-stop {
-  border-color: #003344;
   background-color: #00bbff;
 }
 
 .-stop:disabled {
-  border-color: #440000;
   background-color: #bb0000;
 }
 
 .-retry {
   color: #000;
   text-shadow: 0 1px 0 #fff;
-  border-color: #441100;
   background-color: #ffbb00;
 }
 
@@ -657,7 +654,6 @@ body {
 }
 
 .-failed {
-  border-color: #440088;
   background-color: #bb00ff;
 }
 
