@@ -21,6 +21,7 @@ export class Slot {
     );
     this.hashtags = encodeURIComponent("TKGスロット");
     this.via = "otiext";
+    this.$Cabinet = $Cabinet;
     this.$Easy = $Cabinet.querySelector(".Easy");
     this.$Ordered = $Cabinet.querySelector(".Ordered");
     this.$Start = $Cabinet.querySelector(".Start");
@@ -133,6 +134,7 @@ export class Slot {
   }
 
   handleClickStart() {
+    this.$Cabinet.scrollIntoView();
     this.ReelInstances.forEach((reel) => reel.handleClickStart());
     this.isStarted = true;
     this.$Easy.toggleAttribute("disabled", true);
