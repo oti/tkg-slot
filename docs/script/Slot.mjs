@@ -2,8 +2,8 @@ import { Reel } from "./Reel.mjs";
 
 export class Slot {
   constructor($Cabinet) {
-    this.count = 1;
     this.mercyCount = 9;
+    this.count = [1, 1, 1, 1];
     this.isStarted = false;
     this.intent = "https://x.com/intent/tweet";
     this.url = "https://oti.github.io/tkg-slot/";
