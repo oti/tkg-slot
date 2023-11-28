@@ -158,6 +158,7 @@ export class Slot {
     this.$Failed.toggleAttribute("hidden", true);
     this.$Retry.toggleAttribute("hidden", true);
     this.updateCounter();
+    this.updateCountText();
     this.$Start.focus();
   }
 }
