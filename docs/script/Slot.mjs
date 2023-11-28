@@ -72,7 +72,7 @@ export class Slot {
 
   attachEvent() {
     [this.$Easy, this.$Ordered].forEach((input) => {
-      input.addEventListener("change", () => this.updateCounter(1), false);
+      input.addEventListener("change", () => this.updateCountText(), false);
     });
 
     this.$Start.addEventListener("click", () => this.handleClickStart(), false);
