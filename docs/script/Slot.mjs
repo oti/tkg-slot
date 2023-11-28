@@ -119,19 +119,11 @@ export class Slot {
   }
 
   handleClickPost() {
-    const {
-      count,
-      intent,
-      url,
-      succeedMessage,
-      failedMessage,
-      hashtags,
-      isArranged,
-    } = this;
-    const text = isArranged ? succeedMessage : failedMessage;
+    const text = this.isArranged ? this.succeedMessage : this.failedMessage;
+    const count = this.count[this.mode];
     const prefix = this.prefixMessage[this.mode];
     window.open(
-      `${intent}?url=${url}&text=${prefix}${count}${text}&hashtags=${hashtags}`,
+      `${this.intent}?url=${this.url}&text=${prefix}${count}${text}&hashtags=${this.hashtags}`,
       "_blank"
     );
   }
