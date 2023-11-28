@@ -78,7 +78,7 @@ export class Slot {
     this.$Start.addEventListener("click", () => this.handleClickStart(), false);
 
     this.$Reels.forEach((reel) =>
-      reel.addEventListener("stop", () => this.handleEmitStop(), false)
+      reel.addEventListener("stop", () => this.handleStopReel(), false)
     );
 
     this.$Post.forEach((button) =>
@@ -97,25 +97,6 @@ export class Slot {
 
   updateCountText() {
     this.$Start.textContent = `スタート（${this.count[this.mode]} 回目）`;
-  }
-
-  handleEmitStop() {
-    if (this.isWaiting) {
-      this.$Shuffling.toggleAttribute("hidden", true);
-      this.$Waiting.toggleAttribute("hidden", false);
-    }
-    if (this.isAllStopped) {
-      this.$Shuffling.toggleAttribute("hidden", true);
-      this.$Waiting.toggleAttribute("hidden", true);
-      this.$Succeed.toggleAttribute("hidden", !this.isArranged);
-      this.$Failed.toggleAttribute("hidden", this.isArranged);
-      this.$Failed
-        .querySelector(".Post")
-        .toggleAttribute(
-          "hidden",
-          !(!this.isArranged && this.count > this.mercyCount)
-        );
-    }
   }
 
   handleClickPost() {
@@ -152,5 +133,24 @@ export class Slot {
     this.updateCounter();
     this.updateCountText();
     this.$Start.focus();
+  }
+
+  handleStopReel() {
+    if (this.isWaiting) {
+      this.$Shuffling.toggleAttribute("hidden", true);
+      this.$Waiting.toggleAttribute("hidden", false);
+    }
+    if (this.isAllStopped) {
+      this.$Shuffling.toggleAttribute("hidden", true);
+      this.$Waiting.toggleAttribute("hidden", true);
+      this.$Succeed.toggleAttribute("hidden", !this.isArranged);
+      this.$Failed.toggleAttribute("hidden", this.isArranged);
+      this.$Failed
+        .querySelector(".Post")
+        .toggleAttribute(
+          "hidden",
+          !(!this.isArranged && this.count[this.mode] > this.mercyCount)
+        );
+    }
   }
 }
