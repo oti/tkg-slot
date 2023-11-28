@@ -89,10 +89,7 @@ export class Slot {
   }
 
   updateCountValue(value) {
-    this.count[this.mode] =
-      Object.prototype.toString.call(value) === "[object Number]"
-        ? value
-        : this.count[this.mode] + 1;
+    this.count[this.mode] = value ? value : this.count[this.mode] + 1;
   }
 
   updateCountText() {
@@ -130,7 +127,7 @@ export class Slot {
     this.$Succeed.toggleAttribute("hidden", true);
     this.$Failed.toggleAttribute("hidden", true);
     this.$Retry.toggleAttribute("hidden", true);
-    this.updateCounter();
+    this.updateCountValue(this.isArranged);
     this.updateCountText();
     this.$Start.focus();
   }
