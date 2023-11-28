@@ -93,7 +93,10 @@ export class Slot {
       Object.prototype.toString.call(value) === "[object Number]"
         ? value
         : this.count + 1;
-    this.$Start.textContent = `スタート（${this.count} 回目）`;
+  }
+
+  updateCountText() {
+    this.$Start.textContent = `スタート（${this.count[this.mode]} 回目）`;
   }
 
   handleEmitStop() {
