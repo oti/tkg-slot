@@ -88,11 +88,11 @@ export class Slot {
     this.$Retry.addEventListener("click", () => this.handleClickRetry(), false);
   }
 
-  updateCounter(value) {
-    this.count =
+  updateCountValue(value) {
+    this.count[this.mode] =
       Object.prototype.toString.call(value) === "[object Number]"
         ? value
-        : this.count + 1;
+        : this.count[this.mode] + 1;
   }
 
   updateCountText() {
