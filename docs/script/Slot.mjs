@@ -88,8 +88,8 @@ export class Slot {
     this.$Retry.addEventListener("click", () => this.handleClickRetry(), false);
   }
 
-  updateCountValue(value) {
-    this.count[this.mode] = value ? value : this.count[this.mode] + 1;
+  updateCountValue(isArranged) {
+    this.count[this.mode] = isArranged ? 1 : this.count[this.mode] + 1;
   }
 
   updateCountText() {
@@ -109,18 +109,17 @@ export class Slot {
   handleClickStart() {
     this.$Cabinet.scrollIntoView();
     this.ReelInstances.forEach((reel) => reel.handleClickStart());
-    this.isStarted = true;
     this.$Easy.toggleAttribute("disabled", true);
     this.$Ordered.toggleAttribute("disabled", true);
     this.$Start.toggleAttribute("disabled", true);
     this.$Shuffling.toggleAttribute("hidden", false);
     this.$Waiting.toggleAttribute("hidden", true);
     this.$Retry.toggleAttribute("hidden", false);
+    this.isStarted = true;
   }
 
   handleClickRetry() {
     this.ReelInstances.forEach((reel) => reel.handleClickStop());
-    this.isStarted = false;
     this.$Easy.toggleAttribute("disabled", false);
     this.$Ordered.toggleAttribute("disabled", false);
     this.$Start.toggleAttribute("disabled", false);
@@ -130,6 +129,7 @@ export class Slot {
     this.updateCountValue(this.isArranged);
     this.updateCountText();
     this.$Start.focus();
+    this.isStarted = false;
   }
 
   handleStopReel() {
