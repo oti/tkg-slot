@@ -72,4 +72,14 @@ export class Reel {
     this.$Stop.toggleAttribute("disabled", true);
     this.$Reel.dispatchEvent(new Event("stop"));
   }
+
+  role(value) {
+    const old = this.classString;
+    this.id =
+      Object.prototype.toString.call(value) === "[object Number]"
+        ? value
+        : this.newId;
+    this.$Text.textContent = this.id;
+    this.$Pict.classList.replace(old, this.classString);
+  }
 }
