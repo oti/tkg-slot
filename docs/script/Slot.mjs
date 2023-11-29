@@ -4,15 +4,17 @@ export class Slot {
   constructor($Cabinet) {
     this.mercyCount = 9;
     this.count = Array(6).fill(1);
+    this.difficultyMessage = [
+      "8枚目押し",
+      "8枚ランダム",
+      "50枚目押し",
+      "50枚ランダム",
+      "120枚目押し",
+      "120枚ランダム",
+    ];
     this.isStarted = false;
     this.intent = "https://x.com/intent/tweet";
     this.url = "https://oti.github.io/tkg-slot/";
-    this.prefixMessage = [
-      "イージーモードかつ目押しモードで",
-      "イージーモードで",
-      "目押しモードで",
-      "",
-    ];
     this.succeedMessage = encodeURIComponent(
       "回目でTKGスロットを揃えました！🥳🤗🤩"
     );
