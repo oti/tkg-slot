@@ -27,6 +27,10 @@ export class Reel {
     return Number(this.$Difficulty.value / 20);
   }
 
+  get interval() {
+    return this.speed[Math.floor(this.difficulty / 2)];
+  }
+
   get isRandom() {
     // 難易度が 1 3 5 のときはランダムシャッフルとする
     return this.difficulty % 2;
