@@ -75,9 +75,11 @@ export class Slot {
       false
     );
 
-    [this.$Easy, this.$Ordered].forEach((input) => {
-      input.addEventListener("change", () => this.updateCountText(), false);
-    });
+    this.$Difficulty.addEventListener(
+      "change",
+      () => this.updateCountText(),
+      false
+    );
 
     this.$Start.addEventListener("click", () => this.handleClickStart(), false);
 
