@@ -13,14 +13,10 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link rel="image_src" href="og-image.jpg" />
     <link rel="canonical" href="https://oti.github.io/tkg-slot/" />
-    <link href="./style/main.css" rel="stylesheet" />
+    <link href="index.css" rel="stylesheet" />
     <script type="module">
-      import { Slot } from "./script/Slot.mjs";
-
-      document.addEventListener(
-        "DOMContentLoaded",
-        () => new Slot(document.querySelector(".Cabinet"))
-      );
+      import { Slot } from "./Slot.mjs";
+      new Slot(document.querySelector(".Cabinet"));
     </script>
   </head>
   <body>
