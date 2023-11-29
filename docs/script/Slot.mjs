@@ -22,6 +22,7 @@ export class Slot {
     this.hashtags = encodeURIComponent("TKGスロット");
     this.via = "otiext";
     this.$Cabinet = $Cabinet;
+    this.$Concentrated = $Cabinet.querySelector(".Concentrated");
     this.$Easy = $Cabinet.querySelector(".Easy");
     this.$Ordered = $Cabinet.querySelector(".Ordered");
     this.$Start = $Cabinet.querySelector(".Start");
@@ -71,6 +72,12 @@ export class Slot {
   }
 
   attachEvent() {
+    this.$Concentrated.addEventListener(
+      "change",
+      () => this.handleChangeConcentrated(),
+      false
+    );
+
     [this.$Easy, this.$Ordered].forEach((input) => {
       input.addEventListener("change", () => this.updateCountText(), false);
     });
@@ -94,6 +101,10 @@ export class Slot {
 
   updateCountText() {
     this.$Start.textContent = `スタート（${this.count[this.mode]} 回目）`;
+  }
+
+  handleChangeConcentrated() {
+    document.body.classList.toggle("-concentrated", this.$Concentrated.checked);
   }
 
   handleClickPost() {
