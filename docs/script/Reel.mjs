@@ -31,6 +31,11 @@ export class Reel {
     return this.difficulty % 2;
   }
 
+  get length() {
+    // 難易度が 0-1 のときは 8、 2-3 のときは 50, 4-5 のときは 120 を引き当てる
+    return this.amount[Math.floor(this.difficulty / 2)];
+  }
+
   get newId() {
     return this.items[
       this.isOrdered
