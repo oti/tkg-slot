@@ -62,12 +62,8 @@ export class Slot {
     );
   }
 
-  get mode() {
-    const {
-      $Easy: { checked: isEasy },
-      $Ordered: { checked: isOrdered },
-    } = this;
-    return isEasy && isOrdered ? 0 : isEasy ? 1 : isOrdered ? 2 : 3;
+  get difficulty() {
+    return Number(this.$Difficulty.value / 20);
   }
 
   attachEvent() {
@@ -95,7 +91,9 @@ export class Slot {
   }
 
   updateCountValue(isArranged) {
-    this.count[this.mode] = isArranged ? 1 : this.count[this.mode] + 1;
+    this.count[this.difficulty] = isArranged
+      ? 1
+      : this.count[this.difficulty] + 1;
   }
 
   updateCountText() {
@@ -156,7 +154,7 @@ export class Slot {
         .querySelector(".Post")
         .toggleAttribute(
           "hidden",
-          !(!this.isArranged && this.count[this.mode] > this.mercyCount)
+          !(!this.isArranged && this.count[this.difficulty] > this.mercyCount)
         );
     }
   }
