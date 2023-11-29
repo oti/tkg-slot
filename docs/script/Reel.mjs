@@ -22,6 +22,10 @@ export class Reel {
     return `-tkg${String(this.id).padStart(3, "0")}`;
   }
 
+  get difficulty() {
+    return Number(this.$Difficulty.value / 20);
+  }
+
   get newId() {
     return this.items[
       this.isOrdered
