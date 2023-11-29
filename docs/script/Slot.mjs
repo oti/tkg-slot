@@ -71,14 +71,14 @@ export class Slot {
 
   attachEvent() {
     this.$Concentrated.addEventListener(
-      "change",
-      () => this.handleChangeConcentrated(),
+      "input",
+      () => this.handleInputConcentrated(),
       false
     );
 
     this.$Difficulty.addEventListener(
-      "change",
-      () => this.updateCountText(),
+      "input",
+      () => this.handleInputDifficulty(),
       false
     );
 
@@ -103,11 +103,10 @@ export class Slot {
 
   updateCountText() {
     this.$Start.textContent = `スタート（${this.count[this.difficulty]} 回目）`;
-    this.$DifficultyText.textContent = this.difficultyMessage[this.difficulty];
   }
 
-  handleChangeConcentrated() {
-    document.body.classList.toggle("-concentrated", this.$Concentrated.checked);
+  updateDifficultyText() {
+    this.$DifficultyText.textContent = this.difficultyMessage[this.difficulty];
   }
 
   handleClickPost() {
@@ -155,7 +154,17 @@ export class Slot {
     this.$Retry.toggleAttribute("hidden", true);
     this.updateCountValue(this.isArranged);
     this.updateCountText();
+    this.updateDifficultyText();
     this.$Start.focus();
+  }
+
+  handleInputDifficulty() {
+    this.updateCountText();
+    this.updateDifficultyText();
+  }
+
+  handleInputConcentrated() {
+    document.body.classList.toggle("-concentrated", this.$Concentrated.checked);
   }
 
   handleStopReel() {
