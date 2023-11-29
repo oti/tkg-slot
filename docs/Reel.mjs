@@ -24,10 +24,12 @@ export class Reel {
   }
 
   get difficulty() {
+    // 0-100 で引き当てるので 20 で割って 6 段階に変える
     return Number(this.$Difficulty.value / 20);
   }
 
   get interval() {
+    // 2 段階ずつにするため 2 で割って 0,1,2 の添字を得る
     return this.speed[Math.floor(this.difficulty / 2)];
   }
 
@@ -44,8 +46,10 @@ export class Reel {
   get newId() {
     return this.items[
       this.isRandom
-        ? Math.floor(Math.random() * this.length)
-        : this.id < this.length
+        ? // ランダムの場合は 0〜length-1 までの添字を得る
+          Math.floor(Math.random() * this.length)
+        : // 目押しの場合は　id が length 未満のうちは id にインクリメントし、以上になったら 0 の添字を得る
+        this.id < this.length
         ? this.id++
         : 0
     ];
@@ -57,14 +61,14 @@ export class Reel {
 
   handleClickStart() {
     this.isStopped = false;
-    if (!this.isRandom) this.role(1);
+    !this.isRandom && this.role(1);
+    this.intervalId = setInterval(() => this.role(), this.interval);
     this.$Stop.toggleAttribute("disabled", false);
-    this.intervalId = window.setInterval(() => this.role(), this.interval);
   }
 
   handleClickStop() {
-    clearInterval(this.intervalId);
     this.isStopped = true;
+    clearInterval(this.intervalId);
     this.$Stop.toggleAttribute("disabled", true);
     this.$Reel.dispatchEvent(new Event("stop"));
   }
