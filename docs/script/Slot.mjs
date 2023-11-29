@@ -23,8 +23,7 @@ export class Slot {
     this.via = "otiext";
     this.$Cabinet = $Cabinet;
     this.$Concentrated = $Cabinet.querySelector(".Concentrated");
-    this.$Easy = $Cabinet.querySelector(".Easy");
-    this.$Ordered = $Cabinet.querySelector(".Ordered");
+    this.$Difficulty = $Cabinet.querySelector(".Difficulty");
     this.$Start = $Cabinet.querySelector(".Start");
     this.$Reels = $Cabinet.querySelectorAll(".Reel");
     this.$Shuffling = $Cabinet.querySelector(".Shuffling");
