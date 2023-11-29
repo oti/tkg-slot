@@ -36,43 +36,49 @@
           <li>「スタート」を押すとTKGがシャッフルを開始するよ！</li>
           <li>「ストップ」を押すとシャッフルが止まるよ！</li>
           <li>「リトライ」を押すともう一度遊べるよ！</li>
-          <li>
-            「イージーモード」を選択するとTKGのシャッフル数が120から８に減るよ！
-          </li>
-          <li>
-            「目押しモード」を選択するとTKGのシャッフルがランダムじゃなく巡回になるよ！
-          </li>
+          <li>難易度は６段階あってTKGの枚数とシャッフルモードが変わるよ！</li>
           <li>同じTKGを３枚揃えると X にポストできるよ！</li>
         </ol>
       </details>
 
       <div class="Cabinet">
-        <label>
-          <input
-            class="Concentrated"
-            name="concentrated"
-            type="checkbox"
-            value="concentrated"
-          />
-          <span>集中モード</span>
-        </label>
-        <div class="Mode">
-          <label>
-            <input class="Easy" name="easy" type="checkbox" value="easy" /><span
-              >イージーモード</span
-            >
-          </label>
-          <label>
-            <input
-              class="Ordered"
-              name="ordered"
-              type="checkbox"
-              value="ordered"
-            /><span>目押しモード</span>
-          </label>
+        <div class="Setting">
+          <div class="Input">
+            <label>
+              <input
+                class="Concentrated"
+                name="concentrated"
+                type="checkbox"
+                value="concentrated"
+              />
+              <span>集中する</span>
+            </label>
+            <label>
+              <span>難易度</span>
+              <input
+                class="Difficulty"
+                list="levels"
+                name="difficulty"
+                step="20"
+                type="range"
+                value="100"
+              />
+              <datalist id="levels">
+                <option value="0"></option>
+                <option value="20"></option>
+                <option value="40"></option>
+                <option value="60"></option>
+                <option value="80"></option>
+                <option value="100"></option>
+              </datalist>
+
+              <br />
+              <output class="DifficultyText">120枚ランダム</output>
+            </label>
+          </div>
         </div>
 
-        <button class="Button Start -start">スタート（1回目）</button>
+        <button class="Button Start -start">スタート（1 回目）</button>
 
         <div class="Slot">
           <div class="Reel">
