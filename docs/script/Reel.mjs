@@ -58,15 +58,12 @@ export class Reel {
   handleClickStart() {
     this.isStopped = false;
     this.$Stop.toggleAttribute("disabled", false);
-    this.intervalId = window.setInterval(
-      () => {
-        const old = this.classString;
-        this.id = this.newId;
-        this.$Text.textContent = this.id;
-        this.$Pict.classList.replace(old, this.classString);
-      },
-      this.isEasy ? 100 : 10
-    );
+    this.intervalId = window.setInterval(() => {
+      const old = this.classString;
+      this.id = this.newId;
+      this.$Text.textContent = this.id;
+      this.$Pict.classList.replace(old, this.classString);
+    }, this.interval);
   }
 
   handleClickStop() {
