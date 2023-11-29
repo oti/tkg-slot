@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "tkg-slot",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "scripts": {
     "lint:html": "markuplint 'docs/**/*.html'",
     "lint:css": "stylelint 'docs/**/*.css'",
