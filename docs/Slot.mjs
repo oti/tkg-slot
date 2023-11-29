@@ -148,6 +148,9 @@ export class Slot {
   }
 
   handleClickRetry() {
+    // isStart を操作する前にカウントを更新する
+    this.updateCountValue(this.isArranged);
+    this.updateCountText();
     this.isStarted = false;
     this.ReelInstances.forEach((reel) => reel.handleClickStop());
     this.$Concentrated.toggleAttribute("disabled", false);
@@ -156,9 +159,6 @@ export class Slot {
     this.$Succeed.toggleAttribute("hidden", true);
     this.$Failed.toggleAttribute("hidden", true);
     this.$Retry.toggleAttribute("hidden", true);
-    this.updateCountValue(this.isArranged);
-    this.updateCountText();
-    this.updateDifficultyText();
     this.$Start.focus();
   }
 
