@@ -107,6 +107,7 @@ export class Slot {
   }
 
   handleClickStart() {
+    this.isStarted = true;
     this.$Cabinet.scrollIntoView();
     this.ReelInstances.forEach((reel) => reel.handleClickStart());
     this.$Easy.toggleAttribute("disabled", true);
@@ -115,10 +116,10 @@ export class Slot {
     this.$Shuffling.toggleAttribute("hidden", false);
     this.$Waiting.toggleAttribute("hidden", true);
     this.$Retry.toggleAttribute("hidden", false);
-    this.isStarted = true;
   }
 
   handleClickRetry() {
+    this.isStarted = false;
     this.ReelInstances.forEach((reel) => reel.handleClickStop());
     this.$Easy.toggleAttribute("disabled", false);
     this.$Ordered.toggleAttribute("disabled", false);
@@ -129,7 +130,6 @@ export class Slot {
     this.updateCountValue(this.isArranged);
     this.updateCountText();
     this.$Start.focus();
-    this.isStarted = false;
   }
 
   handleStopReel() {
