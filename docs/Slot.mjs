@@ -37,6 +37,7 @@ export class Slot {
   }
 
   get isArranged() {
+    // スタート済みで、全てのリールを止めていて、かつ id が全て同じ場合に true を返す
     return (
       this.isStarted &&
       this.isAllStopped &&
@@ -49,6 +50,7 @@ export class Slot {
   }
 
   get isWaiting() {
+    // スタート済みで、止めたリールが2つで、かつ同じ id の場合に true を返す
     const reels = this.ReelInstances.filter(({ isStopped }) => isStopped);
     return (
       this.isStarted &&
@@ -59,6 +61,7 @@ export class Slot {
   }
 
   get difficulty() {
+    // 0-100 で引き当てるので 20 で割って 6 段階に変える
     return Number(this.$Difficulty.value / 20);
   }
 
@@ -97,6 +100,7 @@ export class Slot {
   }
 
   updateCountValue(isArranged) {
+    // 揃っている場合はカウントを 1 に戻す
     this.count[this.difficulty] = isArranged
       ? 1
       : this.count[this.difficulty] + 1;
