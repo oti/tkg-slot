@@ -1,11 +1,11 @@
 export class Reel {
   constructor({ $Difficulty, $Reel }) {
     this.id = 0;
-    this.intervalId = null;
     this.isStopped = true;
-    this.amount = [120, 8];
+    this.intervalId = null;
+    this.amount = [8, 50, 120];
     this.items = Array.from(
-      { length: this.amount[0] },
+      { length: this.amount[2] },
       (_, index) => index + 1
     );
     this.$Difficulty = $Difficulty;
