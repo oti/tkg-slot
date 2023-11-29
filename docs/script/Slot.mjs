@@ -26,6 +26,7 @@ export class Slot {
     this.$Cabinet = $Cabinet;
     this.$Concentrated = $Cabinet.querySelector(".Concentrated");
     this.$Difficulty = $Cabinet.querySelector(".Difficulty");
+    this.$DifficultyText = $Cabinet.querySelector(".DifficultyText");
     this.$Start = $Cabinet.querySelector(".Start");
     this.$Reels = $Cabinet.querySelectorAll(".Reel");
     this.$Shuffling = $Cabinet.querySelector(".Shuffling");
@@ -101,7 +102,8 @@ export class Slot {
   }
 
   updateCountText() {
-    this.$Start.textContent = `スタート（${this.count[this.mode]} 回目）`;
+    this.$Start.textContent = `スタート（${this.count[this.difficulty]} 回目）`;
+    this.$DifficultyText.textContent = this.difficultyMessage[this.difficulty];
   }
 
   handleChangeConcentrated() {
