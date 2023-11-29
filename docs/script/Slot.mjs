@@ -107,11 +107,23 @@ export class Slot {
   }
 
   handleClickPost() {
-    const text = this.isArranged ? this.succeedMessage : this.failedMessage;
-    const count = this.count[this.mode];
-    const prefix = this.prefixMessage[this.mode];
+    const {
+      count,
+      difficulty,
+      difficultyMessage,
+      failedMessage,
+      isArranged,
+      intent,
+      succeedMessage,
+      url,
+      hashtags,
+    } = this;
+    const d = difficultyMessage[difficulty];
+    const p = isArranged ? "の" : "を";
+    const c = count[difficulty];
+    const t = isArranged ? succeedMessage : failedMessage;
     window.open(
-      `${this.intent}?url=${this.url}&text=${prefix}${count}${text}&hashtags=${this.hashtags}`,
+      `${intent}?url=${url}&text=${d}${p}${c}${t}&hashtags=${hashtags}`,
       "_blank"
     );
   }
