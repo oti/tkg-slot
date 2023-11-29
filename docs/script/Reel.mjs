@@ -3,6 +3,7 @@ export class Reel {
     this.id = 0;
     this.isStopped = true;
     this.intervalId = null;
+    this.speed = [100, 50, 10];
     this.amount = [8, 50, 120];
     this.items = Array.from(
       { length: this.amount[2] },
