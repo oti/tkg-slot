@@ -3,8 +3,6 @@ export class Reel {
     this.id = 0;
     this.intervalId = null;
     this.isStopped = true;
-    this.isEasy = false;
-    this.isOrdered = false;
     this.amount = [120, 8];
     this.items = Array.from(
       { length: this.amount[0] },
