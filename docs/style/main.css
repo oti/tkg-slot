@@ -625,6 +625,7 @@ body.-concentrated {
 }
 
 .-stop {
+  letter-spacing: -0.15rem;
   background-color: #00bbff;
 }
 
@@ -633,6 +634,7 @@ body.-concentrated {
 }
 
 .-retry {
+  letter-spacing: -0.15rem;
   color: #000;
   text-shadow: 0 1px 0 #fff;
   background-color: #ffbb00;
