@@ -25,6 +25,10 @@ body {
   hanging-punctuation: allow-end;
 }
 
+body.-concentrated {
+  grid-template-rows: 1fr auto auto;
+}
+
 .Title {
   text-align: center;
 }
@@ -46,10 +50,19 @@ body {
   content: "〜";
 }
 
+.-concentrated :is(.Title, .Copy, .Excuse, .How) {
+  display: none;
+}
+
 .Cabinet {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
   margin-block-start: 3rem;
+}
+
+.-concentrated .Cabinet {
+  margin-block-start: -1rem;
 }
 
 .Mode {
