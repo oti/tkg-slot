@@ -43,18 +43,18 @@
 
       <div class="Cabinet">
         <div class="Setting">
-          <div class="Input">
-            <label>
-              <input
-                class="Concentrated"
-                name="concentrated"
-                type="checkbox"
-                value="concentrated"
-              />
-              <span>集中する</span>
-            </label>
-            <label>
-              <span>難易度</span>
+          <label>
+            <input
+              class="Concentrated"
+              name="concentrated"
+              type="checkbox"
+              value="concentrated"
+            />
+            <span>集中</span>
+          </label>
+          <div class="DifficultyInput">
+            <label class="DifficultyLabel">
+              <span>難度</span>
               <input
                 class="Difficulty"
                 list="levels"
@@ -71,10 +71,8 @@
                 <option value="80"></option>
                 <option value="100"></option>
               </datalist>
-
-              <br />
-              <output class="DifficultyText">120枚ランダム</output>
             </label>
+            <output class="DifficultyText">120枚ランダム</output>
           </div>
         </div>
 

@@ -15,7 +15,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto auto;
   margin: auto;
-  padding: 1rem;
+  padding-inline: 1rem;
   max-width: 768px;
   min-height: 100vh;
   font-size: 1.0625rem;
@@ -30,11 +30,12 @@ body.-concentrated {
 }
 
 .Title {
+  margin-block: 0;
   text-align: center;
 }
 
 .Copy {
-  margin-block-end: 0;
+  margin-block: 0;
   font-size: 1.25rem;
   font-weight: bold;
   text-align: center;
@@ -42,6 +43,7 @@ body.-concentrated {
 
 .Excuse {
   margin-block-start: 0;
+  margin-block-end: 0.5rem;
   text-align: center;
 }
 
@@ -62,12 +64,27 @@ body.-concentrated {
 }
 
 .-concentrated .Cabinet {
-  margin-block-start: -1rem;
+  margin-block-start: 0;
 }
 
 .Mode {
   display: flex;
   gap: 2rem;
+}
+
+.Setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.Difficulty {
+  width: 150px;
+}
+
+.DifficultyInput > * {
+  display: block;
 }
 
 .Slot {
