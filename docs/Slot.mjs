@@ -4,15 +4,8 @@ export class Slot {
   constructor($Cabinet) {
     this.mercyCount = 9;
     this.count = Array(6).fill(1);
-    this.difficultyMessage = [
-      "8枚目押し",
-      "8枚ランダム",
-      "50枚目押し",
-      "50枚ランダム",
-      "120枚目押し",
-      "120枚ランダム",
-    ];
     this.isStarted = false;
+    this.amount = [8, 50, 120];
     this.intent = "https://x.com/intent/tweet";
     this.url = "https://oti.github.io/tkg-slot/";
     this.succeedMessage = encodeURIComponent(
@@ -69,6 +62,14 @@ export class Slot {
     return Number(this.$Difficulty.value / 20);
   }
 
+  get difficultyMessage() {
+    // 難易度が 0-1 のときは 8、 2-3 のときは 50, 4-5 のときは 120 を引き当てる
+    const length = this.amount[Math.floor(this.difficulty / 2)];
+    // 難易度が 1 3 5 のときはランダムシャッフルとする
+    const shuffle = this.difficulty % 2 ? "ランダム" : "目押し";
+    return `${length}枚${shuffle}`;
+  }
+
   attachEvent() {
     this.$Concentrated.addEventListener(
       "input",
@@ -106,7 +107,7 @@ export class Slot {
   }
 
   updateDifficultyText() {
-    this.$DifficultyText.textContent = this.difficultyMessage[this.difficulty];
+    this.$DifficultyText.textContent = this.difficultyMessage;
   }
 
   handleClickPost() {
@@ -121,12 +122,11 @@ export class Slot {
       url,
       hashtags,
     } = this;
-    const d = difficultyMessage[difficulty];
     const p = isArranged ? "の" : "を";
     const c = count[difficulty];
     const t = isArranged ? succeedMessage : failedMessage;
     window.open(
-      `${intent}?url=${url}&text=${d}${p}${c}${t}&hashtags=${hashtags}`,
+      `${intent}?url=${url}&text=${difficultyMessage}${p}${c}${t}&hashtags=${hashtags}`,
       "_blank"
     );
   }
