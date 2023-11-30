@@ -111,408 +111,398 @@ body.-concentrated {
 
 .Pict.-tkg000 {
   /* プリロードがわり */
-  background-image: url(../tkg/001.jpg), url(../tkg/002.jpg),
-    url(../tkg/003.jpg), url(../tkg/004.jpg), url(../tkg/005.jpg),
-    url(../tkg/006.jpg), url(../tkg/007.jpg), url(../tkg/008.jpg),
-    url(../tkg/009.jpg), url(../tkg/010.jpg), url(../tkg/011.jpg),
-    url(../tkg/012.jpg), url(../tkg/013.jpg), url(../tkg/014.jpg),
-    url(../tkg/015.jpg), url(../tkg/016.jpg), url(../tkg/017.jpg),
-    url(../tkg/018.jpg), url(../tkg/019.jpg), url(../tkg/020.jpg),
-    url(../tkg/021.jpg), url(../tkg/022.jpg), url(../tkg/023.jpg),
-    url(../tkg/024.jpg), url(../tkg/025.jpg), url(../tkg/026.jpg),
-    url(../tkg/027.jpg), url(../tkg/028.jpg), url(../tkg/029.jpg),
-    url(../tkg/030.jpg), url(../tkg/031.jpg), url(../tkg/032.jpg),
-    url(../tkg/033.jpg), url(../tkg/034.jpg), url(../tkg/035.jpg),
-    url(../tkg/036.jpg), url(../tkg/037.jpg), url(../tkg/038.jpg),
-    url(../tkg/039.jpg), url(../tkg/040.jpg), url(../tkg/041.jpg),
-    url(../tkg/042.jpg), url(../tkg/043.jpg), url(../tkg/044.jpg),
-    url(../tkg/045.jpg), url(../tkg/046.jpg), url(../tkg/047.jpg),
-    url(../tkg/048.jpg), url(../tkg/049.jpg), url(../tkg/050.jpg),
-    url(../tkg/051.jpg), url(../tkg/052.jpg), url(../tkg/053.jpg),
-    url(../tkg/054.jpg), url(../tkg/055.jpg), url(../tkg/056.jpg),
-    url(../tkg/057.jpg), url(../tkg/058.jpg), url(../tkg/059.jpg),
-    url(../tkg/060.jpg), url(../tkg/061.jpg), url(../tkg/062.jpg),
-    url(../tkg/063.jpg), url(../tkg/064.jpg), url(../tkg/065.jpg),
-    url(../tkg/066.jpg), url(../tkg/067.jpg), url(../tkg/068.jpg),
-    url(../tkg/069.jpg), url(../tkg/070.jpg), url(../tkg/071.jpg),
-    url(../tkg/072.jpg), url(../tkg/073.jpg), url(../tkg/074.jpg),
-    url(../tkg/075.jpg), url(../tkg/076.jpg), url(../tkg/077.jpg),
-    url(../tkg/078.jpg), url(../tkg/079.jpg), url(../tkg/080.jpg),
-    url(../tkg/081.jpg), url(../tkg/082.jpg), url(../tkg/083.jpg),
-    url(../tkg/084.jpg), url(../tkg/085.jpg), url(../tkg/086.jpg),
-    url(../tkg/087.jpg), url(../tkg/088.jpg), url(../tkg/089.jpg),
-    url(../tkg/090.jpg), url(../tkg/091.jpg), url(../tkg/092.jpg),
-    url(../tkg/093.jpg), url(../tkg/094.jpg), url(../tkg/095.jpg),
-    url(../tkg/096.jpg), url(../tkg/097.jpg), url(../tkg/098.jpg),
-    url(../tkg/099.jpg), url(../tkg/100.jpg), url(../tkg/101.jpg),
-    url(../tkg/102.jpg), url(../tkg/103.jpg), url(../tkg/104.jpg),
-    url(../tkg/105.jpg), url(../tkg/106.jpg), url(../tkg/107.jpg),
-    url(../tkg/108.jpg), url(../tkg/109.jpg), url(../tkg/110.jpg),
-    url(../tkg/111.jpg), url(../tkg/112.jpg), url(../tkg/113.jpg),
-    url(../tkg/114.jpg), url(../tkg/115.jpg), url(../tkg/116.jpg),
-    url(../tkg/117.jpg), url(../tkg/118.jpg), url(../tkg/119.jpg),
-    url(../tkg/120.jpg);
+  background-image: url(tkg/001.jpg), url(tkg/002.jpg), url(tkg/003.jpg),
+    url(tkg/004.jpg), url(tkg/005.jpg), url(tkg/006.jpg), url(tkg/007.jpg),
+    url(tkg/008.jpg), url(tkg/009.jpg), url(tkg/010.jpg), url(tkg/011.jpg),
+    url(tkg/012.jpg), url(tkg/013.jpg), url(tkg/014.jpg), url(tkg/015.jpg),
+    url(tkg/016.jpg), url(tkg/017.jpg), url(tkg/018.jpg), url(tkg/019.jpg),
+    url(tkg/020.jpg), url(tkg/021.jpg), url(tkg/022.jpg), url(tkg/023.jpg),
+    url(tkg/024.jpg), url(tkg/025.jpg), url(tkg/026.jpg), url(tkg/027.jpg),
+    url(tkg/028.jpg), url(tkg/029.jpg), url(tkg/030.jpg), url(tkg/031.jpg),
+    url(tkg/032.jpg), url(tkg/033.jpg), url(tkg/034.jpg), url(tkg/035.jpg),
+    url(tkg/036.jpg), url(tkg/037.jpg), url(tkg/038.jpg), url(tkg/039.jpg),
+    url(tkg/040.jpg), url(tkg/041.jpg), url(tkg/042.jpg), url(tkg/043.jpg),
+    url(tkg/044.jpg), url(tkg/045.jpg), url(tkg/046.jpg), url(tkg/047.jpg),
+    url(tkg/048.jpg), url(tkg/049.jpg), url(tkg/050.jpg), url(tkg/051.jpg),
+    url(tkg/052.jpg), url(tkg/053.jpg), url(tkg/054.jpg), url(tkg/055.jpg),
+    url(tkg/056.jpg), url(tkg/057.jpg), url(tkg/058.jpg), url(tkg/059.jpg),
+    url(tkg/060.jpg), url(tkg/061.jpg), url(tkg/062.jpg), url(tkg/063.jpg),
+    url(tkg/064.jpg), url(tkg/065.jpg), url(tkg/066.jpg), url(tkg/067.jpg),
+    url(tkg/068.jpg), url(tkg/069.jpg), url(tkg/070.jpg), url(tkg/071.jpg),
+    url(tkg/072.jpg), url(tkg/073.jpg), url(tkg/074.jpg), url(tkg/075.jpg),
+    url(tkg/076.jpg), url(tkg/077.jpg), url(tkg/078.jpg), url(tkg/079.jpg),
+    url(tkg/080.jpg), url(tkg/081.jpg), url(tkg/082.jpg), url(tkg/083.jpg),
+    url(tkg/084.jpg), url(tkg/085.jpg), url(tkg/086.jpg), url(tkg/087.jpg),
+    url(tkg/088.jpg), url(tkg/089.jpg), url(tkg/090.jpg), url(tkg/091.jpg),
+    url(tkg/092.jpg), url(tkg/093.jpg), url(tkg/094.jpg), url(tkg/095.jpg),
+    url(tkg/096.jpg), url(tkg/097.jpg), url(tkg/098.jpg), url(tkg/099.jpg),
+    url(tkg/100.jpg), url(tkg/101.jpg), url(tkg/102.jpg), url(tkg/103.jpg),
+    url(tkg/104.jpg), url(tkg/105.jpg), url(tkg/106.jpg), url(tkg/107.jpg),
+    url(tkg/108.jpg), url(tkg/109.jpg), url(tkg/110.jpg), url(tkg/111.jpg),
+    url(tkg/112.jpg), url(tkg/113.jpg), url(tkg/114.jpg), url(tkg/115.jpg),
+    url(tkg/116.jpg), url(tkg/117.jpg), url(tkg/118.jpg), url(tkg/119.jpg),
+    url(tkg/120.jpg);
 }
 
 .Pict.-tkg001 {
-  background-image: url(../tkg/001.jpg);
+  background-image: url(tkg/001.jpg);
 }
 .Pict.-tkg002 {
-  background-image: url(../tkg/002.jpg);
+  background-image: url(tkg/002.jpg);
 }
 .Pict.-tkg003 {
-  background-image: url(../tkg/003.jpg);
+  background-image: url(tkg/003.jpg);
 }
 .Pict.-tkg004 {
-  background-image: url(../tkg/004.jpg);
+  background-image: url(tkg/004.jpg);
 }
 .Pict.-tkg005 {
-  background-image: url(../tkg/005.jpg);
+  background-image: url(tkg/005.jpg);
 }
 .Pict.-tkg006 {
-  background-image: url(../tkg/006.jpg);
+  background-image: url(tkg/006.jpg);
 }
 .Pict.-tkg007 {
-  background-image: url(../tkg/007.jpg);
+  background-image: url(tkg/007.jpg);
 }
 .Pict.-tkg008 {
-  background-image: url(../tkg/008.jpg);
+  background-image: url(tkg/008.jpg);
 }
 .Pict.-tkg009 {
-  background-image: url(../tkg/009.jpg);
+  background-image: url(tkg/009.jpg);
 }
 .Pict.-tkg010 {
-  background-image: url(../tkg/010.jpg);
+  background-image: url(tkg/010.jpg);
 }
 .Pict.-tkg011 {
-  background-image: url(../tkg/011.jpg);
+  background-image: url(tkg/011.jpg);
 }
 .Pict.-tkg012 {
-  background-image: url(../tkg/012.jpg);
+  background-image: url(tkg/012.jpg);
 }
 .Pict.-tkg013 {
-  background-image: url(../tkg/013.jpg);
+  background-image: url(tkg/013.jpg);
 }
 .Pict.-tkg014 {
-  background-image: url(../tkg/014.jpg);
+  background-image: url(tkg/014.jpg);
 }
 .Pict.-tkg015 {
-  background-image: url(../tkg/015.jpg);
+  background-image: url(tkg/015.jpg);
 }
 .Pict.-tkg016 {
-  background-image: url(../tkg/016.jpg);
+  background-image: url(tkg/016.jpg);
 }
 .Pict.-tkg017 {
-  background-image: url(../tkg/017.jpg);
+  background-image: url(tkg/017.jpg);
 }
 .Pict.-tkg018 {
-  background-image: url(../tkg/018.jpg);
+  background-image: url(tkg/018.jpg);
 }
 .Pict.-tkg019 {
-  background-image: url(../tkg/019.jpg);
+  background-image: url(tkg/019.jpg);
 }
 .Pict.-tkg020 {
-  background-image: url(../tkg/020.jpg);
+  background-image: url(tkg/020.jpg);
 }
 .Pict.-tkg021 {
-  background-image: url(../tkg/021.jpg);
+  background-image: url(tkg/021.jpg);
 }
 .Pict.-tkg022 {
-  background-image: url(../tkg/022.jpg);
+  background-image: url(tkg/022.jpg);
 }
 .Pict.-tkg023 {
-  background-image: url(../tkg/023.jpg);
+  background-image: url(tkg/023.jpg);
 }
 .Pict.-tkg024 {
-  background-image: url(../tkg/024.jpg);
+  background-image: url(tkg/024.jpg);
 }
 .Pict.-tkg025 {
-  background-image: url(../tkg/025.jpg);
+  background-image: url(tkg/025.jpg);
 }
 .Pict.-tkg026 {
-  background-image: url(../tkg/026.jpg);
+  background-image: url(tkg/026.jpg);
 }
 .Pict.-tkg027 {
-  background-image: url(../tkg/027.jpg);
+  background-image: url(tkg/027.jpg);
 }
 .Pict.-tkg028 {
-  background-image: url(../tkg/028.jpg);
+  background-image: url(tkg/028.jpg);
 }
 .Pict.-tkg029 {
-  background-image: url(../tkg/029.jpg);
+  background-image: url(tkg/029.jpg);
 }
 .Pict.-tkg030 {
-  background-image: url(../tkg/030.jpg);
+  background-image: url(tkg/030.jpg);
 }
 .Pict.-tkg031 {
-  background-image: url(../tkg/031.jpg);
+  background-image: url(tkg/031.jpg);
 }
 .Pict.-tkg032 {
-  background-image: url(../tkg/032.jpg);
+  background-image: url(tkg/032.jpg);
 }
 .Pict.-tkg033 {
-  background-image: url(../tkg/033.jpg);
+  background-image: url(tkg/033.jpg);
 }
 .Pict.-tkg034 {
-  background-image: url(../tkg/034.jpg);
+  background-image: url(tkg/034.jpg);
 }
 .Pict.-tkg035 {
-  background-image: url(../tkg/035.jpg);
+  background-image: url(tkg/035.jpg);
 }
 .Pict.-tkg036 {
-  background-image: url(../tkg/036.jpg);
+  background-image: url(tkg/036.jpg);
 }
 .Pict.-tkg037 {
-  background-image: url(../tkg/037.jpg);
+  background-image: url(tkg/037.jpg);
 }
 .Pict.-tkg038 {
-  background-image: url(../tkg/038.jpg);
+  background-image: url(tkg/038.jpg);
 }
 .Pict.-tkg039 {
-  background-image: url(../tkg/039.jpg);
+  background-image: url(tkg/039.jpg);
 }
 .Pict.-tkg040 {
-  background-image: url(../tkg/040.jpg);
+  background-image: url(tkg/040.jpg);
 }
 .Pict.-tkg041 {
-  background-image: url(../tkg/041.jpg);
+  background-image: url(tkg/041.jpg);
 }
 .Pict.-tkg042 {
-  background-image: url(../tkg/042.jpg);
+  background-image: url(tkg/042.jpg);
 }
 .Pict.-tkg043 {
-  background-image: url(../tkg/043.jpg);
+  background-image: url(tkg/043.jpg);
 }
 .Pict.-tkg044 {
-  background-image: url(../tkg/044.jpg);
+  background-image: url(tkg/044.jpg);
 }
 .Pict.-tkg045 {
-  background-image: url(../tkg/045.jpg);
+  background-image: url(tkg/045.jpg);
 }
 .Pict.-tkg046 {
-  background-image: url(../tkg/046.jpg);
+  background-image: url(tkg/046.jpg);
 }
 .Pict.-tkg047 {
-  background-image: url(../tkg/047.jpg);
+  background-image: url(tkg/047.jpg);
 }
 .Pict.-tkg048 {
-  background-image: url(../tkg/048.jpg);
+  background-image: url(tkg/048.jpg);
 }
 .Pict.-tkg049 {
-  background-image: url(../tkg/049.jpg);
+  background-image: url(tkg/049.jpg);
 }
 .Pict.-tkg050 {
-  background-image: url(../tkg/050.jpg);
+  background-image: url(tkg/050.jpg);
 }
 .Pict.-tkg051 {
-  background-image: url(../tkg/051.jpg);
+  background-image: url(tkg/051.jpg);
 }
 .Pict.-tkg052 {
-  background-image: url(../tkg/052.jpg);
+  background-image: url(tkg/052.jpg);
 }
 .Pict.-tkg053 {
-  background-image: url(../tkg/053.jpg);
+  background-image: url(tkg/053.jpg);
 }
 .Pict.-tkg054 {
-  background-image: url(../tkg/054.jpg);
+  background-image: url(tkg/054.jpg);
 }
 .Pict.-tkg055 {
-  background-image: url(../tkg/055.jpg);
+  background-image: url(tkg/055.jpg);
 }
 .Pict.-tkg056 {
-  background-image: url(../tkg/056.jpg);
+  background-image: url(tkg/056.jpg);
 }
 .Pict.-tkg057 {
-  background-image: url(../tkg/057.jpg);
+  background-image: url(tkg/057.jpg);
 }
 .Pict.-tkg058 {
-  background-image: url(../tkg/058.jpg);
+  background-image: url(tkg/058.jpg);
 }
 .Pict.-tkg059 {
-  background-image: url(../tkg/059.jpg);
+  background-image: url(tkg/059.jpg);
 }
 .Pict.-tkg060 {
-  background-image: url(../tkg/060.jpg);
+  background-image: url(tkg/060.jpg);
 }
 .Pict.-tkg061 {
-  background-image: url(../tkg/061.jpg);
+  background-image: url(tkg/061.jpg);
 }
 .Pict.-tkg062 {
-  background-image: url(../tkg/062.jpg);
+  background-image: url(tkg/062.jpg);
 }
 .Pict.-tkg063 {
-  background-image: url(../tkg/063.jpg);
+  background-image: url(tkg/063.jpg);
 }
 .Pict.-tkg064 {
-  background-image: url(../tkg/064.jpg);
+  background-image: url(tkg/064.jpg);
 }
 .Pict.-tkg065 {
-  background-image: url(../tkg/065.jpg);
+  background-image: url(tkg/065.jpg);
 }
 .Pict.-tkg066 {
-  background-image: url(../tkg/066.jpg);
+  background-image: url(tkg/066.jpg);
 }
 .Pict.-tkg067 {
-  background-image: url(../tkg/067.jpg);
+  background-image: url(tkg/067.jpg);
 }
 .Pict.-tkg068 {
-  background-image: url(../tkg/068.jpg);
+  background-image: url(tkg/068.jpg);
 }
 .Pict.-tkg069 {
-  background-image: url(../tkg/069.jpg);
+  background-image: url(tkg/069.jpg);
 }
 .Pict.-tkg070 {
-  background-image: url(../tkg/070.jpg);
+  background-image: url(tkg/070.jpg);
 }
 .Pict.-tkg071 {
-  background-image: url(../tkg/071.jpg);
+  background-image: url(tkg/071.jpg);
 }
 .Pict.-tkg072 {
-  background-image: url(../tkg/072.jpg);
+  background-image: url(tkg/072.jpg);
 }
 .Pict.-tkg073 {
-  background-image: url(../tkg/073.jpg);
+  background-image: url(tkg/073.jpg);
 }
 .Pict.-tkg074 {
-  background-image: url(../tkg/074.jpg);
+  background-image: url(tkg/074.jpg);
 }
 .Pict.-tkg075 {
-  background-image: url(../tkg/075.jpg);
+  background-image: url(tkg/075.jpg);
 }
 .Pict.-tkg076 {
-  background-image: url(../tkg/076.jpg);
+  background-image: url(tkg/076.jpg);
 }
 .Pict.-tkg077 {
-  background-image: url(../tkg/077.jpg);
+  background-image: url(tkg/077.jpg);
 }
 .Pict.-tkg078 {
-  background-image: url(../tkg/078.jpg);
+  background-image: url(tkg/078.jpg);
 }
 .Pict.-tkg079 {
-  background-image: url(../tkg/079.jpg);
+  background-image: url(tkg/079.jpg);
 }
 .Pict.-tkg080 {
-  background-image: url(../tkg/080.jpg);
+  background-image: url(tkg/080.jpg);
 }
 .Pict.-tkg081 {
-  background-image: url(../tkg/081.jpg);
+  background-image: url(tkg/081.jpg);
 }
 .Pict.-tkg082 {
-  background-image: url(../tkg/082.jpg);
+  background-image: url(tkg/082.jpg);
 }
 .Pict.-tkg083 {
-  background-image: url(../tkg/083.jpg);
+  background-image: url(tkg/083.jpg);
 }
 .Pict.-tkg084 {
-  background-image: url(../tkg/084.jpg);
+  background-image: url(tkg/084.jpg);
 }
 .Pict.-tkg085 {
-  background-image: url(../tkg/085.jpg);
+  background-image: url(tkg/085.jpg);
 }
 .Pict.-tkg086 {
-  background-image: url(../tkg/086.jpg);
+  background-image: url(tkg/086.jpg);
 }
 .Pict.-tkg087 {
-  background-image: url(../tkg/087.jpg);
+  background-image: url(tkg/087.jpg);
 }
 .Pict.-tkg088 {
-  background-image: url(../tkg/088.jpg);
+  background-image: url(tkg/088.jpg);
 }
 .Pict.-tkg089 {
-  background-image: url(../tkg/089.jpg);
+  background-image: url(tkg/089.jpg);
 }
 .Pict.-tkg090 {
-  background-image: url(../tkg/090.jpg);
+  background-image: url(tkg/090.jpg);
 }
 .Pict.-tkg091 {
-  background-image: url(../tkg/091.jpg);
+  background-image: url(tkg/091.jpg);
 }
 .Pict.-tkg092 {
-  background-image: url(../tkg/092.jpg);
+  background-image: url(tkg/092.jpg);
 }
 .Pict.-tkg093 {
-  background-image: url(../tkg/093.jpg);
+  background-image: url(tkg/093.jpg);
 }
 .Pict.-tkg094 {
-  background-image: url(../tkg/094.jpg);
+  background-image: url(tkg/094.jpg);
 }
 .Pict.-tkg095 {
-  background-image: url(../tkg/095.jpg);
+  background-image: url(tkg/095.jpg);
 }
 .Pict.-tkg096 {
-  background-image: url(../tkg/096.jpg);
+  background-image: url(tkg/096.jpg);
 }
 .Pict.-tkg097 {
-  background-image: url(../tkg/097.jpg);
+  background-image: url(tkg/097.jpg);
 }
 .Pict.-tkg098 {
-  background-image: url(../tkg/098.jpg);
+  background-image: url(tkg/098.jpg);
 }
 .Pict.-tkg099 {
-  background-image: url(../tkg/099.jpg);
+  background-image: url(tkg/099.jpg);
 }
 .Pict.-tkg100 {
-  background-image: url(../tkg/100.jpg);
+  background-image: url(tkg/100.jpg);
 }
 .Pict.-tkg101 {
-  background-image: url(../tkg/101.jpg);
+  background-image: url(tkg/101.jpg);
 }
 .Pict.-tkg102 {
-  background-image: url(../tkg/102.jpg);
+  background-image: url(tkg/102.jpg);
 }
 .Pict.-tkg103 {
-  background-image: url(../tkg/103.jpg);
+  background-image: url(tkg/103.jpg);
 }
 .Pict.-tkg104 {
-  background-image: url(../tkg/104.jpg);
+  background-image: url(tkg/104.jpg);
 }
 .Pict.-tkg105 {
-  background-image: url(../tkg/105.jpg);
+  background-image: url(tkg/105.jpg);
 }
 .Pict.-tkg106 {
-  background-image: url(../tkg/106.jpg);
+  background-image: url(tkg/106.jpg);
 }
 .Pict.-tkg107 {
-  background-image: url(../tkg/107.jpg);
+  background-image: url(tkg/107.jpg);
 }
 .Pict.-tkg108 {
-  background-image: url(../tkg/108.jpg);
+  background-image: url(tkg/108.jpg);
 }
 .Pict.-tkg109 {
-  background-image: url(../tkg/109.jpg);
+  background-image: url(tkg/109.jpg);
 }
 .Pict.-tkg110 {
-  background-image: url(../tkg/110.jpg);
+  background-image: url(tkg/110.jpg);
 }
 .Pict.-tkg111 {
-  background-image: url(../tkg/111.jpg);
+  background-image: url(tkg/111.jpg);
 }
 .Pict.-tkg112 {
-  background-image: url(../tkg/112.jpg);
+  background-image: url(tkg/112.jpg);
 }
 .Pict.-tkg113 {
-  background-image: url(../tkg/113.jpg);
+  background-image: url(tkg/113.jpg);
 }
 .Pict.-tkg114 {
-  background-image: url(../tkg/114.jpg);
+  background-image: url(tkg/114.jpg);
 }
 .Pict.-tkg115 {
-  background-image: url(../tkg/115.jpg);
+  background-image: url(tkg/115.jpg);
 }
 .Pict.-tkg116 {
-  background-image: url(../tkg/116.jpg);
+  background-image: url(tkg/116.jpg);
 }
 .Pict.-tkg117 {
-  background-image: url(../tkg/117.jpg);
+  background-image: url(tkg/117.jpg);
 }
 .Pict.-tkg118 {
-  background-image: url(../tkg/118.jpg);
+  background-image: url(tkg/118.jpg);
 }
 .Pict.-tkg119 {
-  background-image: url(../tkg/119.jpg);
+  background-image: url(tkg/119.jpg);
 }
 .Pict.-tkg120 {
-  background-image: url(../tkg/120.jpg);
+  background-image: url(tkg/120.jpg);
 }
 
 .-invisible {
