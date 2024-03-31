@@ -13,5 +13,8 @@
     "husky": "^8.0.3",
     "markuplint": "^3.14.0",
     "stylelint": "^15.11.0"
+  },
+  "volta": {
+    "node": "20.11.1"
   }
 }
