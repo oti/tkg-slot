@@ -3,18 +3,9 @@
   "name": "tkg-slot",
   "version": "3.6.0",
   "scripts": {
-    "lint:html": "markuplint 'docs/**/*.html'",
-    "lint:css": "stylelint 'docs/**/*.css'",
+    "lint:html": "npx markuplint 'docs/**/*.html'",
+    "lint:css": "npx stylelint 'docs/**/*.css'",
     "start": "cd docs && python3 -m http.server 3000",
-    "test": "npm run lint:css && npm run lint:html",
-    "prepare": "husky install"
-  },
-  "devDependencies": {
-    "husky": "^9.0.11",
-    "markuplint": "^4.4.0",
-    "stylelint": "^16.3.1"
-  },
-  "volta": {
-    "node": "20.11.1"
+    "test": "npm run lint:css && npm run lint:html"
   }
 }
